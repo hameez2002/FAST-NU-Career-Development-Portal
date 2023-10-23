@@ -1,0 +1,66 @@
+.job-list {
+  list-style: none;
+  list-style-type: none;
+  margin: 10px auto;
+  padding: 0;
+  width: 80%;
+  align-self: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* background: linear-gradient(#91baff, #146c94); */
+}
+
+.job-item {
+  border: 1px solid white;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.job-title {
+  color: black;
+  font-size: 24px;
+  margin: 0;
+}
+
+.job-description {
+  margin: 10px 0;
+}
+
+.job-link {
+  margin: 10px 0;
+}
+
+.job-link a {
+  color: black;
+}
+
+.job-deadline {
+  font-style: italic;
+  margin: 10px 0;
+}
+
+.job-type {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.delete-job,
+.edit-job {
+  background-color: #f7f7f7;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: auto 5px;
+}
+
+.job-list li {
+  background: linear-gradient(#91baff, #146c94);
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}

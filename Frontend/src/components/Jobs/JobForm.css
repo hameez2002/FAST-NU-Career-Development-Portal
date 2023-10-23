@@ -1,0 +1,71 @@
+.job-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  color: #146c94;
+  font-size: medium;
+  width: 50%; 
+  margin: 10px auto; 
+}
+
+.job-form label {
+  /* display: block; */
+  /* margin-bottom: 10px; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #146c94;
+}
+
+.job-form input,
+.job-form textarea,
+.job-form-select {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.job-form button[type="submit"],
+.job-form .cancel-button {
+  background-color: #146c94;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: auto 5px;
+}
+
+.job-form button[type="submit"]:hover,
+.job-form .cancel-button:hover {
+  background-color: #146c94;
+}
+
+.job-form .button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.job-form-select option {
+  background-color: #fff;
+}
+
+.job-form-select {
+  width: 53%;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 12px;
+  margin-top: 5px;
+}

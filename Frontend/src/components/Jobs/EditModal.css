@@ -1,0 +1,155 @@
+/* .modalBackground {
+  position: fixed;
+}
+
+.modalContainer {
+  height: 80vh;
+  width: auto;
+}
+
+.titleCloseBtn{
+  height: 10vh;
+  width: 10vh;
+  align-self: self-end;
+}
+
+.title{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.modalContainer .body{
+  display: inline-block;
+  height: 50vh;
+
+} */
+
+
+.modalBackground {
+  width: 100%;
+  height: 20vh;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  background-color: red;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  margin: 0;
+}
+
+.modalContainer {
+  width: 80vh;
+  max-width: 80vh;
+  min-width: 400px;
+  height: 20vh;
+  top: 50%;
+  bottom: 50%;
+  margin: auto;
+  /* transform: translate(-50%, -50%); */
+  max-height: 80vh;
+  overflow-y: auto;
+  /* height: auto; */
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
+}
+
+.modalContainer .title {
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.titleCloseBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.titleCloseBtn button {
+  background-color: transparent;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+  color: crimson;
+}
+
+.modalContainer .body {
+  flex: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.modalContainer .form-group {
+  margin-bottom: 20px;
+}
+
+.modalContainer label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.modalContainer input,
+.modalContainer textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.modalContainer input[type="date"] {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  color: #555;
+  font-size: 1rem;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+.modalContainer .footer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* align-self: center; */
+  margin-top: 20px;
+}
+
+.modalContainer .footer button {
+  width: 150px;
+  height: 45px;
+  margin-left: 10px;
+  border: none;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 8px;
+  font-size: 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.modalContainer .footer button[type="submit"] {
+  background-color: green;
+  color: white;
+}
+
+.modalContainer .footer button[type="button"] {
+  background-color: crimson;
+  color: white;
+}
+
