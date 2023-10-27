@@ -1,60 +1,47 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./JobList.css";
-import axios from "axios";
 
-const JobList = ({ onJobClick, onDeleteJobClick, onEditJobClick }) => {
-  const [jobs, setJobs] = useState([]);
-
-  console.log("Received jobs prop:", jobs);
-
+const JobList = ({ jobs, onJobClick, onDeleteJobClick, onEditJobClick }) => {
   const formatDate = (dateString) => {
     if (!dateString) {
       return "Invalid Date";
     }
-  
-    const [month, day, year] = dateString.split("-");
-    const options = {
-      day: "numeric",
-      month: "numeric",
-      year: "numeric",
-      timeZone: "UTC",
-    };
-    return new Date(`${year}-${month}-${day}`).toLocaleDateString("en-GB", options);
-  };
 
-  useEffect(() => {
-    const fetchJobPostings = async () => {
-      try {
-        const response = await axios.get("http://localhost:7000/jobs");
-        console.log("Response data:", response.data);
-        setJobs(response.data);
-      } catch (error) {
-        console.error("Error fetching job postings:", error);
-      }
+    const date = new Date(dateString);
+
+    if (isNaN(date)) {
+      return "Invalid Date";
+    }
+
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
     };
-    fetchJobPostings();
-  }, []);
+
+    return date.toLocaleDateString("en-GB", options);
+  };
 
   return (
     <ul className="job-list">
       {jobs.map((job) => (
-        <li key={job.id}>
+        <li key={job.ID}>
           <h2 className="job-title">{job.Title}</h2>
           <p className="job-type">{job.Type}</p>
           <p className="job-description">{job.Description}</p>
           <p className="job-link">
-            Click Here to Apply: <a href={job.Link}>{job.jobLink}</a>
+            Click Here to Apply: <a href={job.Link}>{job.Link}</a>
           </p>
           <p className="job-deadline">
             Deadline: {formatDate(job.deadlineDate)}
           </p>
-          <button
-            className="delete-job"
-            onClick={() => onDeleteJobClick(job.id)}
-          >
+          <button className="delete-job" onClick={() => onDeleteJobClick(job)}>
             Delete
           </button>
-          <button className="edit-job" onClick={() => onEditJobClick(job.id)}>
+          <button className="edit-job" onClick={() => onEditJobClick(job.ID)}>
             Edit
           </button>
         </li>

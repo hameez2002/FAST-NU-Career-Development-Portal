@@ -63,31 +63,29 @@ const JobForm = ({ onSubmit, onCancel }) => {
       errors.jobType = "Please choose a job type";
     }
 
-    // return Object.keys(errors).length === 0 ? null : errors;
     return errors;
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   const errors = validateForm();
-
-  //   if (Object.keys(errors).length === 0) {
-  //     onSubmit({
-  //       jobTitle,
-  //       jobDescription,
-  //       jobLink,
-  //       deadlineDate,
-  //       jobType,
-  //     });
-
-  //     setJobTitle("");
-  //     setJobDescription("");
-  //     setJobLink("");
-  //     setDeadlineDate("");
-  //   } else {
-  //     setValidationErrors(errors);
+  // const formatDateForServer = (dateString) => {
+  //   if (!dateString) {
+  //     return null;
   //   }
+
+  //   const dateParts = dateString.split("/");
+  //   if (dateParts.length !== 3) {
+  //     return null;
+  //   }
+
+  //   const [month, day, year] = dateParts;
+
+  //   if (isNaN(month) || isNaN(day) || isNaN(year)) {
+  //     return null;
+  //   }
+
+  //   const formattedMonth = month.padStart(2, "0");
+  //   const formattedDay = day.padStart(2, "0");
+
+  //   return `${year}-${formattedMonth}-${formattedDay}`;
   // };
 
   const handleSubmit = async (event) => {
@@ -105,6 +103,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
           deadlineDate,
         });
 
+        // const formattedDeadlineDate = formatDateForServer(deadlineDate);
+
         const response = await axios.post("http://localhost:7000/jobs", {
           jobTitle,
           jobType,
@@ -113,7 +113,6 @@ const JobForm = ({ onSubmit, onCancel }) => {
           deadlineDate,
         });
 
-        //console.log("Job data:", response.data);
         console.log("Received response:", response.data);
         handleShowForm();
       } catch (error) {
