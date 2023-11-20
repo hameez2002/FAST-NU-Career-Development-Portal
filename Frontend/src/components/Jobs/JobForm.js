@@ -49,8 +49,11 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
     if (!jobLink) {
       errors.jobLink = "Please enter a job link";
-    } else if (!jobLink.startsWith("www")) {
-      errors.jobLink = "Please enter a valid URL";
+    } else {
+      const regex = new RegExp("^(www\\.)([a-z0-9]+)\\.([a-z.]{2,6})$");
+      if (!regex.test(jobLink)) {
+        errors.jobLink = "Please enter a valid URL";
+      }
     }
 
     if (!deadlineDate) {
@@ -63,32 +66,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
       errors.jobType = "Please choose a job type";
     }
 
-    // return Object.keys(errors).length === 0 ? null : errors;
     return errors;
   };
-
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-
-  //   const errors = validateForm();
-
-  //   if (Object.keys(errors).length === 0) {
-  //     onSubmit({
-  //       jobTitle,
-  //       jobDescription,
-  //       jobLink,
-  //       deadlineDate,
-  //       jobType,
-  //     });
-
-  //     setJobTitle("");
-  //     setJobDescription("");
-  //     setJobLink("");
-  //     setDeadlineDate("");
-  //   } else {
-  //     setValidationErrors(errors);
-  //   }
-  // };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -113,9 +92,9 @@ const JobForm = ({ onSubmit, onCancel }) => {
           deadlineDate,
         });
 
-        //console.log("Job data:", response.data);
         console.log("Received response:", response.data);
         handleShowForm();
+        onCancel();
       } catch (error) {
         console.error(error);
       }
@@ -135,82 +114,184 @@ const JobForm = ({ onSubmit, onCancel }) => {
     onCancel();
   };
 
-  return (
-    <form onSubmit={handleSubmit} className="job-form">
-      <label>
-        <span>Job Title:</span>
-        <input
-          type="text"
-          placeholder="Enter Job Title"
-          value={jobTitle}
-          onChange={handleJobTitleChange}
-        />
-        {validationErrors.jobTitle && (
-          <span className="error-message">{validationErrors.jobTitle}</span>
-        )}
+//   return (
+//     <form onSubmit={handleSubmit} className="job-form">
+//       <label>
+//         <span>Job Title:</span>
+//         <input
+//           type="text"
+//           placeholder="Enter Job Title"
+//           value={jobTitle}
+//           onChange={handleJobTitleChange}
+//         />
+//         {validationErrors.jobTitle && (
+//           <span className="error-message">{validationErrors.jobTitle}</span>
+//         )}
+//       </label>
+//       <label>
+//         <span>Job Type:</span>
+//         <select
+//           value={jobType}
+//           className="job-form-select"
+//           onChange={handleJobTypeChange}
+//         >
+//           <option value="">Please Choose a Job Type.</option>
+//           <option value="On-site">Onsite</option>
+//           <option value="Remote">Remote</option>
+//           <option value="Hybrid">Hybrid</option>
+//         </select>
+//         {validationErrors.jobType && (
+//           <span className="error-message">{validationErrors.jobType}</span>
+//         )}
+//       </label>
+//       <label>
+//         <span>Job Description:</span>
+//         <textarea
+//           value={jobDescription}
+//           placeholder="Enter Job Description"
+//           onChange={handleJobDescriptionChange}
+//         />
+//         {validationErrors.jobDescription && (
+//           <span className="error-message">
+//             {validationErrors.jobDescription}
+//           </span>
+//         )}
+//       </label>
+//       <label>
+//         <span>Job Link:</span>
+//         <input
+//           type="text"
+//           value={jobLink}
+//           placeholder="Enter Job Link"
+//           onChange={handleJobLinkChange}
+//         />
+//         {validationErrors.jobLink && (
+//           <span className="error-message">{validationErrors.jobLink}</span>
+//         )}
+//       </label>
+//       <label>
+//         <span>Deadline Date:</span>
+//         <input
+//           type="date"
+//           value={deadlineDate}
+//           onChange={handleDeadlineDateChange}
+//         />
+//         {validationErrors.deadlineDate && (
+//           <span className="error-message">{validationErrors.deadlineDate}</span>
+//         )}
+//       </label>
+//       <div className="button-container">
+//         <button type="submit" onClick={handleSubmit}>
+//           Submit
+//         </button>
+//         <button type="button" className="cancel-button" onClick={handleCancel}>
+//           Close
+//         </button>
+//       </div>
+//     </form>
+//   );
+// };
+
+return (
+  <form onSubmit={handleSubmit} className=" bg-[#f3f1ec] w-full max-w-lg mx-auto mt-5 px-4 py-3 rounded-md shadow-md ">
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobTitle">
+        Job Title
       </label>
-      <label>
-        <span>Job Type:</span>
-        <select
-          value={jobType}
-          className="job-form-select"
-          onChange={handleJobTypeChange}
-        >
-          <option value="">Please Choose a Job Type.</option>
-          <option value="On-site">Onsite</option>
-          <option value="Remote">Remote</option>
-          <option value="Hybrid">Hybrid</option>
-        </select>
-        {validationErrors.jobType && (
-          <span className="error-message">{validationErrors.jobType}</span>
+      <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="jobTitle"
+        type="text"
+        placeholder="Enter Job Title"
+        value={jobTitle}
+        onChange={handleJobTitleChange}
+      />
+      {validationErrors.jobTitle && (
+          <span className="text-red-500 text-xs italic">{validationErrors.jobTitle}</span>
         )}
+    </div>
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobType">
+        Job Type
       </label>
-      <label>
-        <span>Job Description:</span>
-        <textarea
-          value={jobDescription}
-          placeholder="Enter Job Description"
-          onChange={handleJobDescriptionChange}
-        />
-        {validationErrors.jobDescription && (
-          <span className="error-message">
-            {validationErrors.jobDescription}
-          </span>
+      <select
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="jobType"
+        value={jobType}
+        onChange={handleJobTypeChange}
+      >
+        <option value="">Please Choose a Job Type</option>
+        <option value="On-site">Onsite</option>
+        <option value="Remote">Remote</option>
+        <option value="Hybrid">Hybrid</option>
+      </select>
+      {validationErrors.jobType && (
+          <span className="text-red-500 text-xs italic">{validationErrors.jobTitle}</span>
         )}
+    </div>
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobDescription">
+        Job Description
       </label>
-      <label>
-        <span>Job Link:</span>
-        <input
-          type="text"
-          value={jobLink}
-          placeholder="Enter Job Link"
-          onChange={handleJobLinkChange}
-        />
-        {validationErrors.jobLink && (
-          <span className="error-message">{validationErrors.jobLink}</span>
+      <textarea
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="jobDescription"
+        placeholder="Enter Job Description"
+        value={jobDescription}
+        onChange={handleJobDescriptionChange}
+      />
+      {validationErrors.jobDescription && (
+          <span className="text-red-500 text-xs italic">{validationErrors.jobTitle}</span>
         )}
+    </div>
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobLink">
+        Job Link
       </label>
-      <label>
-        <span>Deadline Date:</span>
-        <input
-          type="date"
-          value={deadlineDate}
-          onChange={handleDeadlineDateChange}
-        />
-        {validationErrors.deadlineDate && (
-          <span className="error-message">{validationErrors.deadlineDate}</span>
+      <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="jobLink"
+        type="text"
+        placeholder="Enter Job Link"
+        value={jobLink}
+        onChange={handleJobLinkChange}
+      />
+      {validationErrors.jobLink && (
+          <span className="text-red-500 text-xs italic">{validationErrors.jobTitle}</span>
         )}
+    </div>
+    <div className="mb-4">
+      <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="deadlineDate">
+        Deadline Date
       </label>
-      <div className="button-container">
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
-        <button type="button" className="cancel-button" onClick={handleCancel}>
-          Close
-        </button>
-      </div>
-    </form>
-  );
+      <input
+        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        id="deadlineDate"
+        type="date"
+        value={deadlineDate}
+        onChange={handleDeadlineDateChange}
+      />
+      {validationErrors.deadlineDate && (
+          <span className="text-red-500 text-xs italic">{validationErrors.jobTitle}</span>
+        )}
+    </div>
+    <div className="flex items-center justify-between">
+      <button
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="submit"
+      >
+        Submit
+      </button>
+      <button
+        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        onClick={handleCancel}
+      >
+        Close
+      </button>
+    </div>
+  </form>
+);
 };
 
 export default JobForm;
