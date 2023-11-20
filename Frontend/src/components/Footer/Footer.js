@@ -1,5 +1,5 @@
 import React from "react";
-import "./Footer.css";
+//import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -11,7 +11,7 @@ const currentYear = new Date().getFullYear();
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="w-full sticky bottom-0 bg-gray-800 text-white p-4">
       <div className="social-media">
         <a
           href="https://www.facebook.com"
@@ -45,3 +45,5 @@ const Footer = () => {
 };
 
 export default Footer;
+
+

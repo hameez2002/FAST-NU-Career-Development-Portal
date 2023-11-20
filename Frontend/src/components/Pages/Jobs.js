@@ -4,6 +4,7 @@ import JobForm from "../Jobs/JobForm";
 import JobList from "../Jobs/JobList";
 import EditModal from "../Jobs/EditModal";
 import DeleteConfirmationModal from "../Jobs/DeleteConfirmationModal";
+import JobsSearchFilter from "../Jobs/JobsSearchFilter";
 import axios from "axios";
 
 export const Jobs = () => {
@@ -124,7 +125,10 @@ export const Jobs = () => {
 
   return (
     <div className="heading">
-      <h1>Job Posting</h1>
+      {/* <JobsSearchFilter /> */}
+      <h1 className="text-gray-800 text-3xl font-bold mb-6 text-center">
+        Job Posting
+      </h1>
       <div>
         <button className="add-job-button" onClick={handleAddJobClick}>
           Add Job

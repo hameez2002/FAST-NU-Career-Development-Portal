@@ -58,7 +58,7 @@
 }
 
 .job-list li {
-  background: linear-gradient(#91baff, #146c94);
+  /* background: linear-gradient(#91baff, #146c94); */
   border: 1px solid #dee2e6;
   border-radius: 4px;
   margin-bottom: 1rem;
