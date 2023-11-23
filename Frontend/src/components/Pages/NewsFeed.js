@@ -1,9 +1,49 @@
+// import React from "react";
+// import { Route, Routes } from "react-router-dom";
+// import Layout from "../NewsFeed/Layout";
+// import IndexPage from "../NewsFeed/IndexPage";
+// //import {UserContextProvider} from "../NewsFeed/UserContext";
+// import CreatePost from "../NewsFeed/CreatePost";
+// import PostPage from "../NewsFeed/PostPage";
+// import EditPost from "../NewsFeed/EditPost";
+// import DeletePost from "../NewsFeed/DeletePost";
+// import "./NewsFeed.css";
+
+// export const NewsFeed = () => {
+//   return (
+//     <Routes>
+//       <Route path="/" element={<Layout />}>
+//         <Route index element={<IndexPage />} />
+//         <Route path="/newsfeed/create" element={<CreatePost />} />
+//           <Route path="/newsfeed/post/:id" element={<PostPage />} />
+//           <Route path="/newsfeed/edit/:id" element={<EditPost />} />
+//           <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
+//       </Route>
+//     </Routes>
+//   );
+// };
+
+// NewsFeed.js
 import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Layout from "../NewsFeed/Layout";
+import IndexPage from "../NewsFeed/IndexPage";
+import CreatePost from "../NewsFeed/CreatePost";
+import PostPage from "../NewsFeed/PostPage";
+import EditPost from "../NewsFeed/EditPost";
+import DeletePost from "../NewsFeed/DeletePost";
+//import "./NewsFeed.css";
 
 export const NewsFeed = () => {
   return (
-    <div>
-      <h1>News Feed</h1>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<IndexPage />} />
+        <Route path="create" element={<CreatePost />} />
+        <Route path="post/:id" element={<PostPage />} />
+        <Route path="edit/:id" element={<EditPost />} />
+        <Route path="delete/:id" element={<DeletePost />} />
+      </Route>
+    </Routes>
   );
 };

@@ -3,7 +3,7 @@ import Card from "../Card";
 
 export const BoardOfDirectors = () => {
   const directors = [
-    { name: "John Doe", department: "IT", campus: "New York" },
+    { name: "Farrukh Hassan Syed", department: "AI", campus: "Karachi" },
     { name: "John Doe", department: "IT", campus: "New York" },
     { name: "John Doe", department: "IT", campus: "New York" },
     { name: "John Doe", department: "IT", campus: "New York" },
