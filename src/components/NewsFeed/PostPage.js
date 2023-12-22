@@ -7,6 +7,7 @@ export default function PostPage() {
   const [postInfo, setPostInfo] = useState(null);
   const { id } = useParams();
   useEffect(() => {
+    console.log("Post ID:", id);
     fetch(`http://localhost:4000/newsfeed/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);

@@ -164,7 +164,7 @@ img {
 
 .button-primary.small.home-jobs-filter-search-button {
   position: absolute;
-  right: 12px;
+  right: 55px;
 }
 
 .input {
@@ -207,7 +207,8 @@ img {
 
 .card {
   border: 1px solid var(--neutral-300);
-  background-color: var(--neutral-100);
+  /* background-color: var(--neutral-100); */
+  background-color: #f5f5f5;
   box-shadow: 0 7px 14px 0 var(--shadow-card-short);
   border-radius: 20px;
   overflow: hidden;
@@ -215,6 +216,7 @@ img {
 }
 
 .card.home-jobs-filters {
+  border: 1px solid var(--neutral-300);
   z-index: 3;
   justify-content: space-between;
   align-items: center;
@@ -389,8 +391,10 @@ img {
   }
 
   .card.home-jobs-filters {
+    border: 1px solid var(--neutral-300);
     margin-bottom: 40px;
     padding: 33px 25px;
+    background-color: #f5f5f5;
   }
 
   .home-jobs-filter-search {

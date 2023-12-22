@@ -39,11 +39,12 @@ export const NewsFeed = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<IndexPage />} />
-        <Route path="create" element={<CreatePost />} />
-        <Route path="post/:id" element={<PostPage />} />
-        <Route path="edit/:id" element={<EditPost />} />
-        <Route path="delete/:id" element={<DeletePost />} />
+        <Route path="/newsfeed/create" element={<CreatePost />} />
+        <Route path="/newsfeed/post/:id" element={<PostPage />} />
+        <Route path="/newsfeed/edit/:id" element={<EditPost />} />
+        <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
       </Route>
     </Routes>
   );
 };
+

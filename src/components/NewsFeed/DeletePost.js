@@ -9,15 +9,18 @@ export default function DeletePost() {
   const handleDelete = async () => {
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:4000/newsfeed/delete/${id}`, {
-        method: "DELETE",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-  
+      const response = await fetch(
+        `http://localhost:4000/newsfeed/delete/${id}`,
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       console.log("Delete response:", response);
-  
+
       if (response.ok) {
         navigate("/");
       } else {
@@ -30,7 +33,6 @@ export default function DeletePost() {
       setLoading(false);
     }
   };
-  
 
   return (
     <div>

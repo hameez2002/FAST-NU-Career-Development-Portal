@@ -17,6 +17,7 @@ export const Jobs = () => {
   const [selectedJob, setSelectedJob] = useState(null);
   // eslint-disable-next-line
   const [updatedJob, setUpdatedJob] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     const fetchJobPostings = async () => {
@@ -123,9 +124,24 @@ export const Jobs = () => {
     setShowEditModal(false);
   };
 
+  const handleSearch = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:7000/jobs?title=${searchQuery}`
+      );
+      setJobs(response.data);
+    } catch (error) {
+      console.error("Error searching jobs:", error);
+    }
+  };
+
   return (
     <div className="heading">
-      {/* <JobsSearchFilter /> */}
+      <JobsSearchFilter
+        searchQuery={searchQuery}
+        handleSearch={handleSearch}
+        setSearchQuery={setSearchQuery}
+      />
       <h1 className="text-gray-800 text-3xl font-bold mb-6 text-center">
         Job Posting
       </h1>

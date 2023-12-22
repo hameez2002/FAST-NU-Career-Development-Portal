@@ -1,17 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./JobsSearchFilter.css";
 
-const JobSearchFilter = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const handleSearch = () => {
-    // Implement the search functionality here
-    // You can use the 'searchQuery' state to filter job listings
-    // and display the filtered results
-    // For this example, we'll just log the searchQuery
-    console.log("Search query: ", searchQuery);
-  };
-
+const JobSearchFilter = ({ searchQuery, handleSearch, setSearchQuery }) => {
   return (
     <div className="card home-jobs-filters">
       <div className="home-jobs-filters-wrapper">
