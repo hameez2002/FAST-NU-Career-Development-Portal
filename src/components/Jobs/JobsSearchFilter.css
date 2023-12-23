@@ -217,7 +217,7 @@ img {
 
 .card.home-jobs-filters {
   border: 1px solid var(--neutral-300);
-  z-index: 3;
+  z-index: 1;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 63px;

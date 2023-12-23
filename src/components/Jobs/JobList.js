@@ -63,23 +63,28 @@ const JobList = ({ jobs, onJobClick, onDeleteJobClick, onEditJobClick }) => {
     }
 
     const date = new Date(dateString);
+    //const date = typeof dateString === 'string' ? new Date(dateString) : dateString;
 
     if (isNaN(date)) {
+      console.log("Invalid date string:", dateString);
       return "Invalid Date";
     }
 
-    const year = date.getFullYear();
-    let month = date.getMonth() + 1;
-    let day = date.getDate();
+    const formattedDate = date.toISOString().split('T')[0]; // Extract the date part
+    return formattedDate;
 
-    if (month < 10) {
-      month = "0" + month;
-    }
-    if (day < 10) {
-      day = "0" + day;
-    }
+    // const year = date.getFullYear();
+    // let month = date.getMonth() + 1;
+    // let day = date.getDate();
 
-    return `${year}-${month}-${day}`;
+    // if (month < 10) {
+    //   month = "0" + month;
+    // }
+    // if (day < 10) {
+    //   day = "0" + day;
+    // }
+
+    // return `${year}-${month}-${day}`;
   };
 
   return (
