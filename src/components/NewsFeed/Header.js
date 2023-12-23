@@ -6,7 +6,7 @@ export default function Header() {
   
   return (
     <header>
-      <Link to="/" className="logo">CDP NEWSFEED</Link>
+      <Link to="/newsfeed" className="logo">CDP NEWSFEED</Link>
       <nav>
       <Link to="/newsfeed/createPost">Create Post</Link>
 

@@ -29,7 +29,7 @@ function CreatePost() {
   }
 
   if (redirect) {
-    return <Navigate to={"/"} />;
+    return <Navigate to={"/newsfeed"} />;
   }
   return (
     <form onSubmit={createNewPost}>

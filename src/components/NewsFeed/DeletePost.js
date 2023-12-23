@@ -22,7 +22,7 @@ export default function DeletePost() {
       console.log("Delete response:", response);
 
       if (response.ok) {
-        navigate("/");
+        navigate("/newsfeed");
       } else {
         const data = await response.json();
         console.error("Delete failed:", data.error);

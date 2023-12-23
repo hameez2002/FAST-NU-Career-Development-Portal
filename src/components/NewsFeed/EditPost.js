@@ -32,17 +32,19 @@ export default function EditPost() {
       data.set('file', files?.[0]);
     }
     const response = await fetch('http://localhost:7000/newsfeed/post', {
-      method: 'PUT',
+   
+    method: 'PUT',
       body: data,
       credentials: 'include',
     });
+    console.log("kr rha hyy") 
     if (response.ok) {
       setRedirect(true);
     }
   }
 
   if (redirect) {
-    return <Navigate to={'newsfeed/post/'+id} />
+    return <Navigate to={'/newsfeed/post/'+id} />
   }
 
   return (
