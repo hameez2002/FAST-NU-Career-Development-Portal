@@ -10,7 +10,7 @@ export default function DeletePost() {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:4000/newsfeed/delete/${id}`,
+        `http://localhost:7000/newsfeed/delete/${id}`,
         {
           method: "DELETE",
           headers: {

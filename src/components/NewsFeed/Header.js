@@ -8,7 +8,7 @@ export default function Header() {
     <header>
       <Link to="/" className="logo">CDP NEWSFEED</Link>
       <nav>
-      <Link to="/newsfeed/create">Create Post</Link>
+      <Link to="/newsfeed/createPost">Create Post</Link>
 
       </nav>
     </header>

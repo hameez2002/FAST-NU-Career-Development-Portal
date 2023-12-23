@@ -34,12 +34,12 @@ import EditPost from "../NewsFeed/EditPost";
 import DeletePost from "../NewsFeed/DeletePost";
 //import "./NewsFeed.css";
 
-export const NewsFeed = () => {
+const NewsFeed = () => {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<IndexPage />} />
-        <Route path="/newsfeed/create" element={<CreatePost />} />
+        <Route path="/newsfeed/createPost" element={<CreatePost />} />
         <Route path="/newsfeed/post/:id" element={<PostPage />} />
         <Route path="/newsfeed/edit/:id" element={<EditPost />} />
         <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
@@ -48,3 +48,4 @@ export const NewsFeed = () => {
   );
 };
 
+export default NewsFeed;

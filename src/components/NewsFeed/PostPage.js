@@ -8,7 +8,7 @@ export default function PostPage() {
   const { id } = useParams();
   useEffect(() => {
     console.log("Post ID:", id);
-    fetch(`http://localhost:4000/newsfeed/post/${id}`).then((response) => {
+    fetch(`http://localhost:7000/newsfeed/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });
@@ -45,7 +45,7 @@ export default function PostPage() {
       </div>
       {/* )} */}
       <div className="image">
-        <img src={`http://localhost:4000/newsfeed/${postInfo.cover}`} alt="" />
+        <img src={`http://localhost:7000/newsfeed/${postInfo.cover}`} alt="" />
       </div>
       <div
         className="content"
