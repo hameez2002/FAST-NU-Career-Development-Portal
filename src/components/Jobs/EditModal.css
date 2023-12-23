@@ -5,6 +5,7 @@
 .modalContainer {
   height: 80vh;
   width: auto;
+  z-index: 2;
 }
 
 .titleCloseBtn{

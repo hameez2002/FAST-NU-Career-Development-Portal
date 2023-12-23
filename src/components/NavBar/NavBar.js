@@ -19,6 +19,7 @@ function NavBar() {
           exact
           to="/"
           className="flex flex-shrink-0 title-font font-medium items-center text-gray-900 md:mb-0"
+          style={{ textDecoration: 'none' }}
         >
           <img className="w-15 h-12  " src={logo} alt="FAST NUCES Logo" />
           <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">
