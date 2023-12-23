@@ -1,14 +1,15 @@
 import Post from "./Post";
 import {useEffect, useState} from "react";
+import "./NewsFeed.css";
 
 export default function IndexPage() {
   const [posts,setPosts] = useState([]);
+  console.log("indexpage");
   useEffect(() => {
-    fetch('http://localhost:7000/newsfeed/post').then(response => {
-      response.json().then(posts => {
-        setPosts(posts);
-      });
-    });
+    fetch('http://localhost:7000/newsfeed/post')
+  .then(response => response.json())
+  .then(posts => setPosts(posts))
+  .catch(error => console.error('Error fetching posts:', error));
   }, []);
   return (
     <>
