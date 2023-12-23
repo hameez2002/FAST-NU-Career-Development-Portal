@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "./Editor";
 
-export default function CreatePost() {
+function CreatePost() {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
@@ -18,7 +18,7 @@ export default function CreatePost() {
     data.set("content", content);
     data.set("file", files[0]);
     ev.preventDefault();
-    const response = await fetch("http://localhost:4000/newsfeed/post", {
+    const response = await fetch("http://localhost:7000/newsfeed/createPost", {
       method: "POST",
       body: data,
       credentials: "include",
@@ -51,3 +51,5 @@ export default function CreatePost() {
     </form>
   );
 }
+
+export default CreatePost;

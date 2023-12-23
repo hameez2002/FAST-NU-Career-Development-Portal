@@ -7,8 +7,14 @@ import { Contact } from "./components/Pages/Contact";
 // import { Career } from "./components/Pages/Career";
 import { BoardOfDirectors } from "./components/Pages/BoardOfDirectors";
 import { Jobs } from "./components/Pages/Jobs";
-import { NewsFeed } from "./components/Pages/NewsFeed";
+import  NewsFeed  from "./components/Pages/NewsFeed";
+import CreatePost  from "./components/NewsFeed/CreatePost";
+import Layout from "./components/NewsFeed/Layout";
+import PostPage from "./components/NewsFeed/PostPage";
+import EditPost from "./components/NewsFeed/EditPost";
+import DeletePost from "./components/NewsFeed/DeletePost";
 // import Footer from "./components/Footer/Footer";
+
 
 function App() {
   return (
@@ -20,8 +26,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/jobs" element={<Jobs />} />
-          <Route path="/newsfeed" element={<NewsFeed />} />
-          {/* <Route path="career" element={<Career />} /> */}
+          <Route path="/newsfeed" element={<Layout />}/>
+            <Route path="/newsfeed/createPost" element={<CreatePost />}></Route>
+            <Route path="/newsfeed/post/:id" element={<PostPage />} />
+        <Route path="/newsfeed/edit/:id" element={<EditPost />} />
+        <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
+          
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/board" element={<BoardOfDirectors />} />
