@@ -88,9 +88,10 @@ const JobList = ({ jobs, onJobClick, onDeleteJobClick, onEditJobClick }) => {
   };
 
   return (
-    <ul className="bg-[#f3f1ec] job-list p-0 w-5/6 mx-auto my-10">
+    <ul className="bg-[#f3f1ec] job-list p-0 w-1/2 mx-auto my-10 mb-10">
       {jobs.map((job) => (
-        <li key={job.ID} className="bg-[#f3f1ec] rounded-lg shadow-md p-4 mb-4">
+        <div >
+        <li key={job.ID} className="bg-[#f3f1ec] rounded-lg shadow-md p-4 mt-10">
           <h2 className="text-2xl font-bold mb-2">{job.Title}</h2>
           <p className="font-bold">{job.Type}</p>
           <p className="mb-4">{job.Description}</p>
@@ -103,19 +104,22 @@ const JobList = ({ jobs, onJobClick, onDeleteJobClick, onEditJobClick }) => {
           <p className="italic mb-2">
             Deadline: {formatDate(job.deadlineDate)}
           </p>
+          <div className="flex items-center justify-center mt-4">
           <button
-            className="bg-gray-200 text-black border-none rounded-md px-4 py-2 mr-2"
+            className="w-20 h-10 bg-red-500 text-black border-none rounded-md px-2 py-1 mr-2"
             onClick={() => onDeleteJobClick(job)}
           >
             Delete
           </button>
           <button
-            className="bg-gray-200 text-black border-none rounded-md px-4 py-2"
+            className="w-20 h-10 bg-blue-500 text-black border-none rounded-md px-2 py-1 mr-2"
             onClick={() => onEditJobClick(job.ID)}
           >
             Edit
           </button>
+          </div>
         </li>
+        </div>
       ))}
     </ul>
   );

@@ -30,11 +30,11 @@
   
   .titleCloseBtn {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end;;
   }
   
   .titleCloseBtn button {
-    background-color: transparent;
+    /* background-color: transparent; */
     border: none;
     font-size: 25px;
     cursor: pointer;

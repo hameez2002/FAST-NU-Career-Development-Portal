@@ -23,10 +23,10 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded-md shadow-lg w-1/2">
         <div className="flex justify-between items-center">
-          <h2 className="text-2xl font-medium text-gray-800">Edit Job</h2>
+          <h2 className="block mx-auto text-2xl font-medium text-gray-800">Edit Job</h2>
           <button
             onClick={onCancel}
-            className="text-gray-400 hover:text-gray-800"
+            className="w-10 bg-red-500 text-white hover:bg-red-600"
           >
             X
           </button>
@@ -66,6 +66,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
                 <option value="Onsite">Onsite</option>
                 <option value="Remote">Remote</option>
                 <option value="Hybrid">Hybrid</option>
+                <option value="Internship">Internship</option>
               </select>
             </div>
             <div>
@@ -120,7 +121,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
             <button
               type="button"
               onClick={onCancel}
-              className="py-2 px-4 bg-gray-300 text-gray-700 rounded-md hover:bg-gray-400"
+              className="py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600"
             >
               Cancel
             </button>
