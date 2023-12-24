@@ -8,8 +8,21 @@
   position: sticky;
   top: 0;
   z-index: 20;
+  margin-top: 0px !important;
+}
+.nav_res {
+  width: 100%;
+}
+@media (min-width: 1400px) {
+  .nav_res{       
+     max-width: 640px;
+    }
 }
 
+.navbar_drawer{
+  position: fixed;
+  top: 5pc;
+}
 .nav-container {
   display: flex;
   justify-content: center;
@@ -58,8 +71,6 @@
 }
 
 .nav-item {
-  /*line-height: 40px;*/
-  /*margin-right: 1rem;*/
   margin: 0rem;
   font-size: smaller;
   

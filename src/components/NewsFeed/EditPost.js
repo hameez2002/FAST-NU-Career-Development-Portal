@@ -31,6 +31,7 @@ export default function EditPost() {
     if (files?.[0]) {
       data.set('file', files?.[0]);
     }
+    console.log("kr rha hyy in update")
     const response = await fetch('http://localhost:7000/newsfeed/post', {
    
     method: 'PUT',
@@ -40,6 +41,9 @@ export default function EditPost() {
     console.log("kr rha hyy") 
     if (response.ok) {
       setRedirect(true);
+    }
+    else {
+      console.log("nahi kr rha hyy") 
     }
   }
 

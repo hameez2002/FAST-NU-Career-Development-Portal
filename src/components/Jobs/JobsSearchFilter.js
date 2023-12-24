@@ -28,7 +28,7 @@
 // export default JobSearchFilter;
 
 
-  import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 function JobSearchFilter() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -38,7 +38,7 @@ function JobSearchFilter() {
   };
 
   return (
-    <div className="flex items-center justify-center mb-4 w-1/2">
+    <div className="flex items-center justify-center mb-4 w-1/2 ml-2">
       <div className="flex items-center w-full">
         <input
           type="text"

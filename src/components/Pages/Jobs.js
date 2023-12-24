@@ -137,16 +137,18 @@ export const Jobs = () => {
 
   return (
     <div className="heading">
+    <div>
       <JobsSearchFilter
         searchQuery={searchQuery}
         handleSearch={handleSearch}
         setSearchQuery={setSearchQuery}
       />
+      </div>
       <h1 className="text-gray-800 text-3xl font-bold mb-6 text-center">
         Job Posting
       </h1>
-      <div>
-        <button className="add-job-button" onClick={handleAddJobClick}>
+      <div className="Button">
+        <button className="add-job-button w-auto" onClick={handleAddJobClick}>
           Add Job
         </button>
       </div>
