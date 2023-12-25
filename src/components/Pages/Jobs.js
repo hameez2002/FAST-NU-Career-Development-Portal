@@ -6,7 +6,6 @@ import EditModal from "../Jobs/EditModal";
 import DeleteConfirmationModal from "../Jobs/DeleteConfirmationModal";
 import JobsSearchFilter from "../Jobs/JobsSearchFilter";
 import axios from "axios";
-import { faAlignJustify } from "@fortawesome/free-solid-svg-icons";
 
 export const Jobs = () => {
   const [showForm, setShowForm] = useState(false);
@@ -60,7 +59,7 @@ export const Jobs = () => {
     if (selectedJob) {
       try {
         const response = await axios.delete(
-          `http://localhost:7000/jobs/${selectedJob.ID}`
+          "http://localhost:7000/jobs/${selectedJob.ID}"
         );
         if (response.status === 204) {
           setJobs(jobs.filter((job) => job.ID !== selectedJob.ID));
@@ -99,7 +98,7 @@ export const Jobs = () => {
       if (selectedJob && updatedJob && selectedJob.ID !== undefined) {
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
-          `http://localhost:7000/jobs/${selectedJob.ID}`,
+          "http://localhost:7000/jobs/${selectedJob.ID}",
           updatedJob
         );
         console.log("Response from server:", response);
@@ -128,7 +127,7 @@ export const Jobs = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:7000/jobs?title=${searchQuery}`
+        "http://localhost:7000/jobs?title=${searchQuery}"
       );
       setJobs(response.data);
     } catch (error) {
@@ -138,11 +137,7 @@ export const Jobs = () => {
 
   return (
     <div className="heading">
- NewsFeedUpdated
     <div>
-
-      <div>
-    main
       <JobsSearchFilter
         searchQuery={searchQuery}
         handleSearch={handleSearch}
@@ -153,11 +148,7 @@ export const Jobs = () => {
         Job Posting
       </h1>
       <div className="Button">
- NewsFeedUpdated
         <button className="add-job-button w-auto" onClick={handleAddJobClick}>
-
-        <button className="add-job-button" onClick={handleAddJobClick}>
- main
           Add Job
         </button>
       </div>
