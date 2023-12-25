@@ -304,15 +304,15 @@ const JobForm = ({ onSubmit, onCancel }) => {
           </span>
         )}
       </div>
-      <div className="flex items-center justify-between w-1/6">
+      <div className="flex items-center justify-center ">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-center focus:outline-none focus:shadow-outline w-16"
           type="submit"
         >
           Submit
         </button>
         <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mx-2"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex justify-center focus:outline-none focus:shadow-outline mx-2 w-16"
           type="button"
           onClick={handleCancel}
         >

@@ -50,13 +50,13 @@ const JobList = ({ jobs, onJobClick, onDeleteJobClick, onEditJobClick }) => {
           </p>
           <div className="flex items-center justify-center mt-4">
           <button
-            className="w-20 h-10 bg-red-500 text-black border-none rounded-md px-2 py-1 mr-2"
+            className="w-20 h-10 bg-red-500 text-black border-none rounded-md flex items-center justify-center px-2 py-1 mr-2"
             onClick={() => onDeleteJobClick(job)}
           >
             Delete
           </button>
           <button
-            className="w-20 h-10 bg-blue-500 text-black border-none rounded-md px-2 py-1 mr-2"
+            className="w-20 h-10 bg-blue-500 text-black border-none rounded-md flex items-center justify-center px-2 py-1 mr-2"
             onClick={() => onEditJobClick(job.ID)}
           >
             Edit

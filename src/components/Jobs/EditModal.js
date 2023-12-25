@@ -117,17 +117,17 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               />
             </div>
           </div>
-          <div className="mt-5 flex justify-end space-x-3">
+          <div className="mt-5 flex justify-center space-x-3">
             <button
               type="button"
               onClick={onCancel}
-              className="py-2 px-4 bg-red-500 text-white rounded-md hover:bg-red-600"
+              className="w-16 py-2 px-4 bg-red-500 text-white rounded-md flex items-center justify-center hover:bg-red-600"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="py-2 px-4 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+              className="w-16 py-2 px-4 bg-blue-500 text-white rounded-md flex items-center justify-center hover:bg-blue-600"
             >
               Save
             </button>
