@@ -45,7 +45,7 @@ export default function PostPage() {
       </div>
       {/* )} */}
       <div className="image">
-        <img src={`http://localhost:7000/newsfeed/${postInfo.cover}`} alt="" />
+        <img src={`http://localhost:7000/${postInfo.cover}`} alt="" />
       </div>
       <div
         className="content"

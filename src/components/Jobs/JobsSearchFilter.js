@@ -28,7 +28,7 @@
 // export default JobSearchFilter;
 
 
-  import React, { useState } from 'react';
+import React, { useState } from 'react';
 
 function JobSearchFilter() {
   const [searchTerm, setSearchTerm] = useState('');

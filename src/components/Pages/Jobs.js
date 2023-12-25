@@ -138,7 +138,11 @@ export const Jobs = () => {
 
   return (
     <div className="heading">
+ NewsFeedUpdated
+    <div>
+
       <div>
+    main
       <JobsSearchFilter
         searchQuery={searchQuery}
         handleSearch={handleSearch}
@@ -149,7 +153,11 @@ export const Jobs = () => {
         Job Posting
       </h1>
       <div className="Button">
+ NewsFeedUpdated
+        <button className="add-job-button w-auto" onClick={handleAddJobClick}>
+
         <button className="add-job-button" onClick={handleAddJobClick}>
+ main
           Add Job
         </button>
       </div>
