@@ -2,15 +2,9 @@ import React from "react";
 import Card from "../Card";
 
 export const BoardOfDirectors = () => {
+  //content here needs to be statically insterted
   const directors = [
     { name: "Farrukh Hassan Syed", department: "AI", campus: "Karachi" },
-    { name: "John Doe", department: "IT", campus: "New York" },
-    { name: "John Doe", department: "IT", campus: "New York" },
-    { name: "John Doe", department: "IT", campus: "New York" },
-    { name: "John Doe", department: "IT", campus: "New York" },
-    { name: "John Doe", department: "IT", campus: "New York" },
-    { name: "John Doe", department: "IT", campus: "New York" },
-    { name: "John Doe", department: "IT", campus: "New York" },
   ];
 
   return (
