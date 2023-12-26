@@ -64,7 +64,7 @@ export const Jobs = () => {
       try {
         const response = await axios.delete(
           // "http://localhost:7000/jobs/${selectedJob.ID}"
-          "https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}"
+          `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}`
         );
         if (response.status === 204) {
           setJobs(jobs.filter((job) => job.ID !== selectedJob.ID));
@@ -104,7 +104,7 @@ export const Jobs = () => {
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
           // "http://localhost:7000/jobs/${selectedJob.ID}",
-          "https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}",
+          `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}`,
           updatedJob
         );
         console.log("Response from server:", response);
@@ -134,7 +134,7 @@ export const Jobs = () => {
     try {
       const response = await axios.get(
         // "http://localhost:7000/jobs?title=${searchQuery}"
-        "https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}"
+       `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}`
       );
       setJobs(response.data);
     } catch (error) {
