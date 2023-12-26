@@ -8,7 +8,8 @@ export default function PostPage() {
   const { id } = useParams();
   useEffect(() => {
     console.log("Post ID:", id);
-    fetch(`http://localhost:7000/newsfeed/post/${id}`).then((response) => {
+    // fetch(`http://localhost:7000/newsfeed/post/${id}`).then((response) => {
+      fetch(`https://backend-fast-nu-career-development-portal-tais.vercel.app/newsfeed/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });
@@ -25,7 +26,7 @@ export default function PostPage() {
       <div className="author">by </div>
       {/* {userInfo.id === postInfo.author._id && ( */}
       <div className="edit-row">
-        <Link className="edit-btn" to={`/newsfeed/edit/${postInfo._id}`}>
+        {/* <Link className="edit-btn" to={`/newsfeed/edit/${postInfo._id}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -41,11 +42,13 @@ export default function PostPage() {
             />
           </svg>
           Edit this post
-        </Link>
+        </Link> */}
       </div>
       {/* )} */}
       <div className="image">
-        <img src={`http://localhost:7000/${postInfo.cover}`} alt="" />
+        {/* <img src={`http://localhost:7000/${postInfo.cover}`} alt="" /> */}
+        <img src={`https://backend-fast-nu-career-development-portal-tais.vercel.app/${postInfo.cover}`} alt="" />
+        
       </div>
       <div
         className="content"

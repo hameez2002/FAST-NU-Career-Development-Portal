@@ -14,6 +14,7 @@ import PostPage from "./components/NewsFeed/PostPage";
 import EditPost from "./components/NewsFeed/EditPost";
 import DeletePost from "./components/NewsFeed/DeletePost";
 import IndexPage from "./components/NewsFeed/IndexPage";
+import env from "react-dotenv";
 // import "./components/Newsfeed/NewsFeed.css";
 // import Footer from "./components/Footer/Footer";
 

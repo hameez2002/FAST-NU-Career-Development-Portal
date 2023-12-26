@@ -22,7 +22,9 @@ export const Jobs = () => {
   useEffect(() => {
     const fetchJobPostings = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/jobs");
+        // const response = await axios.get("http://localhost:7000/jobs");
+        const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
+        
         setJobs(response.data);
       } catch (error) {
         console.error("Error fetching job postings:", error);
@@ -36,10 +38,12 @@ export const Jobs = () => {
   };
 
   const handleJobSubmit = async (formData) => {
-    await axios.post("http://localhost:7000/jobs", formData);
-
-    const response = await axios.get("http://localhost:7000/jobs");
-
+    // await axios.post("http://localhost:7000/jobs", formData);
+    await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", formData);
+    
+    // const response = await axios.get("http://localhost:7000/jobs");
+    const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
+    
     setJobs(response.data);
 
     setShowForm(false);
@@ -59,7 +63,8 @@ export const Jobs = () => {
     if (selectedJob) {
       try {
         const response = await axios.delete(
-          "http://localhost:7000/jobs/${selectedJob.ID}"
+          // "http://localhost:7000/jobs/${selectedJob.ID}"
+          "https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}"
         );
         if (response.status === 204) {
           setJobs(jobs.filter((job) => job.ID !== selectedJob.ID));
@@ -98,7 +103,8 @@ export const Jobs = () => {
       if (selectedJob && updatedJob && selectedJob.ID !== undefined) {
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
-          "http://localhost:7000/jobs/${selectedJob.ID}",
+          // "http://localhost:7000/jobs/${selectedJob.ID}",
+          "https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}",
           updatedJob
         );
         console.log("Response from server:", response);
@@ -127,7 +133,8 @@ export const Jobs = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:7000/jobs?title=${searchQuery}"
+        // "http://localhost:7000/jobs?title=${searchQuery}"
+        "https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}"
       );
       setJobs(response.data);
     } catch (error) {

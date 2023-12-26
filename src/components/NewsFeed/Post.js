@@ -11,13 +11,14 @@ export default function Post({
   createdAt,
   author,
 }) {
+  
   return (
     <div className="post">
       <div className="image">
         <Link to={`/newsfeed/post/${_id}`}>
-          <img src={"http://localhost:7000/" + cover} alt="" />
-          {/* <img src={"http://localhost:7000/newsfeed/uploads/2e61ad331570e46265781f7772b9f6a9.jpeg"} alt="" /> */}
-          {/* console.log(`${cover}`); */}
+          {/* <img src={"http://localhost:7000/" + cover} alt="" /> */}
+          <img src={"https://backend-fast-nu-career-development-portal-tais.vercel.app/" + cover} alt="" />
+          
         </Link>
       </div>
       <div className="texts">
