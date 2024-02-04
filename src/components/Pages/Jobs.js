@@ -6,6 +6,10 @@ import EditModal from "../Jobs/EditModal";
 import DeleteConfirmationModal from "../Jobs/DeleteConfirmationModal";
 import JobsSearchFilter from "../Jobs/JobsSearchFilter";
 import axios from "axios";
+<<<<<<< HEAD
+import axiosInstance from "./../../axiosConfig";
+=======
+>>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
 
 export const Jobs = () => {
   const [showForm, setShowForm] = useState(false);
@@ -19,17 +23,54 @@ export const Jobs = () => {
   const [updatedJob, setUpdatedJob] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // useEffect(() => {
+  //   const fetchJobPostings = async () => {
+  //     console.log("Fetching jobs...");
+  //     try {
+  //       // const response = await axios.get("http://localhost:7000/jobs");
+  //       const response = await axiosInstance.get("/jobs");
+  //       setJobs(response.data);
+  //     } catch (error) {
+  //       console.error("Error fetching job postings:", error);
+  //     }
+  //   };
+  //   fetchJobPostings();
+  // }, []);
+
   useEffect(() => {
     const fetchJobPostings = async () => {
       try {
+<<<<<<< HEAD
+        const response = await axiosInstance.get("/jobs");
+        console.log("Response from server:", response);
+=======
         const response = await axios.get("http://localhost:7000/jobs");
         // const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
         
+>>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
         setJobs(response.data);
       } catch (error) {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.error(
+            "Server responded with an error status:",
+            error.response.status
+          );
+          console.log("Response data:", error.response.data);
+          console.log("Response headers:", error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error("No response received from the server");
+          console.log("Request details:", error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.error("Error setting up the request:", error.message);
+        }
         console.error("Error fetching job postings:", error);
       }
     };
+
     fetchJobPostings();
   }, []);
 
@@ -144,12 +185,21 @@ export const Jobs = () => {
 
   return (
     <div className="heading">
+<<<<<<< HEAD
+      <div>
+        <JobsSearchFilter
+          searchQuery={searchQuery}
+          handleSearch={handleSearch}
+          setSearchQuery={setSearchQuery}
+        />
+=======
     <div>
       <JobsSearchFilter
         searchQuery={searchQuery}
         handleSearch={handleSearch}
         setSearchQuery={setSearchQuery}
       />
+>>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
       </div>
       <h1 className="text-gray-800 text-3xl font-bold mb-6 text-center">
         Job Posting

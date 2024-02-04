@@ -195,6 +195,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../../logo-FAST-NU.png";
 import "./NavBar.css";
+<<<<<<< HEAD
+=======
 // import { styled, useTheme } from '@mui/material/styles';
 // import Box from '@mui/material/Box';
 // import Drawer from '@mui/material/Drawer';
@@ -352,6 +354,7 @@ import "./NavBar.css";
 //     </Box>
 //   );
 // }
+>>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
 
 function NavBar() {
   const [click, setClick] = useState(false);
@@ -368,9 +371,9 @@ function NavBar() {
       >
         <NavLink
           exact
-          to="/"
+          to="/home"
           className="flex flex-shrink-0 title-font font-medium items-center text-gray-900 md:mb-0"
-          style={{ textDecoration: 'none' }}
+          style={{ textDecoration: "none" }}
         >
           <img className="w-15 h-12  " src={logo} alt="FAST NUCES Logo" />
           <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">
@@ -379,10 +382,21 @@ function NavBar() {
           <i className="fas fa-code"></i>
         </NavLink>
 
-        <nav className="xs:hidden sm:hidden md:hidden xl:block md:ml-auto md:flex flex-wrap items-center justify-center text-base tracking-wide" style={{}}>
+        <nav
+          className="xs:hidden sm:hidden md:hidden xl:block md:ml-auto md:flex flex-wrap items-center justify-center text-base tracking-wide"
+          style={{}}
+        >
           <NavLink
             exact
-            to="/"
+            to="/login"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Login
+          </NavLink>
+          <NavLink
+            exact
+            to="/home"
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
