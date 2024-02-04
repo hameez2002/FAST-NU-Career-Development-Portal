@@ -49,11 +49,11 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
     if (!jobLink) {
       errors.jobLink = "Please enter a job link";
-    } else {
-      const regex = new RegExp("^(www\\.)([a-z0-9]+)\\.([a-z.]{2,6})$");
-      if (!regex.test(jobLink)) {
-        errors.jobLink = "Please enter a valid URL";
-      }
+    // } else {
+    //   const regex = new RegExp("^(www\\.)([a-z0-9]+)\\.([a-z.]{2,6})$");
+    //   if (!regex.test(jobLink)) {
+    //     errors.jobLink = "Please enter a valid URL";
+    //   }
     }
 
     if (!deadlineDate) {
@@ -113,84 +113,6 @@ const JobForm = ({ onSubmit, onCancel }) => {
     setValidationErrors({});
     onCancel();
   };
-
-  //   return (
-  //     <form onSubmit={handleSubmit} className="job-form">
-  //       <label>
-  //         <span>Job Title:</span>
-  //         <input
-  //           type="text"
-  //           placeholder="Enter Job Title"
-  //           value={jobTitle}
-  //           onChange={handleJobTitleChange}
-  //         />
-  //         {validationErrors.jobTitle && (
-  //           <span className="error-message">{validationErrors.jobTitle}</span>
-  //         )}
-  //       </label>
-  //       <label>
-  //         <span>Job Type:</span>
-  //         <select
-  //           value={jobType}
-  //           className="job-form-select"
-  //           onChange={handleJobTypeChange}
-  //         >
-  //           <option value="">Please Choose a Job Type.</option>
-  //           <option value="On-site">Onsite</option>
-  //           <option value="Remote">Remote</option>
-  //           <option value="Hybrid">Hybrid</option>
-  //         </select>
-  //         {validationErrors.jobType && (
-  //           <span className="error-message">{validationErrors.jobType}</span>
-  //         )}
-  //       </label>
-  //       <label>
-  //         <span>Job Description:</span>
-  //         <textarea
-  //           value={jobDescription}
-  //           placeholder="Enter Job Description"
-  //           onChange={handleJobDescriptionChange}
-  //         />
-  //         {validationErrors.jobDescription && (
-  //           <span className="error-message">
-  //             {validationErrors.jobDescription}
-  //           </span>
-  //         )}
-  //       </label>
-  //       <label>
-  //         <span>Job Link:</span>
-  //         <input
-  //           type="text"
-  //           value={jobLink}
-  //           placeholder="Enter Job Link"
-  //           onChange={handleJobLinkChange}
-  //         />
-  //         {validationErrors.jobLink && (
-  //           <span className="error-message">{validationErrors.jobLink}</span>
-  //         )}
-  //       </label>
-  //       <label>
-  //         <span>Deadline Date:</span>
-  //         <input
-  //           type="date"
-  //           value={deadlineDate}
-  //           onChange={handleDeadlineDateChange}
-  //         />
-  //         {validationErrors.deadlineDate && (
-  //           <span className="error-message">{validationErrors.deadlineDate}</span>
-  //         )}
-  //       </label>
-  //       <div className="button-container">
-  //         <button type="submit" onClick={handleSubmit}>
-  //           Submit
-  //         </button>
-  //         <button type="button" className="cancel-button" onClick={handleCancel}>
-  //           Close
-  //         </button>
-  //       </div>
-  //     </form>
-  //   );
-  // };
 
   return (
     <form

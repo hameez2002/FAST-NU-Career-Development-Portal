@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const EditModal = ({ job, onConfirm, onCancel }) => {
   const [formData, setFormData] = useState({
@@ -8,6 +8,17 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
     jobLink: job.jobLink || "",
     deadlineDate: job.deadlineDate || "",
   });
+
+  useEffect(() => {
+    console.log("Job prop in useEffect:", job);
+    setFormData({
+      jobTitle: job?.jobTitle || "",
+      jobType: job?.jobType || "On-site",
+      jobDescription: job?.jobDescription || "",
+      jobLink: job?.jobLink || "",
+      deadlineDate: job?.deadlineDate || "",
+    });
+  }, [job]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -23,7 +34,9 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
       <div className="bg-white p-6 rounded-md shadow-lg w-1/2">
         <div className="flex justify-between items-center">
-          <h2 className="block mx-auto text-2xl font-medium text-gray-800">Edit Job</h2>
+          <h2 className="block mx-auto text-2xl font-medium text-gray-800">
+            Edit Job
+          </h2>
           <button
             onClick={onCancel}
             className="w-10 bg-red-500 text-white hover:bg-red-600"
