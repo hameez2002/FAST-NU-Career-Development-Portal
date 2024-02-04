@@ -13,15 +13,21 @@ import { About } from "./components/Pages/About";
 import { Contact } from "./components/Pages/Contact";
 import { BoardOfDirectors } from "./components/Pages/BoardOfDirectors";
 import { Jobs } from "./components/Pages/Jobs";
-import NewsFeed from "./components/Pages/NewsFeed";
+// import NewsFeed from "./components/Pages/NewsFeed";
 import CreatePost from "./components/NewsFeed/CreatePost";
 import Layout from "./components/NewsFeed/Layout";
 import PostPage from "./components/NewsFeed/PostPage";
 import EditPost from "./components/NewsFeed/EditPost";
 import DeletePost from "./components/NewsFeed/DeletePost";
 import IndexPage from "./components/NewsFeed/IndexPage";
+<<<<<<< HEAD
 import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
+=======
+// import env from "react-dotenv";
+// import "./components/Newsfeed/NewsFeed.css";
+// import Footer from "./components/Footer/Footer";
+>>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
 
 function App() {
   return (

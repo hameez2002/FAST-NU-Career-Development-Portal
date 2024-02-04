@@ -7,7 +7,7 @@ const DeleteConfirmationModal = ({ onConfirm, onCancel }) => {
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="titleCloseBtn">
-          <button className="w-8 h-10 bg-red-500 text-white hover:bg-red-600" onClick={onCancel}>X</button>
+          <button className="w-8 h-10 text-white" onClick={onCancel}>X</button>
         </div>
         <div className="title">
           <h1 className="text-black mt-[-1rem]">Are you sure you want to delete job?</h1>
@@ -19,7 +19,7 @@ const DeleteConfirmationModal = ({ onConfirm, onCancel }) => {
           <button onClick={onCancel} id="cancelBtn">
             Cancel
           </button>
-          <button onClick={onConfirm}>Delete</button>
+          <button onClick={onConfirm} id="deleteBtn">Delete</button>
         </div>
       </div>
     </div>

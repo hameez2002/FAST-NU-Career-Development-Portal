@@ -2,6 +2,7 @@ import React from "react";
 import Card from "../Card";
 
 export const BoardOfDirectors = () => {
+  //content here needs to be statically insterted
   const directors = [
     { name: "Farrukh Hassan Syed", department: "AI", campus: "Karachi" },
   ];

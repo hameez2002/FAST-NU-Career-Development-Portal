@@ -34,7 +34,8 @@
   }
   
   .titleCloseBtn button {
-    /* background-color: transparent; */
+    background-color: transparent;
+    color: crimson;
     border: none;
     font-size: 25px;
     cursor: pointer;
@@ -74,5 +75,10 @@
   
   #cancelBtn {
     background-color: crimson;
+    justify-content: center;
   }
   
+  #deleteBtn {
+    /* background-color: #146c94; */
+    justify-content: center;
+  }

@@ -11,6 +11,7 @@ export default function DeletePost() {
       setLoading(true);
       const response = await fetch(
         `http://localhost:7000/newsfeed/delete/${id}`,
+        // `https://backend-fast-nu-career-development-portal-tais.vercel.app/newsfeed/delete/${id}`,
         {
           method: "DELETE",
           headers: {

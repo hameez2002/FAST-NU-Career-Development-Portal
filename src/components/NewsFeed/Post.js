@@ -1,5 +1,6 @@
 import { formatISO9075 } from "date-fns";
 import { Link } from "react-router-dom";
+import "./NewsFeed.css";
 
 export default function Post({
   _id,
@@ -10,11 +11,14 @@ export default function Post({
   createdAt,
   author,
 }) {
+  
   return (
     <div className="post">
       <div className="image">
         <Link to={`/newsfeed/post/${_id}`}>
-          <img src={"http://localhost:7000/newsfeed/" + cover} alt="" />
+          <img src={"http://localhost:7000/" + cover} alt="" />
+          {/* <img src={"https://backend-fast-nu-career-development-portal-tais.vercel.app/" + cover} alt="" /> */}
+          
         </Link>
       </div>
       <div className="texts">

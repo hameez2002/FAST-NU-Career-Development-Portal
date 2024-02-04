@@ -85,6 +85,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
         });
 
         const response = await axios.post("http://localhost:7000/jobs", {
+          // const response = await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -226,21 +227,21 @@ const JobForm = ({ onSubmit, onCancel }) => {
           </span>
         )}
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-center ">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-center focus:outline-none focus:shadow-outline w-16"
           type="submit"
         >
           Submit
         </button>
         <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex justify-center focus:outline-none focus:shadow-outline mx-2 w-16"
           type="button"
           onClick={handleCancel}
         >
           Close
         </button>
-      </div>
+        </div>
     </form>
   );
 };
