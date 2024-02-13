@@ -6,10 +6,7 @@ import EditModal from "../Jobs/EditModal";
 import DeleteConfirmationModal from "../Jobs/DeleteConfirmationModal";
 import JobsSearchFilter from "../Jobs/JobsSearchFilter";
 import axios from "axios";
-<<<<<<< HEAD
 import axiosInstance from "./../../axiosConfig";
-=======
->>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
 
 export const Jobs = () => {
   const [showForm, setShowForm] = useState(false);
@@ -40,14 +37,8 @@ export const Jobs = () => {
   useEffect(() => {
     const fetchJobPostings = async () => {
       try {
-<<<<<<< HEAD
         const response = await axiosInstance.get("/jobs");
         console.log("Response from server:", response);
-=======
-        const response = await axios.get("http://localhost:7000/jobs");
-        // const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
-        
->>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
         setJobs(response.data);
       } catch (error) {
         if (error.response) {
@@ -81,10 +72,10 @@ export const Jobs = () => {
   const handleJobSubmit = async (formData) => {
     await axios.post("http://localhost:7000/jobs", formData);
     // await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", formData);
-    
+
     const response = await axios.get("http://localhost:7000/jobs");
     // const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
-    
+
     setJobs(response.data);
 
     setShowForm(false);
@@ -175,7 +166,7 @@ export const Jobs = () => {
     try {
       const response = await axios.get(
         "http://localhost:7000/jobs?title=${searchQuery}"
-      //  `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}`
+        //  `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}`
       );
       setJobs(response.data);
     } catch (error) {
@@ -185,21 +176,12 @@ export const Jobs = () => {
 
   return (
     <div className="heading">
-<<<<<<< HEAD
       <div>
         <JobsSearchFilter
           searchQuery={searchQuery}
           handleSearch={handleSearch}
           setSearchQuery={setSearchQuery}
         />
-=======
-    <div>
-      <JobsSearchFilter
-        searchQuery={searchQuery}
-        handleSearch={handleSearch}
-        setSearchQuery={setSearchQuery}
-      />
->>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
       </div>
       <h1 className="text-gray-800 text-3xl font-bold mb-6 text-center">
         Job Posting

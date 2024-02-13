@@ -9,6 +9,7 @@ const Register = () => {
   const [user_id, setUser_id] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [userRole, setUserRole] = useState("");
 
   const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
@@ -48,6 +49,10 @@ const Register = () => {
     setConfirmPasswordError("");
   };
 
+  const handleRoleChange = (e) => {
+    setUserRole(e.target.value);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -83,12 +88,18 @@ const Register = () => {
       return;
     }
 
+    if (!userRole) {
+        setRegistrationError("Please select a user role");
+        return;
+      }
+
     try {
       const response = await axios.post("http://localhost:7000/register", {
         name,
         user_id,
         email,
         password,
+        user_roles: parseInt(userRole),
       });
       console.log(response.data);
       navigate("/home");
@@ -110,6 +121,20 @@ const Register = () => {
     <div className="signup-page">
       <h1>Register</h1>
       <form className="signup_form" onSubmit={handleSubmit}>
+        <label className="signup_label" htmlFor="userRole">
+          User Role:
+        </label>
+        <select
+          className="signup_input"
+          id="userRole"
+          value={userRole}
+          onChange={handleRoleChange}
+        >
+          <option value="">Select User Role</option>
+          <option value="1">CSO</option>
+          <option value="2">Student</option>
+          <option value="3">Industry</option>
+        </select>
         <label className="signup_label" htmlFor="name">
           Name:
         </label>
@@ -123,7 +148,7 @@ const Register = () => {
         {nameError && <div className="error-message">{nameError}</div>}
 
         <label className="signup_label" htmlFor="fast_id">
-          User ID:
+          User ID (eg: 20K-1234):
         </label>
         <input
           className="signup_input"

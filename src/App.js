@@ -20,14 +20,9 @@ import PostPage from "./components/NewsFeed/PostPage";
 import EditPost from "./components/NewsFeed/EditPost";
 import DeletePost from "./components/NewsFeed/DeletePost";
 import IndexPage from "./components/NewsFeed/IndexPage";
-<<<<<<< HEAD
 import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
-=======
-// import env from "react-dotenv";
-// import "./components/Newsfeed/NewsFeed.css";
-// import Footer from "./components/Footer/Footer";
->>>>>>> ff46f2a8061981bbf3478e1133783e313a2b09bb
+import UserProfile from "./components/Pages/UserProfile";
 
 function App() {
   return (
@@ -59,6 +54,7 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<UserProfile />} />
 
         <Route
           path="/newsfeed"
