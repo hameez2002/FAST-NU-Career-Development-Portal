@@ -8,7 +8,15 @@ const JobForm = ({ onSubmit, onCancel }) => {
   const [jobLink, setJobLink] = useState("");
   const [deadlineDate, setDeadlineDate] = useState("");
   const [jobType, setJobType] = useState("");
+  const [noOfOpenings, setNoOfOpenings] = useState("");
+  const [qualificationRequirements, setQualificationRequirements] = useState("");
+  const [responsibilities, setResponsibilities] = useState("");
+  const [about, setAbout] = useState("");
+  const [jobStatus, setJobStatus] = useState("");
+  const [postedOn, setPostedOn] = useState("");
+  const [updatedOn, setUpdatedOn] = useState("");
   const [showForm, setShowForm] = useState(false);
+
 
   const [validationErrors, setValidationErrors] = useState({});
 
@@ -30,6 +38,29 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
   const handleJobTypeChange = (event) => {
     setJobType(event.target.value);
+  };
+
+  const handleNoOfOpeningsChange = (event) => {
+    setNoOfOpenings(event.target.value);
+  };
+  const handleQualificationRequirementsChange = (event) => {
+    setQualificationRequirements(event.target.value);
+  };
+  const handleResponsibilitiesChange = (event) => {
+    setResponsibilities(event.target.value);
+  };
+  const handleAboutChange = (event) => {
+    setAbout(event.target.value);
+  };
+  const handleJobStatusChange = (event) => {
+    setJobStatus(event.target.value);
+  };
+  const handlePostedOnChange = (event) => {
+    setPostedOn(event.target.value);
+  };
+  
+  const handleUpdatedOnChange = (event) => {
+    setUpdatedOn(event.target.value);
   };
 
   const handleShowForm = () => {
@@ -82,6 +113,13 @@ const JobForm = ({ onSubmit, onCancel }) => {
           jobDescription,
           jobLink,
           deadlineDate,
+          noOfOpenings,
+          qualificationRequirements,
+          responsibilities,
+          about,
+          jobStatus,
+          postedOn,
+          updatedOn,
         });
 
         const response = await axios.post("http://localhost:7000/jobs", {
@@ -91,6 +129,13 @@ const JobForm = ({ onSubmit, onCancel }) => {
           jobDescription,
           jobLink,
           deadlineDate,
+          noOfOpenings,
+          qualificationRequirements,
+          responsibilities,
+          about,
+          jobStatus,
+          postedOn,
+          updatedOn,
         });
 
         console.log("Received response:", response.data);
@@ -105,6 +150,13 @@ const JobForm = ({ onSubmit, onCancel }) => {
       setJobDescription("");
       setJobLink("");
       setDeadlineDate("");
+      setNoOfOpenings("");
+      setQualificationRequirements("");
+      setResponsibilities("");
+      setAbout("");
+      setJobStatus("");
+      setPostedOn("");
+      setUpdatedOn("");
     } else {
       setValidationErrors(errors);
     }
@@ -227,6 +279,122 @@ const JobForm = ({ onSubmit, onCancel }) => {
           </span>
         )}
       </div>
+
+      <div className="mb-4">
+        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="noOfOpenings">
+          Number of Openings
+        </label>
+        <input
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          id="noOfOpenings"
+          type="number"
+          placeholder="Enter Number of Openings"
+          value={noOfOpenings}
+          onChange={handleNoOfOpeningsChange}
+        />
+        {validationErrors.noOfOpenings && (
+          <span className="text-red-500 text-xs italic">{validationErrors.noOfOpenings}</span>
+        )}
+      </div>
+      <div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="qualificationRequirements">
+    Qualification Requirements
+  </label>
+  <textarea
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="qualificationRequirements"
+    placeholder="Enter Qualification Requirements"
+    value={qualificationRequirements}
+    onChange={handleQualificationRequirementsChange}
+  />
+  {validationErrors.qualificationRequirements && (
+    <span className="text-red-500 text-xs italic">{validationErrors.qualificationRequirements}</span>
+  )}
+</div>
+
+
+
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="responsibilities">
+    Responsibilities
+  </label>
+  <textarea
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="responsibilities"
+    placeholder="Enter Responsibilities"
+    value={responsibilities}
+    onChange={handleResponsibilitiesChange}
+  />
+  {validationErrors.responsibilities && (
+    <span className="text-red-500 text-xs italic">{validationErrors.responsibilities}</span>
+  )}
+</div>
+
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="about">
+    About
+  </label>
+  <textarea
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="about"
+    placeholder="Enter About"
+    value={about}
+    onChange={handleAboutChange}
+  />
+  {validationErrors.about && (
+    <span className="text-red-500 text-xs italic">{validationErrors.about}</span>
+  )}
+</div>
+
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobStatus">
+    Job Status
+  </label>
+  <input
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="jobStatus"
+    type="text"
+    placeholder="Enter Job Status"
+    value={jobStatus}
+    onChange={handleJobStatusChange}
+  />
+  {validationErrors.jobStatus && (
+    <span className="text-red-500 text-xs italic">{validationErrors.jobStatus}</span>
+  )}
+</div>
+
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="postedOn">
+    Posted On
+  </label>
+  <input
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="postedOn"
+    type="date"
+    value={postedOn}
+    onChange={handlePostedOnChange}
+  />
+  {validationErrors.postedOn && (
+    <span className="text-red-500 text-xs italic">{validationErrors.postedOn}</span>
+  )}
+</div>
+
+<div className="mb-4">
+  <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="updatedOn">
+    Updated On
+  </label>
+  <input
+    className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+    id="updatedOn"
+    type="date"
+    value={updatedOn}
+    onChange={handleUpdatedOnChange}
+  />
+  {validationErrors.updatedOn && (
+    <span className="text-red-500 text-xs italic">{validationErrors.updatedOn}</span>
+  )}
+</div>
+
       <div className="flex items-center justify-center ">
         <button
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-center focus:outline-none focus:shadow-outline w-16"
