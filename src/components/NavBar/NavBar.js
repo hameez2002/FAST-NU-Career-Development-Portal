@@ -226,14 +226,14 @@ function NavBar() {
           className="xs:hidden sm:hidden md:hidden xl:block md:ml-auto md:flex flex-wrap items-center justify-center text-base tracking-wide"
           style={{}}
         >
-          <NavLink
+          {/* <NavLink
             exact
             to="/login"
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
             Login
-          </NavLink>
+          </NavLink> */}
           <NavLink
             exact
             to="/home"
@@ -252,11 +252,27 @@ function NavBar() {
           </NavLink>
           <NavLink
             exact
+            to="/email"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Email
+          </NavLink>
+          <NavLink
+            exact
             to="/newsfeed"
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
             NewsFeed
+          </NavLink>
+          <NavLink
+            exact
+            to="/profile"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Profile
           </NavLink>
           <NavLink
             exact
@@ -281,7 +297,7 @@ function NavBar() {
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
-            Board of Directors
+            BoD
           </NavLink>
         </nav>
 
