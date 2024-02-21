@@ -120,7 +120,7 @@ export default function MyForm() {
     });
   
     if (res.status > 199 && res.status < 300) {
-      alert("Send Successfully !");
+      alert("Sent Successfully !");
     } else {
       alert("Failed to send email");
     }

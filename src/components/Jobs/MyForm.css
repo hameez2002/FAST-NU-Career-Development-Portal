@@ -50,8 +50,10 @@
   cursor: pointer;
   border: none;
   text-align: center;
+  justify-content: center;
 }
 
 .email-form-body button:hover {
   background: #2b6cb0;
+  
 }
