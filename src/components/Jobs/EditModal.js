@@ -1,22 +1,37 @@
 import React, { useState, useEffect } from "react";
 
 const EditModal = ({ job, onConfirm, onCancel }) => {
+  console.log("edit clicked");
   const [formData, setFormData] = useState({
-    jobTitle: job.jobTitle || "",
-    jobType: job.jobType || "On-site",
-    jobDescription: job.jobDescription || "",
-    jobLink: job.jobLink || "",
-    deadlineDate: job.deadlineDate || "",
+    jobTitle: job.title || "",
+    jobType: job.job_type || "",
+    jobDescription: job.job_description || "",
+    jobLink: job.link || "",
+    deadlineDate: job.Deadline || "",
+    noOfOpenings: job.no_of_openings || "",
+    qualificationRequirements: job.qualifications_req || "",
+    responsibilities: job.responsibilities || "",
+    about: job.about || "",
+    jobStatus: job.job_status || "",
+    postedOn: job.posted_on || "",
+    updatedOn: job.updated_on || "",
   });
 
   useEffect(() => {
     console.log("Job prop in useEffect:", job);
     setFormData({
-      jobTitle: job?.jobTitle || "",
-      jobType: job?.jobType || "On-site",
-      jobDescription: job?.jobDescription || "",
-      jobLink: job?.jobLink || "",
-      deadlineDate: job?.deadlineDate || "",
+      jobTitle: job?.title || "",
+      jobType: job?.job_type || "",
+      jobDescription: job?.job_description || "",
+      jobLink: job?.link || "",
+      deadlineDate: job?.Deadline || "",
+      noOfOpenings: job?.no_of_openings || "",
+    qualificationRequirements: job?.qualifications_req || "",
+    responsibilities: job?.responsibilities || "",
+    about: job?.about || "",
+    jobStatus: job?.job_status || "",
+    postedOn: job?.posted_on || "",
+    updatedOn: job?.updated_on || "",
     });
   }, [job]);
 
@@ -31,20 +46,21 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-md shadow-lg w-1/2">
-        <div className="flex justify-between items-center">
-          <h2 className="block mx-auto text-2xl font-medium text-gray-800">
-            Edit Job
-          </h2>
+    <div className="fixed inset-0 flex items-center justify-center z-50 overflow-auto bg-gray-600 bg-opacity-50">
+    <div className="bg-white rounded-md shadow-lg max-w-3xl w-full max-h-full overflow-auto">
+      <div className="p-6">
+        <div className="flex justify-between items-center"></div>
+          <h2 className="text-2xl font-medium text-gray-800">Edit Job</h2>
+          <div className="right-0">
           <button
             onClick={onCancel}
-            className="w-10 bg-red-500 text-white hover:bg-red-600"
+            className="right-0 w-10 h-10 flex items-center justify-center bg-red-500 text-white rounded-full hover:bg-red-600"
           >
             X
           </button>
+          </div>
         </div>
-        <form onSubmit={handleSubmit} className="mt-5">
+        <form onSubmit={handleSubmit} className="mt-5 space-y-5">
           <div className="space-y-5">
             <div>
               <label
@@ -55,9 +71,9 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               </label>
               <input
                 type="text"
-                id="jobTitle"
+                id="title"
                 name="jobTitle"
-                value={formData.jobTitle}
+                value={formData.title}
                 onChange={handleInputChange}
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
@@ -70,9 +86,9 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
                 Job Type:
               </label>
               <select
-                id="jobType"
+                id="job_type"
                 name="jobType"
-                value={formData.jobType}
+                value={formData.job_type}
                 onChange={handleInputChange}
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               >
@@ -90,9 +106,9 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
                 Job Description:
               </label>
               <textarea
-                id="jobDescription"
+                id="job_description"
                 name="jobDescription"
-                value={formData.jobDescription}
+                value={formData.job_description}
                 onChange={handleInputChange}
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
@@ -106,9 +122,9 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               </label>
               <input
                 type="text"
-                id="jobLink"
+                id="link"
                 name="jobLink"
-                value={formData.jobLink}
+                value={formData.link}
                 onChange={handleInputChange}
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
@@ -122,15 +138,125 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               </label>
               <input
                 type="date"
-                id="deadlineDate"
+                id="Deadline"
                 name="deadlineDate"
-                value={formData.deadlineDate}
+                value={formData.Deadline}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="noOfOpenings"
+                className="block text-sm font-medium text-gray-700"
+              >
+                No. of Openings:
+              </label>
+              <input
+                type="number"
+                id="no_of_openings"
+                name="noOfOpenings"
+                value={formData.no_of_openings}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="qualificationRequirements"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Qualification Requirements:
+              </label>
+              <textarea
+                type="text"
+                id="qualifications_req"
+                name="qualificationRequirements"
+                value={formData.qualifications_req}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="responsibilities"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Responsibilities:
+              </label>
+              <textarea
+                id="responsibilities"
+                name="responsibilities"
+                value={formData.responsibilities}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="about"
+                className="block text-sm font-medium text-gray-700"
+              >
+                About:
+              </label>
+              <textarea
+                id="about"
+                name="about"
+                value={formData.about}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="jobStatus"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Job Status:
+              </label>
+              <input
+                type="text"
+                id="job_status"
+                name="jobStatus"
+                value={formData.job_status}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="postedOn"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Posted On:
+              </label>
+              <input
+                type="date"
+                id="posted_on"
+                name="postedOn"
+                value={formData.posted_on}
+                onChange={handleInputChange}
+                className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="updatedOn"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Updated On:
+              </label>
+              <input
+                type="date"
+                id="updated_on"
+                name="updatedOn"
+                value={formData.updated_on}
                 onChange={handleInputChange}
                 className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
           </div>
-          <div className="mt-5 flex justify-center space-x-3">
+          <div className="flex justify-center space-x-3">
             <button
               type="button"
               onClick={onCancel}
