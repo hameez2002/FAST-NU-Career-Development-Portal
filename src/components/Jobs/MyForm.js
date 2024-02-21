@@ -77,7 +77,11 @@
 
 // MyForm.js
 
+
+//START
+
 import React, { useState } from "react";
+import { Base64 } from 'js-base64';
 import "./MyForm.css";
 
 export default function MyForm() {
@@ -86,14 +90,26 @@ export default function MyForm() {
   const [message, setMessage] = useState("");
 
   const baseUrl = "http://localhost:7000";
+  const encryptPassword = (password) => {
+    return Base64.encode(password);
+  };
 
   const sendEmail = async () => {
+    const password = window.prompt('Enter your email password:');
+    if (!password) {
+      alert('Password is required');
+      return;
+    }
+    const encryptedPassword = encryptPassword(password);
+    console.log(encryptPassword);
+  
     let dataSend = {
       email: email,
       subject: subject,
       message: message,
+      password: encryptedPassword,
     };
-
+  
     const res = await fetch(`${baseUrl}/email/sendEmail`, {
       method: "POST",
       body: JSON.stringify(dataSend),
@@ -101,14 +117,14 @@ export default function MyForm() {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-    })
-      .then((res) => {
-        console.log(res);
-        if (res.status > 199 && res.status < 300) {
-          alert("Send Successfully !");
-        }
-      });
-
+    });
+  
+    if (res.status > 199 && res.status < 300) {
+      alert("Send Successfully !");
+    } else {
+      alert("Failed to send email");
+    }
+  
     window.open("https://localhost:3000/", "_blank");
   };
 
