@@ -1,53 +1,135 @@
 .user-profile {
-  max-width: 600px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #f2f2f2;
 }
 
 .user-form-row {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 20px;
 }
 
 .user-form-group {
-  width: calc(50% - 10px);
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  margin-top: -10px;
 }
+
+/* .user-form-group-personal {
+  width: calc(33.33% - 10px);
+  margin-bottom: 20px;
+  margin-top: -10px;
+} */
 
 .user-label {
   display: block;
   font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
 }
 
-input[type="text"],
-input[type="number"] {
-  width: 100%;
+.user-input {
+  width: auto;
+  min-width: 0;
+  flex-grow: 1;
   padding: 10px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
+  background-color: #fff;
+  color: #333;
 }
 
-.btn {
+.bigger-user-input {
+  width: 400px;
+  min-width: 0;
+  flex-grow: 1;
+  padding: 10px;
+  margin-top: 2px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+.expanded-user-input {
+  width: 850px;
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+}
+
+/* .user-text {
+  min-width: 200px;
+  width: 100%;
+  min-height: 200px; 
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #333;
+} */
+
+.user-profile-btn {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
+  text-align: center;
+  margin-right: 10px;
 }
 
-.btn-primary {
+.user-profile-button-primary {
   background-color: #007bff;
   color: #fff;
 }
 
-.btn-secondary {
-  background-color: #6c757d;
+.user-profile-button-secondary {
+  background-color: #146c94;
   color: #fff;
 }
 
-.btn-secondary:hover {
-  background-color: #5a6268;
+.user-profile-button-secondary:hover {
+  background-color: #0f5c7f;
+}
+
+.user-profile-heading {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.profile-picture-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  /* display: block; */
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  /* margin: 0 auto; */
+  /* margin-bottom: 20px; */
+}
+
+@media (max-width: 768px) {
+  .user-form-group {
+    width: 100%;
+  }
 }
