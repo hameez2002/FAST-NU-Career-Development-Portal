@@ -3,10 +3,10 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useNavigate,
-  useLocation,
+  // useNavigate,
+  // useLocation,
 } from "react-router-dom";
-import NavBar from "./components/NavBar/NavBar";
+// import NavBar from "./components/NavBar/NavBar";
 import NavBarWrapper from "./components/NavBar/NavBarWrapper";
 import { Home } from "./components/Pages/Home";
 import { About } from "./components/Pages/About";
@@ -23,6 +23,7 @@ import IndexPage from "./components/NewsFeed/IndexPage";
 import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
 import UserProfile from "./components/Pages/UserProfile";
+import MyForm from "./components/Jobs/MyForm";
 
 function App() {
   return (
@@ -54,7 +55,23 @@ function App() {
         />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<UserProfile />} />
+
+        <Route
+          path="/profile"
+          element={
+            <NavBarWrapper>
+              <UserProfile />
+            </NavBarWrapper>
+          }
+        />
+        <Route
+          path="/email"
+          element={
+            <NavBarWrapper>
+              <MyForm />
+            </NavBarWrapper>
+          }
+        />
 
         <Route
           path="/newsfeed"

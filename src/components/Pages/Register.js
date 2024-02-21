@@ -4,14 +4,14 @@ import axios from "axios";
 import "./Register.css";
 
 const Register = () => {
-  const [name, setName] = useState("");
+  // const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [user_id, setUser_id] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [userRole, setUserRole] = useState("");
 
-  const [nameError, setNameError] = useState("");
+  // const [nameError, setNameError] = useState("");
   const [emailError, setEmailError] = useState("");
   const [UserIdError, setUserIdError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -24,10 +24,10 @@ const Register = () => {
     navigate("/login");
   };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
-    setNameError("");
-  };
+  // const handleNameChange = (e) => {
+  //   setName(e.target.value);
+  //   setNameError("");
+  // };
 
   const handleUserIDChange = (e) => {
     setUser_id(e.target.value);
@@ -57,16 +57,16 @@ const Register = () => {
     e.preventDefault();
 
     setRegistrationError("");
-    setNameError("");
+    // setNameError("");
     setUserIdError("");
     setEmailError("");
     setPasswordError("");
     setConfirmPasswordError("");
 
-    if (!name.trim()) {
-      setNameError("Name is required");
-      return;
-    }
+    // if (!name.trim()) {
+    //   setNameError("Name is required");
+    //   return;
+    // }
 
     if (!user_id.trim()) {
       setUserIdError("User ID is required");
@@ -89,13 +89,13 @@ const Register = () => {
     }
 
     if (!userRole) {
-        setRegistrationError("Please select a user role");
-        return;
-      }
+      setRegistrationError("Please select a user role");
+      return;
+    }
 
     try {
       const response = await axios.post("http://localhost:7000/register", {
-        name,
+        // name,
         user_id,
         email,
         password,
@@ -135,7 +135,7 @@ const Register = () => {
           <option value="2">Student</option>
           <option value="3">Industry</option>
         </select>
-        <label className="signup_label" htmlFor="name">
+        {/* <label className="signup_label" htmlFor="name">
           Name:
         </label>
         <input
@@ -145,7 +145,7 @@ const Register = () => {
           value={name}
           onChange={handleNameChange}
         />
-        {nameError && <div className="error-message">{nameError}</div>}
+        {nameError && <div className="error-message">{nameError}</div>} */}
 
         <label className="signup_label" htmlFor="fast_id">
           User ID (eg: 20K-1234):
