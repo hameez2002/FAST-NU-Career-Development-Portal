@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./UserProfile.css";
+import { FaEdit, FaSave } from "react-icons/fa"; // Import icons
 
 const UserProfile = () => {
   const [editMode, setEditMode] = useState(false);
@@ -17,23 +18,23 @@ const UserProfile = () => {
     personalStatement: "",
     certificates: [""],
     experiences: [""],
-    skills: [""],
   });
 
   const handleEditClick = () => {
-    setEditMode(true);
+    setEditMode((prevEditMode) => !prevEditMode);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      // Submit profileData to the backend
-      await axios.post("http://localhost:7000/profile", profileData);
-      console.log("Profile Data Submitted Successfully!");
-      setEditMode(false); // Disable edit mode after successful submission
-    } catch (error) {
-      console.error("Error submitting profile data:", error);
-    }
+    console.log("Profile sent");
+    // try {
+    //   // Submit profileData to the backend
+    //   await axios.post("http://localhost:7000/profile", profileData);
+    //   console.log("Profile Data Submitted Successfully!");
+    //   setEditMode(false); // Disable edit mode after successful submission
+    // } catch (error) {
+    //   console.error("Error submitting profile data:", error);
+    // }
   };
 
   const handleImageChange = (e) => {
@@ -86,37 +87,30 @@ const UserProfile = () => {
   };
 
   return (
-    <div className="user-profile">
+    <div className={`user-profile ${editMode ? "edit-mode" : ""}`}>
       <h2 className="user-profile-heading">My Profile</h2>
       <form onSubmit={handleSubmit}>
         <div className="user-form-row">
-          {/* Profile Picture */}
-          <div className="user-form-group">
-            <label
-              className="user-label profile-picture"
-              htmlFor="profilePicture"
-            >
-              Profile Picture:
-            </label>
-            <div className="profile-picture-container">
-              {editMode ? (
-                <input
-                  type="file"
-                  id="profilePicture"
-                  name="profilePicture"
-                  onChange={handleImageChange}
-                />
-              ) : (
+          <div className="user-form-group profile-picture-container">
+            {editMode ? (
+              <input
+                type="file"
+                id="profilePicture"
+                name="profilePicture"
+                onChange={handleImageChange}
+              />
+            ) : (
+              <div className="profile-picture">
                 <img
                   src={selectedImage ? URL.createObjectURL(selectedImage) : ""}
                   alt="Profile"
-                  className="profile-picture"
+                  className="profile-image"
                 />
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </div>
-        {/* Other input fields */}
+
         <div className="user-form-row">
           <div className="user-form-group">
             <label className="user-label" htmlFor="firstName">
@@ -151,7 +145,7 @@ const UserProfile = () => {
               Contact:
             </label>
             <input
-              type="number"
+              type="tel"
               id="contact"
               name="contact"
               value={profileData.contact}
@@ -196,18 +190,18 @@ const UserProfile = () => {
               CGPA:
             </label>
             <input
-              type="float"
+              type="number"
               id="cgpa"
               name="cgpa"
               value={profileData.cgpa}
               onChange={handleChange}
               disabled={!editMode}
               className="user-input"
+              step="0.01"
             />
           </div>
         </div>
 
-        {/* Certificates */}
         <div className="user-form-row">
           <div className="user-form-group">
             <label className="user-label" htmlFor="certificates">
@@ -220,7 +214,7 @@ const UserProfile = () => {
                 value={certificate}
                 onChange={(e) => handleChangeCertificate(index, e.target.value)}
                 disabled={!editMode}
-                className="bigger-user-input"
+                className="user-input"
               />
             ))}
             {editMode && (
@@ -231,7 +225,6 @@ const UserProfile = () => {
           </div>
         </div>
 
-        {/* Experiences */}
         <div className="user-form-row">
           <div className="user-form-group">
             <label className="user-label" htmlFor="experiences">
@@ -244,7 +237,7 @@ const UserProfile = () => {
                 value={experience}
                 onChange={(e) => handleChangeExperience(index, e.target.value)}
                 disabled={!editMode}
-                className="bigger-user-input"
+                className="user-input"
               />
             ))}
             {editMode && (
@@ -254,6 +247,7 @@ const UserProfile = () => {
             )}
           </div>
         </div>
+
         <div className="user-form-row">
           <div className="user-form-group">
             <label className="user-label" htmlFor="tagline">
@@ -266,7 +260,7 @@ const UserProfile = () => {
               value={profileData.tagline}
               onChange={handleChange}
               disabled={!editMode}
-              className="expanded-user-input"
+              className="user-input"
             />
           </div>
         </div>
@@ -276,34 +270,25 @@ const UserProfile = () => {
             <label className="user-label" htmlFor="personalStatement">
               Personal Statement:
             </label>
-            <input
-              type="text"
+            <textarea
               id="personalStatement"
               name="personalStatement"
               value={profileData.personalStatement}
               onChange={handleChange}
               disabled={!editMode}
-              className="expanded-user-input"
-            />
+              className="user-input user-textarea"
+            ></textarea>
           </div>
         </div>
 
-        {/* Buttons */}
         <div className="user-form-group user-buttons">
           <button
-            type="submit"
-            className="user-profile-btn user-profile-button-primary"
-            style={{ display: editMode ? "block" : "none" }}
-          >
-            Save
-          </button>
-          <button
             type="button"
-            className="user-profile-btn user-profile-button-secondary"
-            onClick={handleEditClick}
-            style={{ display: editMode ? "none" : "block" }}
+            onClick={handleEditClick} // Bind handleEditClick function here
+            className={`user-profile-btn ${editMode ? "secondary" : "primary"}`}
           >
-            Edit
+            {editMode ? <FaSave /> : <FaEdit />}
+            {editMode ? "Save" : "Edit"}
           </button>
         </div>
       </form>
