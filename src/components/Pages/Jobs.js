@@ -161,6 +161,7 @@ export const Jobs = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
+        // eslint-disable-next-line
         "http://localhost:7000/jobs?title=${searchQuery}"
         //  `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}`
       );

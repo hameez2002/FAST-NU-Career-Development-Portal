@@ -1,9 +1,8 @@
 .footer {
-  /* background-color: rgb(31 41 55); */
   color: #f6f1f1;
+  background-color: #1a202c;
   padding: 10px 0;
   text-align: center;
-  /* position: fixed; */
   bottom: 0;
   width: 100%;
   z-index: 1;
@@ -12,6 +11,7 @@
 .social-link {
   font-size: 24px;
   margin: 0 10px;
+  margin-right: 1.5rem;
   color: #f6f1f1;
   text-decoration: none;
   transition: transform 0.3s ease-in-out;
@@ -22,7 +22,7 @@
 }
 
 .footer-text {
-  margin-top: 20px;
+  margin-top: 1rem;
   font-size: 14px;
   opacity: 0.7;
 }

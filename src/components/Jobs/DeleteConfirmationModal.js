@@ -1,25 +1,30 @@
 import React from "react";
-// import { Modal, Button } from "react-bootstrap";
 import "./DeleteConfirmationModal.css";
 
 const DeleteConfirmationModal = ({ onConfirm, onCancel }) => {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        <div className="titleCloseBtn">
-          <button className="w-8 h-10 text-white" onClick={onCancel}>X</button>
-        </div>
+        {/* <div className="titleCloseBtn">
+          <button className="closeButton" onClick={onCancel}>
+            X
+          </button>
+        </div> */}
         <div className="title">
-          <h1 className="text-black mt-[-1rem]">Are you sure you want to delete job?</h1>
+          <h1 className="text-black text-lg font-bold mt-2">Delete Job</h1>
         </div>
         <div className="body">
-          {/* <p>The next page looks amazing. Hope you want to go there!</p> */}
+          <p className="text-gray-700 text-base">
+            Are you sure you want to delete this job? This action cannot be undone.
+          </p>
         </div>
         <div className="footer">
-          <button onClick={onCancel} id="cancelBtn">
+          <button onClick={onCancel} className="cancelButton">
             Cancel
           </button>
-          <button onClick={onConfirm} id="deleteBtn">Delete</button>
+          <button onClick={onConfirm} className="deleteButton">
+            Delete
+          </button>
         </div>
       </div>
     </div>

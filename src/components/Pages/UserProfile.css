@@ -1,135 +1,128 @@
+/* UserProfile.css */
+
 .user-profile {
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #f2f2f2;
+  padding: 40px;
+  background: linear-gradient(135deg, #fdfbfb, #ebedee);
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.user-profile.edit-mode {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.user-profile-heading {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #333333;
+  text-align: center;
 }
 
 .user-form-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .user-form-group {
-  width: calc(33.33% - 10px);
-  margin-bottom: 20px;
-  margin-top: -10px;
+  flex: 1;
+  margin-right: 30px;
 }
 
-/* .user-form-group-personal {
-  width: calc(33.33% - 10px);
-  margin-bottom: 20px;
-  margin-top: -10px;
-} */
-
 .user-label {
-  display: block;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
+  margin-bottom: 10px;
+  color: #555555;
 }
 
 .user-input {
-  width: auto;
-  min-width: 0;
-  flex-grow: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-}
-
-.bigger-user-input {
-  width: 400px;
-  min-width: 0;
-  flex-grow: 1;
-  padding: 10px;
-  margin-top: 2px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-}
-
-.expanded-user-input {
-  width: 850px;
-  flex-grow: 1;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-}
-
-/* .user-text {
-  min-width: 200px;
   width: 100%;
-  min-height: 200px; 
-  padding: 10px;
+  padding: 15px;
   font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #333;
-} */
-
-.user-profile-btn {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  text-align: center;
-  margin-right: 10px;
+  border: 1px solid #cccccc;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #333333;
+  transition: border-color 0.3s ease;
 }
 
-.user-profile-button-primary {
-  background-color: #007bff;
-  color: #fff;
-}
-
-.user-profile-button-secondary {
-  background-color: #146c94;
-  color: #fff;
-}
-
-.user-profile-button-secondary:hover {
-  background-color: #0f5c7f;
-}
-
-.user-profile-heading {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #333;
+.user-input:focus {
+  outline: none;
+  border-color: #007bff;
 }
 
 .profile-picture-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.profile-picture {
-  /* display: block; */
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 30px;
+  overflow: hidden;
   border-radius: 50%;
-  /* margin: 0 auto; */
-  /* margin-bottom: 20px; */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
+.profile-picture-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.profile-picture-container input[type="file"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.user-buttons {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.user-profile-btn {
+  display: flex;
+  align-items: center;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-profile-btn.primary {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.user-profile-btn.secondary {
+  background-color: #f9f9f9;
+  color: #333333;
+}
+
+.user-profile-btn:hover {
+  opacity: 0.8;
+}
+
+.user-profile-btn svg {
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
   .user-form-group {
-    width: 100%;
+    flex: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
   }
 }

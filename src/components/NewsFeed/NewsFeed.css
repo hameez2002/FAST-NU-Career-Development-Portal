@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 a {
@@ -171,4 +171,4 @@ a.delete-button {
   &:hover {
     background-color: #d84315;
   }
-}
+} */
