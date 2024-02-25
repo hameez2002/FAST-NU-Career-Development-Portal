@@ -17,7 +17,7 @@
   border-radius: 12px;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-  overflow-y: auto; /* Added to make the modal scrollable */
+  overflow-y: auto; 
 }
 
 .edit-modal-header {
@@ -48,8 +48,8 @@
 
 .edit-modal-form {
   padding: 1rem;
-  max-height: 400px; /* Example height; adjust as needed */
-  overflow-y: auto; /* Added to make the form scrollable */
+  max-height: 400px; 
+  overflow-y: auto; 
 }
 
 .edit-modal-form-group {

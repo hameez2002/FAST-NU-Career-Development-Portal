@@ -1,8 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./EditModal.css";
 
 const EditModal = ({ job, onConfirm, onCancel }) => {
   const [formData, setFormData] = useState({ ...job });
+
+  // useEffect(() => {
+  //   setFormData({ ...job });
+  // }, [job]);
+
+  useEffect(() => {
+    // Convert date strings to the format accepted by input type="date"
+    const formattedJob = {
+      ...job,
+      Deadline: job.Deadline ? job.Deadline.slice(0, 10) : "", // Extract date part (YYYY-MM-DD)
+      posted_on: job.posted_on ? job.posted_on.slice(0, 10) : "",
+      updated_on: job.updated_on ? job.updated_on.slice(0, 10) : "",
+    };
+    setFormData(formattedJob);
+  }, [job]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -14,8 +29,11 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
     onConfirm(formData);
   };
 
+  
+
   return (
     <div className="edit-modal-overlay">
+      {/* <div className={`edit-modal-overlay ${isOpen ? 'open' : ''}`}> */}
       <div className="edit-modal-container">
         <div className="edit-modal-header">
           <h2 className="edit-modal-title">Edit Job</h2>
@@ -39,27 +57,27 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
         <form onSubmit={handleSubmit} className="edit-modal-form">
           {/* Job Title */}
           <div className="edit-modal-form-group">
-            <label htmlFor="jobTitle" className="edit-modal-label">
+            <label htmlFor="title" className="edit-modal-label">
               Job Title:
             </label>
             <input
               type="text"
-              id="jobTitle"
-              name="jobTitle"
-              value={formData.jobTitle}
+              id="title"
+              name="title"
+              value={formData.title}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           {/* Job Type */}
           <div className="edit-modal-form-group">
-            <label htmlFor="jobType" className="edit-modal-label">
+            <label htmlFor="job_type" className="edit-modal-label">
               Job Type:
             </label>
             <select
-              id="jobType"
-              name="jobType"
-              value={formData.jobType}
+              id="job_type"
+              name="job_type"
+              value={formData.job_type}
               onChange={handleInputChange}
               className="edit-modal-input"
             >
@@ -70,71 +88,74 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
             </select>
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="jobDescription" className="edit-modal-label">
+            <label htmlFor="job_description" className="edit-modal-label">
               Job Description:
             </label>
             <textarea
-              id="jobDescription"
-              name="jobDescription"
-              value={formData.jobDescription}
+              id="job_description"
+              name="job_description"
+              value={formData.job_description}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="jobLink" className="edit-modal-label">
+            <label htmlFor="link" className="edit-modal-label">
               Job Link:
             </label>
             <input
               type="text"
-              id="jobLink"
-              name="jobLink"
-              value={formData.jobLink}
+              id="link"
+              name="link"
+              value={formData.link}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="deadlineDate" className="edit-modal-label">
+            <label htmlFor="Deadline" className="edit-modal-label">
               Deadline Date:
             </label>
             <input
               type="date"
-              id="deadlineDate"
-              name="deadlineDate"
-              value={formData.deadlineDate}
+              id="Deadline"
+              name="Deadline"
+              value={formData.Deadline}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="noOfOpenings" className="edit-modal-label">
-            No. of Openings:
+            <label htmlFor="no_of_openings" className="edit-modal-label">
+              No. of Openings:
             </label>
             <input
               type="number"
-              id="noOfOpenings"
-              name="noOfOpenings"
-              value={formData.noOfOpenings}
+              id="no_of_openings"
+              name="no_of_openings"
+              value={formData.no_of_openings}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="qualificationRequirements" className="edit-modal-label">
-            Qualification Requirements:
+            <label
+              htmlFor="qualifications_req"
+              className="edit-modal-label"
+            >
+              Qualification Requirements:
             </label>
             <textarea
-              id="qualificationRequirements"
-              name="qualificationRequirements"
-              value={formData.qualificationRequirements}
+              id="qualifications_req"
+              name="qualifications_req"
+              value={formData.qualifications_req}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
             <label htmlFor="responsibilities" className="edit-modal-label">
-            Responsibilities:
+              Responsibilities:
             </label>
             <textarea
               id="responsibilities"
@@ -146,7 +167,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
           </div>
           <div className="edit-modal-form-group">
             <label htmlFor="about" className="edit-modal-label">
-            About:
+              About:
             </label>
             <textarea
               id="about"
@@ -157,40 +178,40 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="jobStatus" className="edit-modal-label">
+            <label htmlFor="job_status" className="edit-modal-label">
               Job Status:
             </label>
             <input
               type="text"
-              id="jobStatus"
-              name="jobStatus"
-              value={formData.jobStatus}
+              id="job_status"
+              name="job_status"
+              value={formData.job_status}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="postedOn" className="edit-modal-label">
+            <label htmlFor="posted_on" className="edit-modal-label">
               Posted On:
             </label>
             <input
               type="date"
-              id="postedOn"
-              name="postedOn"
-              value={formData.postedOn}
+              id="posted_on"
+              name="posted_on"
+              value={formData.posted_on}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
           </div>
           <div className="edit-modal-form-group">
-            <label htmlFor="updatedOn" className="edit-modal-label">
+            <label htmlFor="updated_on" className="edit-modal-label">
               Updated On:
             </label>
             <input
               type="date"
-              id="updatedOn"
-              name="updatedOn"
-              value={formData.updatedOn}
+              id="updated_on"
+              name="updated_on"
+              value={formData.updated_on}
               onChange={handleInputChange}
               className="edit-modal-input"
             />
