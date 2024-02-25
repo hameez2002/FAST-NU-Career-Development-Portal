@@ -20,19 +20,7 @@ export const Jobs = () => {
   const [updatedJob, setUpdatedJob] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
 
-  // useEffect(() => {
-  //   const fetchJobPostings = async () => {
-  //     console.log("Fetching jobs...");
-  //     try {
-  //       // const response = await axios.get("http://localhost:7000/jobs");
-  //       const response = await axiosInstance.get("/jobs");
-  //       setJobs(response.data);
-  //     } catch (error) {
-  //       console.error("Error fetching job postings:", error);
-  //     }
-  //   };
-  //   fetchJobPostings();
-  // }, []);
+
 
   useEffect(() => {
     const fetchJobPostings = async () => {
@@ -92,14 +80,15 @@ export const Jobs = () => {
   };
 
   const handleJobDelete = async () => {
-    if (selectedJob) {
+    console.log("Selected job:", selectedJob);
+    // Check if selectedJob exists and it has the ID property
+    if (selectedJob && selectedJob.job_id) {
       try {
         const response = await axios.delete(
-          "http://localhost:7000/jobs/${selectedJob.ID}"
-          // `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}`
+          `http://localhost:7000/jobs/${selectedJob.job_id}`
         );
         if (response.status === 204) {
-          setJobs(jobs.filter((job) => job.ID !== selectedJob.ID));
+          setJobs(jobs.filter((job) => job.ID !== selectedJob.job_id));
           setSelectedJob(null);
           setShowDeleteModal(false);
         } else {
@@ -108,8 +97,13 @@ export const Jobs = () => {
       } catch (error) {
         console.error("Error deleting job:", error);
       }
+    } else {
+      console.error("Selected job or job ID is undefined.");
     }
   };
+  
+  
+  
 
   const handleDeleteCancel = () => {
     setSelectedJobID(null);
@@ -117,32 +111,33 @@ export const Jobs = () => {
   };
 
   const handleEditJobClick = (jobId) => {
-    console.log("Job in handleEditJobClick:", jobs);
-    console.log("job", jobId);
-    const job = jobs.find((job) => job.ID === jobId);
+    console.log("Job ID clicked for edit:", jobId);
+    const job = jobs.find((job) => job.job_id === jobId);
+    console.log("Selected job for edit:", job);
     if (job) {
       setSelectedJob(job);
       setShowEditModal(true);
+      console.log("Edit modal should be shown now");
     } else {
       console.error("Job not found for editing.");
     }
   };
+  
 
   const handleJobEdit = async (updatedJob) => {
     console.log("selectedJob:", selectedJob);
     console.log("updatedJob:", updatedJob);
     try {
-      if (selectedJob && updatedJob && selectedJob.ID !== undefined) {
+      if (selectedJob && updatedJob && selectedJob.job_id !== undefined) { // Corrected access to job_id property
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
-          "http://localhost:7000/jobs/${selectedJob.ID}",
-          // `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.ID}`,
+          `http://localhost:7000/jobs/${selectedJob.job_id}`, // Corrected URL interpolation
           updatedJob
         );
         console.log("Response from server:", response);
         if (response.status === 200) {
           setJobs(
-            jobs.map((job) => (job.ID === selectedJob.ID ? updatedJob : job))
+            jobs.map((job) => (job.job_id === selectedJob.job_id ? updatedJob : job)) // Corrected access to job_id property
           );
           setUpdatedJob(updatedJob);
           setShowEditModal(false);
@@ -156,6 +151,7 @@ export const Jobs = () => {
       console.error("Error editing job:", error);
     }
   };
+  
 
   const handleEditCancel = () => {
     setSelectedJob(null);
@@ -165,6 +161,7 @@ export const Jobs = () => {
   const handleSearch = async () => {
     try {
       const response = await axios.get(
+        // eslint-disable-next-line
         "http://localhost:7000/jobs?title=${searchQuery}"
         //  `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}`
       );
