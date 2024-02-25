@@ -57,17 +57,37 @@ export const Jobs = () => {
     setShowForm(true);
   };
 
+  // const handleJobSubmit = async (formData) => {
+  //   await axios.post("http://localhost:7000/jobs", formData);
+  //   // await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", formData);
+
+  //   const response = await axios.get("http://localhost:7000/jobs");
+  //   // const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
+
+  //   setJobs(response.data);
+
+  //   setShowForm(false);
+  // };
+
   const handleJobSubmit = async (formData) => {
-    await axios.post("http://localhost:7000/jobs", formData);
-    // await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", formData);
-
-    const response = await axios.get("http://localhost:7000/jobs");
-    // const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
-
-    setJobs(response.data);
-
-    setShowForm(false);
+    try {
+      // Post the new job to the server
+      await axios.post("http://localhost:7000/jobs", formData);
+  
+      // Fetch the newly added job from the server
+      const response = await axios.get("http://localhost:7000/jobs");
+  
+      // Add the newly added job to the jobs array
+      setJobs([...jobs, response.data]);
+  
+      // Hide the job form
+      setShowForm(false);
+    } catch (error) {
+      console.error("Error submitting job:", error);
+    }
   };
+  
+  
 
   const handleJobCancel = () => {
     setShowForm(false);
@@ -88,7 +108,8 @@ export const Jobs = () => {
           `http://localhost:7000/jobs/${selectedJob.job_id}`
         );
         if (response.status === 204) {
-          setJobs(jobs.filter((job) => job.ID !== selectedJob.job_id));
+          // setJobs(jobs.filter((job) => job.ID !== selectedJob.job_id));
+          setJobs(jobs.filter((job) => job.job_id !== selectedJob.job_id));
           setSelectedJob(null);
           setShowDeleteModal(false);
         } else {
@@ -106,7 +127,7 @@ export const Jobs = () => {
   
 
   const handleDeleteCancel = () => {
-    setSelectedJobID(null);
+    // setSelectedJobID(null);
     setShowDeleteModal(false);
   };
 
@@ -139,7 +160,7 @@ export const Jobs = () => {
           setJobs(
             jobs.map((job) => (job.job_id === selectedJob.job_id ? updatedJob : job)) // Corrected access to job_id property
           );
-          setUpdatedJob(updatedJob);
+          // setUpdatedJob(updatedJob);
           setShowEditModal(false);
         } else {
           console.error("Error editing job:", response.data.error);
@@ -199,6 +220,7 @@ export const Jobs = () => {
       )}
       {showEditModal && (
         <EditModal
+          isOpen={true}
           job={selectedJob}
           onUpdate={(jobData) => setUpdatedJob(jobData)}
           onConfirm={handleJobEdit}
