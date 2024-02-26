@@ -250,14 +250,14 @@ function NavBar() {
           >
             Jobs
           </NavLink>
-          {/* <NavLink
+          <NavLink
             exact
             to="/email"
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
             Email
-          </NavLink> */}
+          </NavLink>
           {/* <NavLink
             exact
             to="/newsfeed"

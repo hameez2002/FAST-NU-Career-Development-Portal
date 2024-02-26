@@ -38,7 +38,7 @@ export default function MyForm() {
 
     if (res.status > 199 && res.status < 300) {
       alert("Sent Successfully !");
-       window.close();
+      //  window.close();
     } else {
       alert("Failed to send email");
     }
