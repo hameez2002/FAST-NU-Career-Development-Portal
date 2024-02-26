@@ -140,7 +140,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
           updatedOn,
         });
 
-        // window.open("https://main--zesty-creponne-0bcae2.netlify.app/email", "_blank");
+        window.open("https://main--zesty-creponne-0bcae2.netlify.app/email", "_blank");
         
         console.log("Received response:", response.data);
         handleShowForm();
