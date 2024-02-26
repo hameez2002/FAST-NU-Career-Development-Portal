@@ -7,7 +7,7 @@ export default function MyForm() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const baseUrl = "http://localhost:7000";
+  const baseUrl = "https://backend-fast-nu-career-development-portal-tais.vercel.app";
   const encryptPassword = (password) => {
     return Base64.encode(password);
   };
@@ -38,6 +38,7 @@ export default function MyForm() {
 
     if (res.status > 199 && res.status < 300) {
       alert("Sent Successfully !");
+       window.close()
     } else {
       alert("Failed to send email");
     }
@@ -89,3 +90,4 @@ export default function MyForm() {
     </div>
   );
 }
+

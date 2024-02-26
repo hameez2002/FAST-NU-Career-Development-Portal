@@ -24,6 +24,8 @@ import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
 import UserProfile from "./components/Pages/UserProfile";
 import MyForm from "./components/Jobs/MyForm";
+// import { FormDataProvider } from './components/Jobs/FormDataContext';
+
 
 function App() {
   return (
@@ -49,8 +51,9 @@ function App() {
           path="/jobs"
           element={
             <NavBarWrapper>
-              <Jobs />
+                <Jobs />
             </NavBarWrapper>
+
           }
         />
         <Route path="/login" element={<Login />} />
@@ -70,6 +73,7 @@ function App() {
             <NavBarWrapper>
               <MyForm />
             </NavBarWrapper>
+            
           }
         />
 

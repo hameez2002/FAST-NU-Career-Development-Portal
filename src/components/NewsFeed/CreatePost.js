@@ -18,8 +18,8 @@ function CreatePost() {
     data.set("content", content);
     data.set("file", files[0]);
     ev.preventDefault();
-    const response = await fetch("http://localhost:7000/newsfeed/createPost", {
-      // const response = await fetch("https://backend-fast-nu-career-development-portal-tais.vercel.app/newsfeed/createPost", {
+    // const response = await fetch("http://localhost:7000/newsfeed/createPost", {
+      const response = await fetch("https://backend-fast-nu-career-development-portal-tais.vercel.app/newsfeed/createPost", {
       method: "POST",
       body: data,
       credentials: "include",

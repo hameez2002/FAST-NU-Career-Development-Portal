@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./JobForm.css";
 import axios from "axios";
 
+
+
 const JobForm = ({ onSubmit, onCancel }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
@@ -122,8 +124,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
           updatedOn,
         });
 
-        const response = await axios.post("http://localhost:7000/jobs", {
-          // const response = await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", {
+        // const response = await axios.post("http://localhost:7000/jobs", {
+          const response = await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -137,6 +139,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
           postedOn,
           updatedOn,
         });
+
+        window.open("http://localhost:3000/email", "_blank");
 
         console.log("Received response:", response.data);
         handleShowForm();
