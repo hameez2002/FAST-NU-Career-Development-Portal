@@ -7,7 +7,7 @@ export default function MyForm() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
-  const baseUrl = "https://backend-fast-nu-career-development-portal-tais.vercel.app";
+  const baseUrl = "https://cdp-kappa.vercel.app";
   const encryptPassword = (password) => {
     return Base64.encode(password);
   };
@@ -43,7 +43,6 @@ export default function MyForm() {
       alert("Failed to send email");
     }
 
-    window.open("https://localhost:3000/", "_blank");
   };
 
   return (

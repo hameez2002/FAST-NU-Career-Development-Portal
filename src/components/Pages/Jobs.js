@@ -73,11 +73,11 @@ export const Jobs = () => {
     try {
       // Post the new job to the server
       // await axios.post("http://localhost:7000/jobs", formData);
-      await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", formData);
+      await axios.post("https://cdp-kappa.vercel.app/jobs", formData);
 
       // Fetch the newly added job from the server
       // const response = await axios.get("http://localhost:7000/jobs");
-      const response = await axios.get("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs");
+      const response = await axios.get("https://cdp-kappa.vercel.app/jobs");
       
 
   
@@ -110,7 +110,7 @@ export const Jobs = () => {
       try {
         const response = await axios.delete(
           // `http://localhost:7000/jobs/${selectedJob.job_id}`
-          `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.job_id}`
+          `https://cdp-kappa.vercel.app/jobs/${selectedJob.job_id}`
         );
         if (response.status === 204) {
           // setJobs(jobs.filter((job) => job.ID !== selectedJob.job_id));
@@ -158,7 +158,7 @@ export const Jobs = () => {
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
           // `http://localhost:7000/jobs/${selectedJob.job_id}`, // Corrected URL interpolation
-          `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs/${selectedJob.job_id}`,
+          `https://cdp-kappa.vercel.app/jobs/${selectedJob.job_id}`,
           updatedJob
         );
         console.log("Response from server:", response);
@@ -190,7 +190,7 @@ export const Jobs = () => {
       const response = await axios.get(
         // eslint-disable-next-line
         // "http://localhost:7000/jobs?title=${searchQuery}"
-         `https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs?title=${searchQuery}`
+         `https://cdp-kappa.vercel.app/jobs?title=${searchQuery}`
       );
       setJobs(response.data);
     } catch (error) {

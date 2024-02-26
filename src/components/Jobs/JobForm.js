@@ -125,7 +125,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
         });
 
         // const response = await axios.post("http://localhost:7000/jobs", {
-          const response = await axios.post("https://backend-fast-nu-career-development-portal-tais.vercel.app/jobs", {
+          const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -140,8 +140,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
           updatedOn,
         });
 
-        window.open("http://localhost:3000/email", "_blank");
-
+        window.open("https://cdp-kappa.vercel.app/email", "_blank");
+        
         console.log("Received response:", response.data);
         handleShowForm();
         onCancel();

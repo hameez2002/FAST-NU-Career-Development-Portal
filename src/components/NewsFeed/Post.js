@@ -17,7 +17,7 @@ export default function Post({
       <div className="image">
         <Link to={`/newsfeed/post/${_id}`}>
           {/* <img src={"http://localhost:7000/" + cover} alt="" /> */}
-          <img src={"https://backend-fast-nu-career-development-portal-tais.vercel.app/" + cover} alt="" />
+          <img src={"https://cdp-kappa.vercel.app/" + cover} alt="" />
           
         </Link>
       </div>

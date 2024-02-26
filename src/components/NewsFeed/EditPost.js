@@ -12,7 +12,7 @@ export default function EditPost() {
 
   useEffect(() => {
     // fetch('http://localhost:7000/newsfeed/post/'+id)
-    fetch('https://backend-fast-nu-career-development-portal-tais.vercel.app/newsfeed/post/'+id)
+    fetch('https://cdp-kappa.vercel.app/newsfeed/post/'+id)
       .then(response => {
         response.json().then(postInfo => {
           setTitle(postInfo.title);
@@ -34,7 +34,7 @@ export default function EditPost() {
     }
     console.log("kr rha hyy in update")
     // const response = await fetch('http://localhost:7000/newsfeed/post', {
-      const response = await fetch('https://backend-fast-nu-career-development-portal-tais.vercel.app/newsfeed/post', { 
+      const response = await fetch('https://cdp-kappa.vercel.app/newsfeed/post', { 
     method: 'PUT',
       body: data,
       credentials: 'include',
