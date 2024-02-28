@@ -297,7 +297,7 @@ function NavBar() {
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
-            Board of Directors
+            Career Services Office
           </NavLink>
         </nav>
 
