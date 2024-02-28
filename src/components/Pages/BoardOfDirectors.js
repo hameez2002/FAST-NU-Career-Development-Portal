@@ -4,7 +4,7 @@ import Card from "../Card";
 export const BoardOfDirectors = () => {
   //content here needs to be statically insterted
   const directors = [
-    { name: "Aysha Siddiqui", department: "ADMIN", campus: "Karachi" },
+    { name: "Aysha Siddiqui", designation: "Career Services Officer", campus: "Karachi" },
   ];
 
   return (
@@ -17,7 +17,7 @@ export const BoardOfDirectors = () => {
           <Card
             key={index}
             name={director.name}
-            department={director.department}
+            designation={director.designation}
             campus={director.campus}
           />
         ))}

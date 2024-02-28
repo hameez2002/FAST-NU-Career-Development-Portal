@@ -24,6 +24,7 @@ import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
 import UserProfile from "./components/Pages/UserProfile";
 import MyForm from "./components/Jobs/MyForm";
+import './styles.css';
 // import { FormDataProvider } from './components/Jobs/FormDataContext';
 
 
