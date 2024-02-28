@@ -174,7 +174,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
     if (Object.keys(errors).length === 0) {
       try {
         
-        const response = await axios.post("http://localhost:7000/jobs", {
+        // const response = await axios.post("http://localhost:7000/jobs", {
+          const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
