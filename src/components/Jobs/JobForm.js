@@ -206,7 +206,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
         }).toString();
   
         // window.open(http://localhost:3000/email?${queryString}, "_blank");
-        window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString},`, "_blank");
+        window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString}`, "_blank");
   
         console.log("Received response:", response.data);
         handleShowForm();
