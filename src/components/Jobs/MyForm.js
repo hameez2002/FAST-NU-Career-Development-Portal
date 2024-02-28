@@ -117,7 +117,7 @@ export default function MyForm() {
     };
     setSubject(jobData.jobTitle);
 
-    const constructedMessage = `Job Type: ${jobData.jobType}\nDescription: ${jobData.jobDescription}\nLink: ${jobData.jobLink}\nDeadline Date: ${jobData.deadlineDate}\nOpenings: ${jobData.noOfOpenings}\nQualifications: ${jobData.qualificationRequirements}\nResponsibilities: ${jobData.responsibilities}\nAbout: ${jobData.about}\nStatus: ${jobData.jobStatus}\nPosted On: ${jobData.postedOn}\nUpdated On: ${jobData.updatedOn}`;
+    const constructedMessage = `Job Type: ${jobData.jobType}\nDescription: ${jobData.jobDescription}\nLink: ${jobData.jobLink}\nDeadline Date: ${jobData.deadlineDate}\nOpenings: ${jobData.noOfOpenings}\nQualifications: ${jobData.qualificationRequirements}\nResponsibilities: ${jobData.responsibilities}\nAbout: ${jobData.about}\nStatus: ${jobData.jobStatus}\nPosted On: ${jobData.postedOn}\nUpdated On: ${jobData.updatedOn}\n\n\n THIS EMAIL IS CREATED USING CAREER DEVELOPMENT PORTAL`;
 
     setMessage(constructedMessage);
   }, []);
