@@ -1,0 +1,18 @@
+/* Layout.css */
+
+.newsfeed-main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.newsfeed-header-div {
+  background-color: #007bff;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.newsfeed-outlet-div {
+  margin-top: 100px;
+  flex: 1;
+}

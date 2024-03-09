@@ -104,51 +104,53 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     const errors = validateForm();
-
+  
     if (Object.keys(errors).length === 0) {
       try {
-        console.log("Sending job data:", {
-          jobTitle,
-          jobType,
-          jobDescription,
-          jobLink,
-          deadlineDate,
-          noOfOpenings,
-          qualificationRequirements,
-          responsibilities,
-          about,
-          jobStatus,
-          postedOn,
-          updatedOn,
-        });
-
-        // const response = await axios.post("http://localhost:7000/jobs", {
-          const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
-          jobTitle,
-          jobType,
-          jobDescription,
-          jobLink,
-          deadlineDate,
-          noOfOpenings,
-          qualificationRequirements,
-          responsibilities,
-          about,
-          jobStatus,
-          postedOn,
-          updatedOn,
-        });
-
-        window.open("https://main--zesty-creponne-0bcae2.netlify.app/email", "_blank");
         
+        const response = await axios.post("http://localhost:7000/jobs", {
+          jobTitle,
+          jobType,
+          jobDescription,
+          jobLink,
+          deadlineDate,
+          noOfOpenings,
+          qualificationRequirements,
+          responsibilities,
+          about,
+          jobStatus,
+          postedOn,
+          updatedOn,
+        });
+  
+        
+        const queryString = new URLSearchParams({
+          jobTitle,
+          jobType,
+          jobDescription,
+          jobLink,
+          deadlineDate,
+          noOfOpenings,
+          qualificationRequirements,
+          responsibilities,
+          about,
+          jobStatus,
+          postedOn,
+          updatedOn,
+        }).toString();
+  
+        window.open(`http://localhost:3000/email?${queryString}`, "_blank");
+  
         console.log("Received response:", response.data);
         handleShowForm();
         onCancel();
       } catch (error) {
         console.error(error);
       }
-
+  
+      
       setJobTitle("");
       setJobType("");
       setJobDescription("");
@@ -165,6 +167,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
       setValidationErrors(errors);
     }
   };
+  
 
   const handleCancel = () => {
     setValidationErrors({});
@@ -174,7 +177,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-[#f3f1ec] w-full max-w-lg mx-auto mt-5 px-4 py-3 rounded-md shadow-md "
+      className="job-form bg-[#f3f1ec] w-full max-w-lg mx-auto mt-5 px-4 py-3 rounded-md shadow-md "
     >
       <div className="mb-4">
         <label
@@ -416,6 +419,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
         </div>
     </form>
   );
+
+
 };
 
 export default JobForm;
