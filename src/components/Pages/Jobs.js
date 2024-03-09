@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
 import "./Styles.css";
 import JobForm from "../Jobs/JobForm";
 import JobList from "../Jobs/JobList";
@@ -20,7 +19,7 @@ export const Jobs = () => {
   // eslint-disable-next-line
   const [updatedJob, setUpdatedJob] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
-  const navigate = useNavigate();
+
 
 
   useEffect(() => {
@@ -73,12 +72,12 @@ export const Jobs = () => {
   const handleJobSubmit = async (formData) => {
     try {
       // Post the new job to the server
-      await axios.post("http://localhost:7000/jobs", formData);
-      // await axios.post("https://cdp-kappa.vercel.app/jobs", formData);
+      // await axios.post("http://localhost:7000/jobs", formData);
+      await axios.post("https://cdp-kappa.vercel.app/jobs", formData);
 
       // Fetch the newly added job from the server
-      const response = await axios.get("http://localhost:7000/jobs");
-      // const response = await axios.get("https://cdp-kappa.vercel.app/jobs");
+      // const response = await axios.get("http://localhost:7000/jobs");
+      const response = await axios.get("https://cdp-kappa.vercel.app/jobs");
       
 
   
@@ -110,8 +109,8 @@ export const Jobs = () => {
     if (selectedJob && selectedJob.job_id) {
       try {
         const response = await axios.delete(
-          `http://localhost:7000/jobs/${selectedJob.job_id}`
-          // `https://cdp-kappa.vercel.app/jobs/${selectedJob.job_id}`
+          // `http://localhost:7000/jobs/${selectedJob.job_id}`
+          `https://cdp-kappa.vercel.app/jobs/${selectedJob.job_id}`
         );
         if (response.status === 204) {
           // setJobs(jobs.filter((job) => job.ID !== selectedJob.job_id));
@@ -158,8 +157,8 @@ export const Jobs = () => {
       if (selectedJob && updatedJob && selectedJob.job_id !== undefined) { // Corrected access to job_id property
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
-          `http://localhost:7000/jobs/${selectedJob.job_id}`, // Corrected URL interpolation
-          // `https://cdp-kappa.vercel.app/jobs/${selectedJob.job_id}`,
+          // `http://localhost:7000/jobs/${selectedJob.job_id}`, // Corrected URL interpolation
+          `https://cdp-kappa.vercel.app/jobs/${selectedJob.job_id}`,
           updatedJob
         );
         console.log("Response from server:", response);
@@ -190,24 +189,14 @@ export const Jobs = () => {
     try {
       const response = await axios.get(
         // eslint-disable-next-line
-        "http://localhost:7000/jobs?title=${searchQuery}"
-        //  `https://cdp-kappa.vercel.app/jobs?title=${searchQuery}`
+        // "http://localhost:7000/jobs?title=${searchQuery}"
+         `https://cdp-kappa.vercel.app/jobs?title=${searchQuery}`
       );
       setJobs(response.data);
     } catch (error) {
       console.error("Error searching jobs:", error);
     }
   };
-  
-  const onViewJobClick = (job) => {
-    
-    if (job) {
-      navigate(`/jobs/${job.job_id}`, { state: { job: job } }); // Navigate to job details page with job ID as parameter and pass job details as state
-    } else {
-      console.error("Job details are missing.");
-    }
-  };
-
 
   return (
     <div className="heading">
@@ -252,7 +241,6 @@ export const Jobs = () => {
             onJobClick={() => {}}
             onDeleteJobClick={handleDeleteJobClick}
             onEditJobClick={handleEditJobClick}
-            onViewJobClick={onViewJobClick}
           />
         ))
       ) : (

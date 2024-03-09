@@ -8,8 +8,8 @@ const JobPostings = () => {
   useEffect(() => {
     const fetchJobPostings = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/jobs");
-        // const response = await axios.get("https://cdp-kappa.vercel.app/jobs");
+        // const response = await axios.get("http://localhost:7000/jobs");
+        const response = await axios.get("https://cdp-kappa.vercel.app/jobs");
         setJobPostings(response.data);
       } catch (error) {
         console.error("Error fetching job postings:", error);

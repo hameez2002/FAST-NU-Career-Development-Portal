@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import "./DeletePost.css";
 
 export default function DeletePost() {
   const { id } = useParams();
@@ -11,8 +10,8 @@ export default function DeletePost() {
     try {
       setLoading(true);
       const response = await fetch(
-        `http://localhost:7000/newsfeed/delete/${id}`,
-        // `https://cdp-kappa.vercel.app/newsfeed/delete/${id}`,
+        // `http://localhost:7000/newsfeed/delete/${id}`,
+        `https://cdp-kappa.vercel.app/newsfeed/delete/${id}`,
         {
           method: "DELETE",
           headers: {

@@ -104,13 +104,12 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     const errors = validateForm();
-  
+
     if (Object.keys(errors).length === 0) {
       try {
-        
-        const response = await axios.post("http://localhost:7000/jobs", {
+        console.log("Sending job data:", {
           jobTitle,
           jobType,
           jobDescription,
@@ -124,9 +123,9 @@ const JobForm = ({ onSubmit, onCancel }) => {
           postedOn,
           updatedOn,
         });
-  
-        
-        const queryString = new URLSearchParams({
+
+        // const response = await axios.post("http://localhost:7000/jobs", {
+          const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -139,18 +138,17 @@ const JobForm = ({ onSubmit, onCancel }) => {
           jobStatus,
           postedOn,
           updatedOn,
-        }).toString();
-  
-        window.open(`http://localhost:3000/email?${queryString}`, "_blank");
-  
+        });
+
+        window.open("https://main--zesty-creponne-0bcae2.netlify.app/email", "_blank");
+        
         console.log("Received response:", response.data);
         handleShowForm();
         onCancel();
       } catch (error) {
         console.error(error);
       }
-  
-      
+
       setJobTitle("");
       setJobType("");
       setJobDescription("");
@@ -167,7 +165,6 @@ const JobForm = ({ onSubmit, onCancel }) => {
       setValidationErrors(errors);
     }
   };
-  
 
   const handleCancel = () => {
     setValidationErrors({});
@@ -177,7 +174,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="job-form bg-[#f3f1ec] w-full max-w-lg mx-auto mt-5 px-4 py-3 rounded-md shadow-md "
+      className="bg-[#f3f1ec] w-full max-w-lg mx-auto mt-5 px-4 py-3 rounded-md shadow-md "
     >
       <div className="mb-4">
         <label
@@ -419,8 +416,6 @@ const JobForm = ({ onSubmit, onCancel }) => {
         </div>
     </form>
   );
-
-
 };
 
 export default JobForm;

@@ -24,7 +24,6 @@ import Register from "./components/Pages/Register";
 import Login from "./components/Pages/Login";
 import UserProfile from "./components/Pages/UserProfile";
 import MyForm from "./components/Jobs/MyForm";
-import JobDetails from "./components/Jobs/JobDetails";
 // import { FormDataProvider } from './components/Jobs/FormDataContext';
 
 
@@ -57,15 +56,6 @@ function App() {
 
           }
         />
-        <Route 
-          path="/jobs/:id" 
-          element=
-          {<NavBarWrapper>
-            
-          <JobDetails/>
-          </NavBarWrapper>} 
-
-          />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -119,7 +109,7 @@ function App() {
           }
         />
         <Route
-          path="/cso"
+          path="/board"
           element={
             <NavBarWrapper>
               <BoardOfDirectors />

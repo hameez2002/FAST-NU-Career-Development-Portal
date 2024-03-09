@@ -1,78 +1,412 @@
+// import React, { useState } from "react";
+// import { NavLink } from "react-router-dom";
+// import logo from "../../logo-FAST-NU.png";
+
+// function NavBar() {
+//   const [click, setClick] = useState(false);
+
+//   const handleClick = () => setClick(!click);
+//   return (
+//     <header
+//       className="navbar w-full bg-gray-800 text-gray-100 body-font mb-4 shadow-sm"
+//       style={{ height: "80px" }}
+//     >
+//       <div
+//         className="container mx-auto flex justify-between items-center py-7 px-5"
+//         style={{ height: "80px" }}
+//       >
+//         <NavLink
+//           exact
+//           to="/"
+//           className="flex flex-shrink-0 title-font font-medium items-center text-gray-900 md:mb-0"
+//           style={{ textDecoration: 'none' }}
+//         >
+//           <img className="w-15 h-12  " src={logo} alt="FAST NUCES Logo" />
+//           <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">
+//             Career Development Portal
+//           </span>
+//           <i className="fas fa-code"></i>
+//         </NavLink>
+
+//         <nav className="hidden md:ml-auto md:flex flex-wrap items-center justify-center text-base tracking-wide">
+//           <NavLink
+//             exact
+//             to="/"
+//             activeClassName="active"
+//             className="mr-8 hover:text-gray-300"
+//           >
+//             Home
+//           </NavLink>
+//           <NavLink
+//             exact
+//             to="/jobs"
+//             activeClassName="active"
+//             className="mr-8 hover:text-gray-300"
+//           >
+//             Jobs
+//           </NavLink>
+//           <NavLink
+//             exact
+//             to="/newsfeed"
+//             activeClassName="active"
+//             className="mr-8 hover:text-gray-300"
+//           >
+//             NewsFeed
+//           </NavLink>
+//           <NavLink
+//             exact
+//             to="/about"
+//             activeClassName="active"
+//             className="mr-8 hover:text-gray-300"
+//           >
+//             About
+//           </NavLink>
+
+//           <NavLink
+//             exact
+//             to="/contact"
+//             activeClassName="active"
+//             className="mr-8 hover:text-gray-300"
+//           >
+//             Contact Us
+//           </NavLink>
+//           <NavLink
+//             exact
+//             to="/board"
+//             activeClassName="active"
+//             className="mr-8 hover:text-gray-300"
+//           >
+//             Board of Directors
+//           </NavLink>
+//         </nav>
+
+//         <div className="hidden sm:inline-flex ml-auto md:ml-0 mr-4 md:mr-0 cursor-pointer">
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             className="h-8 w-8"
+//             fill="none"
+//             viewBox="0 0 24 24"
+//             stroke="currentColor"
+//           >
+//             <path
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               strokeWidth={2}
+//               d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+//             />
+//           </svg>
+//         </div>
+
+//         <button
+//           className="md:hidden rounded-md active:outline-none focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500"
+//           onClick={handleClick}
+//         >
+//           <svg
+//             xmlns="http://www.w3.org/2000/svg"
+//             className="h-8 w-8 rounded-md text-gray-300 bg-gradient-to-br from-transparent to-transparent hover:text-white hover:from-pink-500 hover:to-yellow-500"
+//             fill="none"
+//             viewBox="0 0 24 24"
+//             stroke="currentColor"
+//           >
+//             <path
+//               strokeLinecap="round"
+//               strokeLinejoin="round"
+//               strokeWidth={2}
+//               d="M4 6h16M4 12h16M4 18h16"
+//             />
+//           </svg>
+//         </button>
+
+//         {click && (
+//           <div className="w-full flex flex-col py-4 px-3 md:hidden bg-gray-900 text-base uppercase text-center font-semibold">
+//             <NavLink
+//               exact
+//               to="/"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               Home
+//             </NavLink>
+//             <NavLink
+//               exact
+//               to="/jobs"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               Job Posting
+//             </NavLink>
+//             <NavLink
+//               exact
+//               to="/newsfeed"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               News Feed
+//             </NavLink>
+//             <NavLink
+//               exact
+//               to="/about"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               About
+//             </NavLink>
+//             <NavLink
+//               exact
+//               to="/Career"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               Career
+//             </NavLink>
+//             <NavLink
+//               exact
+//               to="/contact"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               Contact Us
+//             </NavLink>
+//             <NavLink
+//               exact
+//               to="/board"
+//               activeClassName="active"
+//               className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+//               onClick={handleClick}
+//             >
+//               Board of Directors
+//             </NavLink>
+//           </div>
+//         )}
+//       </div>
+//     </header>
+//   );
+// }
+
+// export default NavBar;
+
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Disclosure, Transition, Menu } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import logo from "../../logo-FAST-NU.png";
-
-const navigation = [
-  { name: 'Home', href: '/home', current: true },
-  { name: 'Jobs', href: '/jobs', current: false },
-  { name: 'News Feed', href: '/newsfeed', current: false },
-  {name: 'Profile', href: '/profile', current:false},
-  { name: 'About', href: '/about', current: false },
-  { name: 'Contact Us', href: '/contact', current: false },
-  { name: 'CSO', href: '/cso', current: false },
-  
-]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import "./NavBar.css";
 
 function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
-
   return (
-    <Disclosure as="nav" className="bg-[#146c94]">
-      {({ open }) => (
-        <>
-          <div className=" mx-auto flex justify-between">
-            <div className="flex-shrink-0">
-              <img className="w-15 h-12" src={logo} alt="FAST NUCES Logo" />
-              <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">Career Development Portal</span>
-            </div>
-            <div className="hidden md:flex text-white flex-wrap items-center justify-center text-base tracking-wide">
-              {navigation.map((item) => (
-                <NavLink
-                  key={item.name}
-                  exact
-                  to={item.href}
-                  activeClassName="text-white bg-gray-900"
-                  className="mr-8 hover:text-gray-300"
-                >
-                  {item.name}
-                </NavLink>
-              ))}
-            </div>
-            <div className="md:hidden">
-              <Disclosure.Button className="text-gray-400 hover:bg-gray-700 hover:text-white">
-                <span className="sr-only">Open main menu</span>
-                {open ? <XMarkIcon className="block h-6 w-6" aria-hidden="true" /> : <Bars3Icon className="block h-6 w-6" aria-hidden="true" />}
-              </Disclosure.Button>
-            </div>
-          </div>
+    <header
+      className="navbar w-full bg-gray-800 text-gray-100 body-font mb-4 shadow-sm"
+      style={{ height: "80px" }}
+    >
+      <div
+        className="container mx-auto flex justify-between items-center py-7 px-5"
+        style={{ height: "80px" }}
+      >
+        <NavLink
+          exact
+          to="/home"
+          className="flex flex-shrink-0 title-font font-medium items-center text-gray-900 md:mb-0"
+          style={{ textDecoration: "none" }}
+        >
+          <img className="w-15 h-12  " src={logo} alt="FAST NUCES Logo" />
+          <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">
+            Career Development Portal
+          </span>
+          <i className="fas fa-code"></i>
+        </NavLink>
 
-          <Disclosure.Panel className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navigation.map((item) => (
-                <NavLink
-                  key={item.name}
-                  exact
-                  to={item.href}
-                  activeClassName="text-white bg-gray-900"
-                  className="block px-3 py-2 rounded-md text-base font-medium"
-                  onClick={() => setClick(false)}
-                >
-                  {item.name}
-                </NavLink>
-              ))}
-            </div>
-          </Disclosure.Panel>
-        </>
-      )}
-    </Disclosure>
+        <nav
+          className="xs:hidden sm:hidden md:hidden xl:block md:ml-auto md:flex flex-wrap items-center justify-center text-base tracking-wide"
+          style={{}}
+        >
+          {/* <NavLink
+            exact
+            to="/login"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Login
+          </NavLink> */}
+          <NavLink
+            exact
+            to="/home"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Home
+          </NavLink>
+          <NavLink
+            exact
+            to="/jobs"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Jobs
+          </NavLink>
+          {/* <NavLink
+            exact
+            to="/email"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Email
+          </NavLink> */}
+          {/* <NavLink
+            exact
+            to="/newsfeed"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            NewsFeed
+          </NavLink> */}
+          <NavLink
+            exact
+            to="/profile"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Profile
+          </NavLink>
+          <NavLink
+            exact
+            to="/about"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            About
+          </NavLink>
+
+          <NavLink
+            exact
+            to="/contact"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Contact Us
+          </NavLink>
+          <NavLink
+            exact
+            to="/board"
+            activeClassName="active"
+            className="mr-8 hover:text-gray-300"
+          >
+            Board of Directors
+          </NavLink>
+        </nav>
+
+        {/* <div className="hidden sm:inline-flex ml-auto md:ml-0 mr-4 md:mr-0 cursor-pointer">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div> */}
+
+        <button
+          className="xl:hidden rounded-md active:outline-none focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500"
+          onClick={handleClick}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-8 w-8 rounded-md text-gray-300 bg-gradient-to-br from-transparent to-transparent hover:text-white hover:from-pink-500 hover:to-yellow-500"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+
+        {click && (
+          <div className="w-full flex flex-col px-3 md:hidden  bg-gray-900 text-base uppercase text-center font-semibold navbar_drawer">
+            <NavLink
+              exact
+              to="/"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              exact
+              to="/jobs"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              Job Posting
+            </NavLink>
+            <NavLink
+              exact
+              to="/newsfeed"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              News Feed
+            </NavLink>
+            <NavLink
+              exact
+              to="/about"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              About
+            </NavLink>
+            <NavLink
+              exact
+              to="/Career"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              Career
+            </NavLink>
+            <NavLink
+              exact
+              to="/contact"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              Contact Us
+            </NavLink>
+            <NavLink
+              exact
+              to="/board"
+              activeClassName="active"
+              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-700"
+              onClick={handleClick}
+            >
+              Board of Directors
+            </NavLink>
+          </div>
+        )}
+      </div>
+    </header>
   );
 }
 

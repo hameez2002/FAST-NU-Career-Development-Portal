@@ -94,9 +94,8 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:7000/register", 
-        // const response = await axios.post("https://cdp-kappa.vercel.app/register", 
-        {
+      // const response = await axios.post("http://localhost:7000/register", 
+        const response = await axios.post("https://cdp-kappa.vercel.app/register", {
         // name,
         user_id,
         email,

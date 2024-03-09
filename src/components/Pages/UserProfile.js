@@ -18,7 +18,6 @@ const UserProfile = () => {
     personalStatement: "",
     certificates: [""],
     experiences: [""],
-    skills: [""],
   });
 
   const handleEditClick = () => {
@@ -65,13 +64,6 @@ const UserProfile = () => {
     }));
   };
 
-  const handleAddSkill = () => {
-    setProfileData((prevData) => ({
-      ...prevData,
-      skills: [...prevData.skills, ""],
-    }));
-  };
-
   const handleChangeCertificate = (index, value) => {
     setProfileData((prevData) => {
       const updatedCertificates = [...prevData.certificates];
@@ -90,17 +82,6 @@ const UserProfile = () => {
       return {
         ...prevData,
         experiences: updatedExperiences,
-      };
-    });
-  };
-
-  const handleChangeSkills = (index, value) => {
-    setProfileData((prevData) => {
-      const updatedSkills = [...prevData.skills];
-      updatedSkills[index] = value;
-      return {
-        ...prevData,
-        skills: updatedSkills,
       };
     });
   };
@@ -266,29 +247,6 @@ const UserProfile = () => {
             )}
           </div>
         </div>
-
-        {/* <div className="user-form-row">
-          <div className="user-form-group">
-            <label className="user-label" htmlFor="experiences">
-              Skills:
-            </label>
-            {profileData.skills.map((skills, index) => (
-              <input
-                key={index}
-                type="text"
-                value={skills}
-                onChange={(e) => handleChangeSkills(index, e.target.value)}
-                disabled={!editMode}
-                className="user-input"
-              />
-            ))}
-            {editMode && (
-              <button type="button" onClick={handleAddSkill}>
-                Add Skill
-              </button>
-            )}
-          </div>
-        </div> */}
 
         <div className="user-form-row">
           <div className="user-form-group">
