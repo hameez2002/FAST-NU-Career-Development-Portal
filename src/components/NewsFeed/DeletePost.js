@@ -10,7 +10,6 @@ export default function DeletePost() {
     try {
       setLoading(true);
       const response = await fetch(
-        // `http://localhost:7000/newsfeed/delete/${id}`,
         `https://cdp-kappa.vercel.app/newsfeed/delete/${id}`,
         {
           method: "DELETE",
@@ -19,7 +18,7 @@ export default function DeletePost() {
           },
         }
       );
-
+      // `http://localhost:7000/newsfeed/delete/${id}`,
       console.log("Delete response:", response);
 
       if (response.ok) {

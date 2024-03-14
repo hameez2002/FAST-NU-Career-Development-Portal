@@ -189,7 +189,7 @@ export const Jobs = () => {
     try {
       const response = await axios.get(
         // eslint-disable-next-line
-        // "http://localhost:7000/jobs?title=${searchQuery}"
+        // `http://localhost:7000/jobs?title=${searchQuery}`
          `https://cdp-kappa.vercel.app/jobs?title=${searchQuery}`
       );
       setJobs(response.data);

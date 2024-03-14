@@ -258,14 +258,14 @@ function NavBar() {
           >
             Email
           </NavLink> */}
-          {/* <NavLink
+          <NavLink
             exact
             to="/newsfeed"
             activeClassName="active"
             className="mr-8 hover:text-gray-300"
           >
             NewsFeed
-          </NavLink> */}
+          </NavLink>
           <NavLink
             exact
             to="/profile"

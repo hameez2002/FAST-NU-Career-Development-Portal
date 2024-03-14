@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-// import { useParams, Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { formatISO9075 } from "date-fns";
 
 
@@ -27,7 +27,7 @@ export default function PostPage() {
       <div className="author">by </div>
       {/* {userInfo.id === postInfo.author._id && ( */}
       <div className="edit-row">
-        {/* <Link className="edit-btn" to={`/newsfeed/edit/${postInfo._id}`}>
+        <Link className="edit-btn" to={`/newsfeed/edit/${postInfo._id}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -43,7 +43,7 @@ export default function PostPage() {
             />
           </svg>
           Edit this post
-        </Link> */}
+        </Link>
       </div>
       {/* )} */}
       <div className="image">

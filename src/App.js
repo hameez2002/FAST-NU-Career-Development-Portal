@@ -82,7 +82,9 @@ function App() {
           path="/newsfeed"
           element={
             <NavBarWrapper>
-              <Layout />
+              <div className="newsfeed-container">
+                <Layout />
+              </div>
             </NavBarWrapper>
           }
         >
