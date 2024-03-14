@@ -1,5 +1,61 @@
-//import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// //import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
+// import { useState } from "react";
+// import { Navigate } from "react-router-dom";
+// import Editor from "./Editor";
+
+// function CreatePost() {
+//   const [title, setTitle] = useState("");
+//   const [summary, setSummary] = useState("");
+//   const [content, setContent] = useState("");
+//   const [files, setFiles] = useState("");
+//   const [redirect, setRedirect] = useState(false);
+
+//   async function createNewPost(ev) {
+//     const data = new FormData();
+//     data.set("title", title);
+//     data.set("summary", summary);
+//     data.set("content", content);
+//     data.set("file", files[0]);
+//     ev.preventDefault();
+//     // const response = await fetch("http://localhost:7000/newsfeed/createPost", {
+//       const response = await fetch("https://cdp-kappa.vercel.app/newsfeed/createPost", {
+//       method: "POST",
+//       body: data,
+//       credentials: "include",
+//     });
+//     if (response.ok) {
+//       setRedirect(true);
+//     }
+//   }
+
+//   if (redirect) {
+//     return <Navigate to={"/newsfeed"} />;
+//   }
+//   return (
+//     <form onSubmit={createNewPost}>
+//       <input
+//         type="title"
+//         placeholder={"Title"}
+//         value={title}
+//         onChange={(ev) => setTitle(ev.target.value)}
+//       />
+//       <input
+//         type="summary"
+//         placeholder={"Summary"}
+//         value={summary}
+//         onChange={(ev) => setSummary(ev.target.value)}
+//       />
+//       <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+//       <Editor value={content} onChange={setContent} />
+//       <button style={{ marginTop: "5px" }}>Create post</button>
+//     </form>
+//   );
+// }
+
+// export default CreatePost;
+
+
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "./Editor";
@@ -8,47 +64,61 @@ function CreatePost() {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
   const [content, setContent] = useState("");
-  const [files, setFiles] = useState("");
+  const [file, setFile] = useState(null); // Change to single file state
   const [redirect, setRedirect] = useState(false);
 
   async function createNewPost(ev) {
+    ev.preventDefault();
+
     const data = new FormData();
     data.set("title", title);
     data.set("summary", summary);
     data.set("content", content);
-    data.set("file", files[0]);
-    ev.preventDefault();
-    // const response = await fetch("http://localhost:7000/newsfeed/createPost", {
+    if (file) {
+      data.set("file", file); // Set file only if it exists
+    }
+
+    try {
       const response = await fetch("https://cdp-kappa.vercel.app/newsfeed/createPost", {
-      method: "POST",
-      body: data,
-      credentials: "include",
-    });
-    if (response.ok) {
-      setRedirect(true);
+        method: "POST",
+        body: data,
+        credentials: "include",
+      });
+      if (response.ok) {
+        setRedirect(true);
+      } else {
+        // Handle error response
+        console.error("Error creating post:", response.statusText);
+      }
+    } catch (error) {
+      // Handle network error
+      console.error("Network error:", error);
     }
   }
 
   if (redirect) {
     return <Navigate to={"/newsfeed"} />;
   }
+
   return (
     <form onSubmit={createNewPost}>
       <input
         type="title"
-        placeholder={"Title"}
+        placeholder="Title"
         value={title}
         onChange={(ev) => setTitle(ev.target.value)}
       />
       <input
         type="summary"
-        placeholder={"Summary"}
+        placeholder="Summary"
         value={summary}
         onChange={(ev) => setSummary(ev.target.value)}
       />
-      <input type="file" onChange={(ev) => setFiles(ev.target.files)} />
+      <input type="file" onChange={(ev) => setFile(ev.target.files[0])} /> {/* Set file state */}
       <Editor value={content} onChange={setContent} />
-      <button style={{ marginTop: "5px" }}>Create post</button>
+      <button style={{ marginTop: "5px" }} type="submit">
+        Create post
+      </button>
     </form>
   );
 }
