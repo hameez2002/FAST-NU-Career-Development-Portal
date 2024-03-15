@@ -69,15 +69,18 @@ function CreatePost() {
 
   async function createNewPost(ev) {
     ev.preventDefault();
-
+  
+    if (!file) {
+      console.error("No file selected");
+      return;
+    }
+  
     const data = new FormData();
     data.set("title", title);
     data.set("summary", summary);
     data.set("content", content);
-    if (file) {
-      data.set("file", file); // Set file only if it exists
-    }
-
+    data.set("file", file);
+  
     try {
       const response = await fetch("https://cdp-kappa.vercel.app/newsfeed/createPost", {
         method: "POST",
@@ -95,6 +98,7 @@ function CreatePost() {
       console.error("Network error:", error);
     }
   }
+  
 
   if (redirect) {
     return <Navigate to={"/newsfeed"} />;
