@@ -48,7 +48,7 @@ export default function PostPage() {
       {/* )} */}
       <div className="image">
         {/* <img src={`http://localhost:7000/${postInfo.cover}`} alt="" /> */}
-        <img src={`https://cdp-kappa.vercel.app/${postInfo.cover}`} alt="" />
+        <img src={postInfo.cover} alt="" />
         
       </div>
       <div
