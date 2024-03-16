@@ -27,6 +27,7 @@ import MyForm from "./components/Jobs/MyForm";
 import JobDetails from "./components/Jobs/JobDetails";
 import GraduateDirectory from "./components/Pages/GraduateDirectory";
 // import { FormDataProvider } from './components/Jobs/FormDataContext';
+import "./styles.css";
 
 
 function App() {
