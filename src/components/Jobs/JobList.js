@@ -121,21 +121,21 @@ const JobList = ({ jobs, onDeleteJobClick, onEditJobClick, onViewJobClick }) => 
   return (
     <div className="p-4 mt-4 grid md:grid-cols-2 gap-4">
       {jobs.map((job, index) => (
-        <div key={job.ID} className={`job-item bg-gray-100 rounded-lg shadow-md p-6 mb-4 ${index % 2 === 0 ? 'md:mr-4' : 'md:ml-4'}`}>
+        <div key={job.ID} className={`job-item bg-gradient-to-r from-blue-200 to-cyan-200 rounded-lg shadow-md p-6 mb-4 ${index % 2 === 0 ? 'md:mr-4' : 'md:ml-4'}`}>
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
             {job.title}
           </h2>
           <div className="justify-center mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
-            <div className="mt-2 flex items-center text-sm text-gray-500 justify-center md:justify-start">
-              <BriefcaseIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+            <div className="mt-2 flex items-center text-sm text-black-500 justify-center md:justify-start">
+              <BriefcaseIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-black-500" aria-hidden="true" />
               {job.job_type}
             </div>
-            <div className="mt-2 flex items-center text-sm text-gray-500 justify-center md:justify-start">
-              <CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+            <div className="mt-2 flex items-center text-sm text-black-500 justify-center md:justify-start">
+              <CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-black-500" aria-hidden="true" />
               Closing on {formatDate(job.Deadline)}
             </div>
           </div>
-          <div className="mt-2 text-sm text-gray-500">{job.job_description}</div>
+          <div className="mt-2 text-sm text-black-500">{job.job_description}</div>
           <p className="mt-2 text-blue-500 hover:underline text-center" onClick={(event) => handleJobLinkClick(event, job.link)}>Click here to apply</p>
           <div className="mt-5 flex justify-between">
             <button

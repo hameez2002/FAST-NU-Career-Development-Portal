@@ -4,7 +4,6 @@ import "./NewsFeed.css";
 
 export default function IndexPage() {
   const [posts,setPosts] = useState([]);
-  console.log("indexpage");
   useEffect(() => {
     fetch('http://localhost:7000/newsfeed/post')
     // fetch('https://cdp-kappa.vercel.app/newsfeed/post')
@@ -20,3 +19,5 @@ export default function IndexPage() {
     </>
   );
 }
+
+

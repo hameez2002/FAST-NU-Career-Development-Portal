@@ -186,17 +186,13 @@ export const Jobs = () => {
     setShowEditModal(false);
   };
 
-  const handleSearch = async () => {
-    try {
-      const response = await axios.get(
-        // eslint-disable-next-line
-        "http://localhost:7000/jobs?title=${searchQuery}"
-        //  `https://cdp-kappa.vercel.app/jobs?title=${searchQuery}`
-      );
-      setJobs(response.data);
-    } catch (error) {
-      console.error("Error searching jobs:", error);
-    }
+  const handleSearch = (searchQuery) => {
+    // Filter the jobs based on the search query
+    const filteredJobs = jobs.filter((job) =>
+      job.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    // Update the state with the filtered jobs
+    setJobs(filteredJobs);
   };
   
   const onViewJobClick = (job) => {
@@ -210,7 +206,7 @@ export const Jobs = () => {
 
 
   return (
-    <div className="heading">
+    <div className="mt-4 heading">
       <div>
         <JobsSearchFilter
           searchQuery={searchQuery}
@@ -218,7 +214,7 @@ export const Jobs = () => {
           setSearchQuery={setSearchQuery}
         />
       </div>
-      <h1 className="text-gray-800 text-3xl font-bold mb-6 text-center">
+      <h1 className="mt-2 text-gray-800 text-3xl font-bold mb-6 text-center">
         Job Posting
       </h1>
       <div className="Button">

@@ -7,8 +7,9 @@ import logo from "../../logo-FAST-NU.png";
 const navigation = [
   { name: 'Home', href: '/home', current: true },
   { name: 'Jobs', href: '/jobs', current: false },
-  { name: 'News Feed', href: '/newsfeed', current: false },
+  { name: 'NewsFeed', href: '/newsfeed', current: false },
   {name: 'Profile', href: '/profile', current:false},
+  {name: 'Directory', href: '/directory', current:false},
   { name: 'About', href: '/about', current: false },
   { name: 'Contact Us', href: '/contact', current: false },
   { name: 'CSO', href: '/cso', current: false },

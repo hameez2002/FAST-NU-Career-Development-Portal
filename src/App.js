@@ -25,6 +25,7 @@ import Login from "./components/Pages/Login";
 import UserProfile from "./components/Pages/UserProfile";
 import MyForm from "./components/Jobs/MyForm";
 import JobDetails from "./components/Jobs/JobDetails";
+import GraduateDirectory from "./components/Pages/GraduateDirectory";
 // import { FormDataProvider } from './components/Jobs/FormDataContext';
 
 
@@ -87,11 +88,30 @@ function App() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/newsfeed"
           element={
             <NavBarWrapper>
               <Layout />
+            </NavBarWrapper>
+          }
+        >
+
+        
+          <Route index element={<IndexPage />} />
+          <Route path="/newsfeed/createPost" element={<CreatePost />} />
+          <Route path="/newsfeed/post/:id" element={<PostPage />} />
+          <Route path="/newsfeed/edit/:id" element={<EditPost />} />
+          <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
+        </Route> */}
+
+        <Route
+          path="/newsfeed"
+          element={
+            <NavBarWrapper>
+              <div className="newsfeed-container">
+                <Layout />
+              </div>
             </NavBarWrapper>
           }
         >
@@ -101,6 +121,15 @@ function App() {
           <Route path="/newsfeed/edit/:id" element={<EditPost />} />
           <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
         </Route>
+
+        <Route
+          path="/directory"
+          element={
+            <NavBarWrapper>
+              <GraduateDirectory />
+            </NavBarWrapper>
+          }
+        />
 
         <Route
           path="/about"

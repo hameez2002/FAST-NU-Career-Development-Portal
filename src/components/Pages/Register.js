@@ -103,6 +103,7 @@ const Register = () => {
         password,
         user_roles: parseInt(userRole),
       });
+      localStorage.setItem('user_id', user_id);
       console.log(response.data);
       navigate("/home");
     } catch (error) {
