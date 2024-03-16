@@ -10,7 +10,9 @@ const GraduateDirectory = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/profile");
+        // const response = await axios.get("http://localhost:7000/profile");
+        const response = await axios.get("https://cdp-kappa.vercel.app/profile");
+
         console.log("Response data:", response.data); // Log the response data
         if (Array.isArray(response.data)) {
           setProfiles(response.data);

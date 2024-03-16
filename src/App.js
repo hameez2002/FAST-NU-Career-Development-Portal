@@ -92,7 +92,28 @@ function App() {
           path="/newsfeed"
           element={
             <NavBarWrapper>
-              <Layout />
+              <div className="newsfeed-container">
+                <Layout />
+              </div>
+            </NavBarWrapper>
+          }
+        >
+
+        
+          <Route index element={<IndexPage />} />
+          <Route path="/newsfeed/createPost" element={<CreatePost />} />
+          <Route path="/newsfeed/post/:id" element={<PostPage />} />
+          <Route path="/newsfeed/edit/:id" element={<EditPost />} />
+          <Route path="/newsfeed/delete/:id" element={<DeletePost />} />
+        </Route> */}
+
+        {/* <Route
+          path="/newsfeed"
+          element={
+            <NavBarWrapper>
+              <div className="newsfeed-container">
+                <Layout />
+              </div>
             </NavBarWrapper>
           }
         >

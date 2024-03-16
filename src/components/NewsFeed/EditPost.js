@@ -86,8 +86,8 @@ export default function EditPost() {
   const [redirect, setRedirect] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:7000/newsfeed/post/" + id)
-    // fetch("https://cdp-kappa.vercel.app/newsfeed/post/" + id)
+    // fetch("http://localhost:7000/newsfeed/post/" + id)
+    fetch("https://cdp-kappa.vercel.app/newsfeed/post/" + id)
       .then((response) => {
         response.json().then((postInfo) => {
           setTitle(postInfo.title);
@@ -109,8 +109,8 @@ export default function EditPost() {
     }
 
     try {
-      const response = await fetch(`http://localhost:7000/newsfeed/post/${id}`, {
-        // const response = await fetch(`https://cdp-kappa.vercel.app/newsfeed/post/${id}`, {
+      // const response = await fetch(`http://localhost:7000/newsfeed/post/${id}`, {
+        const response = await fetch(`https://cdp-kappa.vercel.app/newsfeed/post/${id}`, {
         method: "PUT",
         body: data,
         credentials: "include",

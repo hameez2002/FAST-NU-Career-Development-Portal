@@ -29,8 +29,10 @@ const UserProfile = () => {
           throw new Error("User ID not found in local storage");
         }
   
-        const response = await axios.get(`http://localhost:7000/profile/${user_id}`);
-  
+        // const response = await axios.get(`http://localhost:7000/profile/${user_id}`);
+        const response = await axios.get(`https://cdp-kappa.vercel.app/profile/${user_id}`);
+        
+
         const { profile, certificates, experiences } = response.data;
   
         setProfileData({
@@ -88,7 +90,8 @@ const UserProfile = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:7000/profile",
+        // "http://localhost:7000/profile",
+        "https://cdp-kappa.vercel.app/profile",
         {
           user_id: profileData.user_id,
           fname: profileData.fname,

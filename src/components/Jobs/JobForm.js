@@ -102,15 +102,82 @@ const JobForm = ({ onSubmit, onCancel }) => {
     return errors;
   };
 
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+
+  //   const errors = validateForm();
+
+  //   if (Object.keys(errors).length === 0) {
+  //     try {
+  //       console.log("Sending job data:", {
+  //         jobTitle,
+  //         jobType,
+  //         jobDescription,
+  //         jobLink,
+  //         deadlineDate,
+  //         noOfOpenings,
+  //         qualificationRequirements,
+  //         responsibilities,
+  //         about,
+  //         jobStatus,
+  //         postedOn,
+  //         updatedOn,
+  //       });
+
+  //       // const response = await axios.post("http://localhost:7000/jobs", {
+  //         const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
+  //         jobTitle,
+  //         jobType,
+  //         jobDescription,
+  //         jobLink,
+  //         deadlineDate,
+  //         noOfOpenings,
+  //         qualificationRequirements,
+  //         responsibilities,
+  //         about,
+  //         jobStatus,
+  //         postedOn,
+  //         updatedOn,
+  //       });
+
+  //       window.open("https://main--zesty-creponne-0bcae2.netlify.app/email", "_blank");
+        
+  //       console.log("Received response:", response.data);
+  //       handleShowForm();
+  //       onCancel();
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+
+  //     setJobTitle("");
+  //     setJobType("");
+  //     setJobDescription("");
+  //     setJobLink("");
+  //     setDeadlineDate("");
+  //     setNoOfOpenings("");
+  //     setQualificationRequirements("");
+  //     setResponsibilities("");
+  //     setAbout("");
+  //     setJobStatus("");
+  //     setPostedOn("");
+  //     setUpdatedOn("");
+  //   } else {
+  //     setValidationErrors(errors);
+  //   }
+  // };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
   
+  
     const errors = validateForm();
+  
   
     if (Object.keys(errors).length === 0) {
       try {
         
-        const response = await axios.post("http://localhost:7000/jobs", {
+        // const response = await axios.post("http://localhost:7000/jobs", {
+          const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -124,6 +191,9 @@ const JobForm = ({ onSubmit, onCancel }) => {
           postedOn,
           updatedOn,
         });
+  
+        
+        // const queryString = new URLSearchParams({
   
         
         const queryString = new URLSearchParams({
@@ -141,14 +211,16 @@ const JobForm = ({ onSubmit, onCancel }) => {
           updatedOn,
         }).toString();
   
-        window.open(`http://localhost:3000/email?${queryString}`, "_blank");
-  
+        // window.open(`http://localhost:3000/email?${queryString}`, "_blank");
+        window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString}`, "_blank");
         console.log("Received response:", response.data);
         handleShowForm();
         onCancel();
       } catch (error) {
         console.error(error);
       }
+  
+      
   
       
       setJobTitle("");
