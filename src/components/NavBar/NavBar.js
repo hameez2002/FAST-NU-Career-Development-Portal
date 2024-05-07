@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Disclosure, Transition, Menu } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Disclosure, Transition, Menu } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import logo from "../../logo-FAST-NU.png";
 
 const navigation = [
-  { name: 'Home', href: '/home', current: true },
-  { name: 'Jobs', href: '/jobs', current: false },
-  { name: 'NewsFeed', href: '/newsfeed', current: false },
-  {name: 'Profile', href: '/profile', current:false},
-  {name: 'Directory', href: '/directory', current:false},
-  { name: 'About', href: '/about', current: false },
-  { name: 'Contact Us', href: '/contact', current: false },
-  { name: 'CSO', href: '/cso', current: false },
-  
-]
+  { name: "Home", href: "/home", current: true },
+  { name: "Jobs", href: "/jobs", current: false },
+  { name: "NewsFeed", href: "/newsfeed", current: false },
+  { name: "Profile", href: "/profile", current: false },
+  { name: "Directory", href: "/directory", current: false },
+  { name: "About", href: "/about", current: false },
+  { name: "Contact Us", href: "/contact", current: false },
+  { name: "CSO", href: "/cso", current: false },
+  { name: "Logout", href: "/login", current: false },
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 
 function NavBar() {
@@ -32,7 +32,9 @@ function NavBar() {
           <div className=" mx-auto flex justify-between">
             <div className="flex-shrink-0">
               <img className="w-15 h-12" src={logo} alt="FAST NUCES Logo" />
-              <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">Career Development Portal</span>
+              <span className="ml-3 text-xl text-gray-100 font-semibold antialiased">
+                Career Development Portal
+              </span>
             </div>
             <div className="hidden md:flex text-white flex-wrap items-center justify-center text-base tracking-wide">
               {navigation.map((item) => (
@@ -50,7 +52,11 @@ function NavBar() {
             <div className="md:hidden">
               <Disclosure.Button className="text-gray-400 hover:bg-gray-700 hover:text-white">
                 <span className="sr-only">Open main menu</span>
-                {open ? <XMarkIcon className="block h-6 w-6" aria-hidden="true" /> : <Bars3Icon className="block h-6 w-6" aria-hidden="true" />}
+                {open ? (
+                  <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                ) : (
+                  <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                )}
               </Disclosure.Button>
             </div>
           </div>

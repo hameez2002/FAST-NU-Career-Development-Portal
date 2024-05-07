@@ -1,4 +1,4 @@
-.container {
+/* .container {
     display: flex;
     justify-content: center;
     height: 100vh;
@@ -8,4 +8,101 @@
   h1 {
     color: #146c94;
   }
+ */
 
+
+
+ /* Home.css */
+.container-fluid.main {
+  position: relative;
+  padding: 0;
+}
+
+.carousel.carousel-fade.slide {
+  position: relative;
+  height: 100vh;
+}
+
+.carousel-inner {
+  position: relative;
+}
+
+.carousel-item {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+
+.background {
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+}
+
+.covertext {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  right: 0;
+}
+
+.title {
+  font-family: Verdana;
+  font-weight: 600;
+  font-size: 60px;
+  color: black;
+  text-align: center;
+}
+
+.subtitle {
+  font-family: Verdana;
+  font-size: 23px;
+  color: black;
+  text-align: center;
+}
+
+.explore {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.explore.btn-lg {
+  border-radius: 25px; 
+  padding: 15px 25px; 
+  font-size: 22px; 
+  background-image: none; 
+  background-color: #FF4000; 
+  border-color: #FF4000; 
+  color: #ffffff; 
+  font-weight: bold; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s ease; 
+}
+
+.explore.btn-lg:hover {
+  background-color: #E65000; 
+  border-color: #E65000; 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  transform: translateY(-2px); 
+  font-weight: 700; 
+}
+
+@media (max-width: 768px) {
+  .title {
+     font-size: 48px;
+   }
+ 
+  .subtitle {
+     font-size: 18px;
+   }
+ 
+  .explore.btn-lg {
+     padding: 10px 20px;
+     font-size: 18px;
+   }
+ }

@@ -124,6 +124,7 @@
     border: none;
   }
   .nav-links {
+    color: #fff;
     padding: 1.5rem;
     width: 100%;
     display: table;

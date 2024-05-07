@@ -26,9 +26,9 @@ import UserProfile from "./components/Pages/UserProfile";
 import MyForm from "./components/Jobs/MyForm";
 import JobDetails from "./components/Jobs/JobDetails";
 import GraduateDirectory from "./components/Pages/GraduateDirectory";
+import ProfilePage from "./components/Pages/ProfilePage";
 // import { FormDataProvider } from './components/Jobs/FormDataContext';
 import "./styles.css";
-
 
 function App() {
   return (
@@ -54,20 +54,18 @@ function App() {
           path="/jobs"
           element={
             <NavBarWrapper>
-                <Jobs />
+              <Jobs />
             </NavBarWrapper>
-
           }
         />
-        <Route 
-          path="/jobs/:id" 
-          element=
-          {<NavBarWrapper>
-            
-          <JobDetails/>
-          </NavBarWrapper>} 
-
-          />
+        <Route
+          path="/jobs/:id"
+          element={
+            <NavBarWrapper>
+              <JobDetails />
+            </NavBarWrapper>
+          }
+        />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
@@ -85,7 +83,6 @@ function App() {
             <NavBarWrapper>
               <MyForm />
             </NavBarWrapper>
-            
           }
         />
 
@@ -149,6 +146,15 @@ function App() {
           element={
             <NavBarWrapper>
               <GraduateDirectory />
+            </NavBarWrapper>
+          }
+        />
+
+        <Route
+          path="/profile/:user_id"
+          element={
+            <NavBarWrapper>
+              <ProfilePage />
             </NavBarWrapper>
           }
         />

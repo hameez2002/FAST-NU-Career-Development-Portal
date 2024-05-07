@@ -10,7 +10,8 @@ export default function DeletePost() {
     try {
       setLoading(true);
       const response = await fetch(
-        `https://cdp-kappa.vercel.app/newsfeed/delete/${id}`,
+        `http://localhost:7000/newsfeed/delete/${id}`,
+        // `https://cdp-kappa.vercel.app/newsfeed/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -36,9 +37,11 @@ export default function DeletePost() {
 
   return (
     <div>
+    {/* {!localStorage.getItem('role') === 2 && */}
       <button onClick={handleDelete} disabled={loading}>
         {loading ? "Deleting..." : "Delete"}
       </button>
+    {/* } */}
     </div>
   );
 }

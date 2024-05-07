@@ -11,11 +11,11 @@ const DeleteConfirmationModal = ({ onConfirm, onCancel }) => {
           </button>
         </div> */}
         <div className="title">
-          <h1 className="text-black text-lg font-bold mt-2">Delete Job</h1>
+          <h1 className="text-black text-lg font-bold mt-2">Delete</h1>
         </div>
         <div className="body">
           <p className="text-gray-700 text-base">
-            Are you sure you want to delete this job? This action cannot be undone.
+            Are you sure you want to delete this item? This action cannot be undone.
           </p>
         </div>
         <div className="footer">

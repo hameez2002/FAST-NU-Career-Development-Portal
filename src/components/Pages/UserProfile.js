@@ -1,5 +1,6 @@
+//UserProfile.js frontend
 import React, { useState, useRef, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const UserProfile = () => {
@@ -28,13 +29,14 @@ const UserProfile = () => {
         if (!user_id) {
           throw new Error("User ID not found in local storage");
         }
-  
-        // const response = await axios.get(`http://localhost:7000/profile/${user_id}`);
-        const response = await axios.get(`https://cdp-kappa.vercel.app/profile/${user_id}`);
-        
+
+        const response = await axios.get(
+          `http://localhost:7000/profile/${user_id}`
+        );
+        // const response = await axios.get(`https://cdp-kappa.vercel.app/profile/${user_id}`);
 
         const { profile, certificates, experiences } = response.data;
-  
+
         setProfileData({
           ...profileData,
           ...profile,
@@ -54,33 +56,11 @@ const UserProfile = () => {
         }
       }
     };
-  
+
     fetchProfile();
   }, []);
-  
 
-  // useEffect(() => {
-  //   const fetchProfile = async () => {
-  //      try {
-  //        const response = await axios.get(`http://localhost:7000/profile/${user_id}`);
-  //        const { profile, certificates, experiences } = response.data;
-  //        setProfileData({
-  //          ...profileData,
-  //          ...profile,
-  //          certificates: certificates.map((cert) => cert.certificate),
-  //          experiences: experiences.map((exp) => exp.experience),
-  //        });
-  //      } catch (error) {
-  //        console.error("Error fetching profile data:", error);
-  //      }
-  //   };
-   
-  //   fetchProfile();
-  //  }, [user_id]); 
-   
-  
-
-  const fileInputRef = useRef(null); // Reference to file input element
+  const fileInputRef = useRef(null);
 
   const handleEditClick = () => {
     setEditMode((prevEditMode) => !prevEditMode);
@@ -90,8 +70,8 @@ const UserProfile = () => {
     event.preventDefault();
     try {
       const response = await axios.post(
-        // "http://localhost:7000/profile",
-        "https://cdp-kappa.vercel.app/profile",
+        "http://localhost:7000/profile",
+        // "https://cdp-kappa.vercel.app/profile",
         {
           user_id: profileData.user_id,
           fname: profileData.fname,
@@ -112,17 +92,11 @@ const UserProfile = () => {
     } catch (error) {
       console.error("Error:", error.response.data);
     }
-};
-
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedImage(file);
   };
 
   // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   setSelectedImage(file);
+  // const file = e.target.files[0];
+  // setSelectedImage(file);
   // };
 
   const handleChange = (e) => {
@@ -175,32 +149,72 @@ const UserProfile = () => {
     setEditMode(false); // Exit edit mode after saving
   };
 
-  // const handleSave = async () => {
-  //   try {
-  //     // Convert selectedImage to base64 string
-  //     const reader = new FileReader();
-  //     reader.readAsDataURL(selectedImage);
-  //     reader.onload = async () => {
-  //       const base64Image = reader.result.split(",")[1];
-        
-  //       // Send profile data including base64 image to backend
-  //       const response = await axios.post("http://localhost:7000/profile", {
-  //         user_id: profileData.user_id,
-  //         fname: profileData.fname,
-  //         // Include other profile data...
-  //         student_profile_pic: base64Image, // Add base64 encoded profile picture
-  //       });
-        
-  //       console.log("Response:", response.data);
-  //       setEditMode(false); // Exit edit mode after saving
-  //     };
-  //   } catch (error) {
-  //     console.error("Error:", error.response.data);
-  //   }
+  // const handleImageButtonClick = () => {
+  // fileInputRef.current.click(); // Trigger click event on file input
   // };
 
+  // const handlePictureSubmit = async () => {
+  // try {
+  // const formData = new FormData(); // Create a FormData object
+
+  // // Append only the selected image to FormData object
+  // formData.append("user_id", profileData.user_id);
+  // formData.append("student_profile_pic", selectedImage);
+
+  // const response = await axios.post(
+  // "http://localhost:7000/profile/picture",
+  // formData, // Send FormData object instead of plain object
+  // {
+  // headers: {
+  // "Content-Type": "multipart/form-data", // Set proper content type
+  // },
+  // }
+  // );
+  // console.log("Response:", response.data);
+  // // Handle response or update UI as needed
+  // } catch (error) {
+  // console.error("Error:", error.response.data);
+  // // Handle error or show error message to the user
+  // }
+  // };
+
+  //new code
   const handleImageButtonClick = () => {
     fileInputRef.current.click(); // Trigger click event on file input
+  };
+
+  const handlePictureSubmit = async () => {
+    try {
+      const user_id = localStorage.getItem("user_id");
+      if (!user_id) {
+        throw new Error("User ID not found in local storage");
+      }
+
+      const formData = new FormData();
+      formData.append("user_id", user_id); // Include user_id in the FormData object
+      formData.append("student_profile_pic", selectedImage);
+
+      const response = await axios.post(
+        "http://localhost:7000/profile",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      console.log("Response:", response.data);
+      // Handle response or update UI as needed
+    } catch (error) {
+      console.error("Error:", error.response.data);
+      // Handle error or show error message to the user
+    }
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setSelectedImage(file);
+    handlePictureSubmit(); // Automatically submit the selected image
   };
 
   return (
@@ -237,7 +251,7 @@ const UserProfile = () => {
                     onClick={handleImageButtonClick}
                     className="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200 "
                   >
-                    Change picture
+                    Change Picture
                   </button>
                   {/* Hidden file input */}
                   <input

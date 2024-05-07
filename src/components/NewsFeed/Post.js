@@ -11,28 +11,26 @@ export default function Post({
   createdAt,
   author,
 }) {
-  
   return (
-    <div className="post">
-      <div className="image">
+    <div className="post bg-white shadow-md rounded-lg p-4 max-w-md mx-auto !my-4">
+      <div className="image relative">
         <Link to={`/newsfeed/post/${_id}`}>
-          {/* <img src={"http://localhost:7000/"+cover} alt="" /> */}
-          <img src={cover} alt="" />
-          
+          <img src={cover} alt="" className="w-full h-48 object-cover rounded-lg" />
         </Link>
       </div>
-      <div className="texts">
+      <div className="texts mt-4">
         <Link to={`/newsfeed/post/${_id}`}>
-          <h2>{title}</h2>
+          <h2 className="text-xl font-semibold mb-2">{title}</h2>
         </Link>
-        <p className="info">
-          {/* <a className="author">{author.username}</a> */}
+        <p className="info text-gray-600">
           <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
-        <p className="summary">{summary}</p>
-        <Link to={`/newsfeed/delete/${_id}`} className="delete-button">
+        <p className="summary mt-2 text-gray-700">{summary}</p>
+        {/* {!localStorage.getItem('role') === 2 && */}
+        <Link to={`/newsfeed/delete/${_id}`} className="inline-flex items-center justify-center !bg-red-600 hover:!bg-red-700 !text-white font-semibold py-2 px-4 rounded-md mt-4 transition duration-150 ease-in-out">
           Delete Post
         </Link>
+        {/* } */}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./JobForm.css";
 import axios from "axios";
 
@@ -21,6 +21,12 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
 
   const [validationErrors, setValidationErrors] = useState({});
+
+  useEffect(() => {
+    const currentDate = new Date().toISOString().split('T')[0]; // Format to YYYY-MM-DD
+    setPostedOn(currentDate);
+    setUpdatedOn(currentDate);
+  }, []);
 
   const handleJobTitleChange = (event) => {
     setJobTitle(event.target.value);
@@ -176,8 +182,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
     if (Object.keys(errors).length === 0) {
       try {
         
-        // const response = await axios.post("http://localhost:7000/jobs", {
-          const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
+        const response = await axios.post("http://localhost:7000/jobs", {
+          // const response = await axios.post("https://cdp-kappa.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -476,13 +482,13 @@ const JobForm = ({ onSubmit, onCancel }) => {
 
       <div className="flex items-center justify-center ">
         <button
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-center focus:outline-none focus:shadow-outline w-16"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded justify-center focus:outline-none focus:shadow-outline w-18"
           type="submit"
         >
           Submit
         </button>
         <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex justify-center focus:outline-none focus:shadow-outline mx-2 w-16"
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded flex justify-center focus:outline-none focus:shadow-outline mx-2 w-18"
           type="button"
           onClick={handleCancel}
         >
