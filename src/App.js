@@ -27,6 +27,8 @@ import MyForm from "./components/Jobs/MyForm";
 import JobDetails from "./components/Jobs/JobDetails";
 import GraduateDirectory from "./components/Pages/GraduateDirectory";
 import ProfilePage from "./components/Pages/ProfilePage";
+import NotFound  from './components/Pages/NotFound';
+
 // import { FormDataProvider } from './components/Jobs/FormDataContext';
 import "./styles.css";
 
@@ -183,6 +185,14 @@ function App() {
             </NavBarWrapper>
           }
         />
+         <Route path="/NotFound" 
+            element = {  
+            <NavBarWrapper>
+              <NotFound />
+            </NavBarWrapper> 
+            }
+         />
+
       </Routes>
       <div style={{ flex: 1 }}></div>
     </Router>

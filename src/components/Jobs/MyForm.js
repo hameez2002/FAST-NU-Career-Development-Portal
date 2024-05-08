@@ -215,17 +215,25 @@
 
 //3
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Base64 } from "js-base64";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css"; // Import the styles
 import "./MyForm.css";
 
 export default function MyForm() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token is found, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
     const queryParams = new URLSearchParams(window.location.search);
     const jobData = {
       jobTitle: queryParams.get("jobTitle"),

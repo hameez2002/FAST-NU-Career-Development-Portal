@@ -1,6 +1,16 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 export const About = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if a token exists in local storage
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token is found, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
+  }, [navigate]);
   return (
     <div className="bg-[#c7ecfc] min-h-screen flex flex-col justify-center items-center px-4 py-8">
       <div className="max-w-3xl bg-white rounded-lg overflow-hidden shadow-xl p-6">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Login.css";
@@ -15,7 +15,7 @@ const Login = () => {
   };
 
   const redirectToJobs = () => {
-    navigate("/jobs");
+    navigate("/home");
   };
 
   const handleChange = (e) => {
@@ -50,6 +50,11 @@ const Login = () => {
       console.log("Invalid user id or password");
     }
   };
+
+  useEffect(() => {
+    localStorage.clear();
+  }, []);
+
 
   return (
     <div className="login-container">

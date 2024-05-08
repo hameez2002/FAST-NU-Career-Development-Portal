@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import image1 from "../../Images/IMG1.jpg";
 import image2 from "../../Images/IMG2.jpg";
 
 export const Home = () => {
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if a token exists in local storage
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token is found, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
+  }, [navigate]);
   return (
     <>
       <div className="container mx-auto px-4 mt-10">

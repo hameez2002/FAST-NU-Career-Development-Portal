@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { redirect, useNavigate } from "react-router-dom"; 
 import "./Styles.css";
 import JobForm from "../Jobs/JobForm";
 import JobList from "../Jobs/JobList";
@@ -10,6 +10,7 @@ import axios from "axios";
 import axiosInstance from "./../../axiosConfig";
 
 export const Jobs = () => {
+  
   const [showForm, setShowForm] = useState(false);
   const [jobs, setJobs] = useState([]);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -24,6 +25,12 @@ export const Jobs = () => {
 
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If token is not available, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
+
     const fetchJobPostings = async () => {
       try {
         const response = await axiosInstance.get("/jobs");

@@ -1,12 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect ,useState } from "react";
+
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const ProfilePage = () => {
+  const navigate = useNavigate();
+
   const { user_id } = useParams();
   const [profileData, setProfileData] = useState(null);
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token is found, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
     const fetchProfileData = async () => {
       try {
         const response = await axios.get(`http://localhost:7000/profile/${user_id}`);

@@ -65,7 +65,7 @@
 
 .newsfeed-container div.post div.texts h2{
   margin:0;
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
 .newsfeed-container div.post div.texts a{
   text-decoration:none;
@@ -74,7 +74,7 @@
 .newsfeed-container div.post p.info{
   margin:24px 0;
   color: #888;
-  font-size:1rem;
+  font-size:0.75rem;
   font-weight: bold;
   display: flex;
   gap: 10px;

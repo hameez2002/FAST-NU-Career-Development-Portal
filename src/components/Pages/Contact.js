@@ -87,9 +87,21 @@
 //   );
 // };
 
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const Contact = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if a token exists in local storage
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token is found, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
+  }, [navigate]);
+
   const latitude = 24.8568991;
   const longitude = 67.2646838;
 

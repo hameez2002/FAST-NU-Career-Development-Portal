@@ -1,7 +1,19 @@
-import React from "react";
+import { useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
 import Card from "../Card";
 
 export const BoardOfDirectors = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if a token exists in local storage
+    const token = localStorage.getItem("token");
+    if (!token) {
+      // If no token is found, redirect to the "NotFound" page
+      navigate("/NotFound");
+    }
+  }, [navigate]);
+
   //content here needs to be statically insterted
   const directors = [
     { name: "Aysha Siddiqui", designation: "Career Services Officer", campus: "Karachi" },
