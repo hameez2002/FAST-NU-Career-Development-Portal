@@ -26,14 +26,14 @@ export default function PostPage() {
           {formatISO9075(new Date(postInfo.createdAt))}
         </time>
         <div className="edit-row">
-        {/* {!localStorage.getItem('role') === 2 && */}
+        {localStorage.getItem('user_roles') === "1" && (
           <Link
             className="edit-btn inline-block !bg-blue-500 hover:!bg-blue-700 text-white font-semibold py-2 px-4 rounded transition duration-150 ease-in-out"
             to={`/newsfeed/edit/${postInfo._id}`}
           >
             Edit this post
           </Link>
-        {/* } */}
+        )}
         </div>
       </div>
       <div className="image mb-8">

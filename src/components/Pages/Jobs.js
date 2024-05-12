@@ -225,13 +225,13 @@ export const Jobs = () => {
         Job Posting
       </h1>
       {/* { */}
-        {/* !localStorage.getItem('role') === 2 && */}
+      {localStorage.getItem('user_roles') === "1" && (
       <div className="Button">
         <button className="add-job-button w-auto" onClick={handleAddJobClick}>
           Add Job
         </button>
       </div>
-      {/* } */}
+      )}
       {showForm && (
         <JobForm onSubmit={handleJobSubmit} onCancel={handleJobCancel} />
       )}

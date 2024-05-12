@@ -90,14 +90,14 @@ function CreatePost() {
           </label>
           <Editor value={content} onChange={setContent} />
         </div>
-        {/* {!localStorage.getItem('role') === 2 && */}
+        {localStorage.getItem('user_roles') === "1" && (
         <button
           type="submit"
           className="mt-4 py-2 px-4 !bg-blue-500 text-white font-semibold rounded-md hover:!bg-blue-700 focus:outline-none transition duration-150 ease-in-out"
         >
           Create post
         </button>
-        {/* } */}
+        )}
       </form>
     </div>
   );

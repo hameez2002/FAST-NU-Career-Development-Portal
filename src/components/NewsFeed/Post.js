@@ -27,11 +27,11 @@ export default function Post({
           <time>{formatISO9075(new Date(createdAt))}</time>
         </p>
         <p className="summary mt-2 text-gray-700">{summary}</p>
-        {/* {!localStorage.getItem('role') === 2 && */}
-        <Link to={`/newsfeed/delete/${_id}`} className="inline-flex items-center justify-center !bg-red-600 hover:!bg-red-700 !text-white font-semibold py-2 px-4 rounded-md mt-4 transition duration-150 ease-in-out">
+        {localStorage.getItem('user_roles') === "1" && (
+          <Link to={`/newsfeed/delete/${_id}`} className="inline-flex items-center justify-center !bg-red-600 hover:!bg-red-700 !text-white font-semibold py-2 px-4 rounded-md mt-4 transition duration-150 ease-in-out">
           Delete Post
         </Link>
-        {/* } */}
+         )} 
       </div>
     </div>
   );
