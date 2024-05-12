@@ -230,7 +230,8 @@ export default function MyForm() {
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    if (!token) {
+    const user_roles = localStorage.getItem("user_roles");
+    if (!token || user_roles !== "1") {
       // If no token is found, redirect to the "NotFound" page
       navigate("/NotFound");
     }

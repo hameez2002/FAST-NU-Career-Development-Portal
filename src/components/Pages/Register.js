@@ -62,7 +62,7 @@ const Register = () => {
       localStorage.setItem("user_id", user_id);
       localStorage.setItem("user_role", userRole);
       console.log(response.data);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error(error.response.data);
       // Error handling here...
@@ -88,6 +88,7 @@ const Register = () => {
               onChange={handleRoleChange}
             >
               <option value="">Select User Role</option>
+              <option value="1">CSO</option>
               <option value="2">Student</option>
               {/* <option value="3">Industry</option> */}
             </select>
