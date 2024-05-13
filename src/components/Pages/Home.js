@@ -4,10 +4,9 @@ import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import image1 from "../../Images/IMG1.jpg";
 import image2 from "../../Images/IMG2.jpg";
-import"./Home.css";
+import "./Home.css";
 
 export const Home = () => {
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,30 +17,30 @@ export const Home = () => {
       navigate("/NotFound");
     }
   }, [navigate]);
+
   return (
     <>
       <div className="container mx-auto px-2 mt-10">
-      <Carousel showThumbs={false} showStatus={false} showIndicators={false} showArrows={true} autoPlay={true} interval={2000}>
-  <div>
-    <img src={image1} alt="Slide 1" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <p className="text-xl font-normal text-white text-center typewriter-text">Delivering opportunities to students.</p>
-    </div>
-  </div>
-  <div>
-    <img src={image2} alt="Slide 2" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <p className="text-xl font-normal text-white text-center typewriter-text">Bridging the gap between industry and academia.</p>
-    </div>
-  </div>
-  <div>
-    <img src={image1} alt="Slide 3" className="w-full h-full object-cover" />
-    <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <p className="text-xl font-normal text-white text-center typewriter-text">Introducing the alumni directory.</p>
-    </div>
-  </div>
-</Carousel>
-
+        <Carousel showThumbs={false} showStatus={false} showIndicators={false} showArrows={true} autoPlay={true} interval={2000} infiniteLoop={true}>
+          <div>
+            <img src={image1} alt="Slide 1" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <p className="text-xl font-normal text-white text-center typewriter-text">Delivering opportunities to students.</p>
+            </div>
+          </div>
+          <div>
+            <img src={image2} alt="Slide 2" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <p className="text-xl font-normal text-white text-center typewriter-text">Bridging the gap between industry and academia.</p>
+            </div>
+          </div>
+          <div>
+            <img src={image1} alt="Slide 3" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+              <p className="text-xl font-normal text-white text-center typewriter-text">Introducing the alumni directory.</p>
+            </div>
+          </div>
+        </Carousel>
 
         <div className="covertext mt-24">
           <div className="mx-auto max-w-xl px-4">

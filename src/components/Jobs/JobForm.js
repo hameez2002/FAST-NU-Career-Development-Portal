@@ -365,7 +365,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
         )}
       </div>
 
-      <div className="mb-4">
+      {/* <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="noOfOpenings">
           Number of Openings
         </label>
@@ -380,8 +380,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
         {validationErrors.noOfOpenings && (
           <span className="text-red-500 text-xs italic">{validationErrors.noOfOpenings}</span>
         )}
-      </div>
-      <div className="mb-4">
+      </div> */}
+      {/* <div className="mb-4">
   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="qualificationRequirements">
     Qualification Requirements
   </label>
@@ -395,11 +395,11 @@ const JobForm = ({ onSubmit, onCancel }) => {
   {validationErrors.qualificationRequirements && (
     <span className="text-red-500 text-xs italic">{validationErrors.qualificationRequirements}</span>
   )}
-</div>
+</div> */}
 
 
 
-<div className="mb-4">
+{/* <div className="mb-4">
   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="responsibilities">
     Responsibilities
   </label>
@@ -413,9 +413,9 @@ const JobForm = ({ onSubmit, onCancel }) => {
   {validationErrors.responsibilities && (
     <span className="text-red-500 text-xs italic">{validationErrors.responsibilities}</span>
   )}
-</div>
+</div> */}
 
-<div className="mb-4">
+{/* <div className="mb-4">
   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="about">
     About
   </label>
@@ -429,9 +429,9 @@ const JobForm = ({ onSubmit, onCancel }) => {
   {validationErrors.about && (
     <span className="text-red-500 text-xs italic">{validationErrors.about}</span>
   )}
-</div>
+</div> */}
 
-<div className="mb-4">
+{/* <div className="mb-4">
   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="jobStatus">
     Job Status
   </label>
@@ -446,7 +446,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
   {validationErrors.jobStatus && (
     <span className="text-red-500 text-xs italic">{validationErrors.jobStatus}</span>
   )}
-</div>
+</div> */}
 
 <div className="mb-4">
   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="postedOn">

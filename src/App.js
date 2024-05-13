@@ -28,8 +28,7 @@ import JobDetails from "./components/Jobs/JobDetails";
 import GraduateDirectory from "./components/Pages/GraduateDirectory";
 import ProfilePage from "./components/Pages/ProfilePage";
 import NotFound  from './components/Pages/NotFound';
-
-// import { FormDataProvider } from './components/Jobs/FormDataContext';
+import Footer from "./components/Footer/Footer";
 import "./styles.css";
 
 function App() {
@@ -195,6 +194,7 @@ function App() {
 
       </Routes>
       <div style={{ flex: 1 }}></div>
+      <Footer />
     </Router>
   );
 }

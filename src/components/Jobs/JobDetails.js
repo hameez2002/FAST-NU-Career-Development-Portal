@@ -61,26 +61,26 @@ const JobDetails = () => {
                   <p className="text-lg text-gray-900 font-bold">Deadline</p>
                   <p className="text-md font-medium text-gray-500">{formatDate(job.Deadline)}</p>
                 </li>
-                <li className="py-4">
+                {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">No. of Openings</p>
                   <p className="text-md font-medium text-gray-500">{job.no_of_openings}</p>
-                </li>
-                <li className="py-4">
+                </li> */}
+                {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Qualification Requirements</p>
                   <p className="text-md font-medium text-gray-500">{job.qualifications_req}</p>
-                </li>
-                <li className="py-4">
+                </li> */}
+                {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Responsibilities</p>
                   <p className="text-md font-medium text-gray-500">{job.responsibilities}</p>
-                </li>
-                <li className="py-4">
+                </li> */}
+                {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">About</p>
                   <p className="text-md font-medium text-gray-500">{job.about}</p>
-                </li>
-                <li className="py-4">
+                </li> */}
+                {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Job Status</p>
                   <p className="text-md font-medium text-gray-500">{job.job_status}</p>
-                </li>
+                </li> */}
                 <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Posted On</p>
                   <p className="text-md font-medium text-gray-500">{formatDate(job.posted_on)}</p>
