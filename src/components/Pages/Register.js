@@ -12,7 +12,7 @@ const Register = () => {
   const [userRole, setUserRole] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
   const navigate = useNavigate();
 
   const redirectToLogin = () => {
@@ -50,7 +50,16 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation logic here...
+    // Basic form validation
+    if (!user_id ||!email ||!password ||!confirmPassword ||!userRole) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    if (password!== confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
 
     try {
       const response = await axios.post("http://localhost:7000/register", {
@@ -65,7 +74,7 @@ const Register = () => {
       navigate("/");
     } catch (error) {
       console.error(error.response.data);
-      // Error handling here...
+      setErrorMessage("User ID already exists.");
     }
   };
 
@@ -136,7 +145,7 @@ const Register = () => {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
-                type={showPassword ? "text" : "password"}
+                type={showPassword? "text" : "password"}
                 placeholder="******************"
                 value={password}
                 onChange={handlePasswordChange}
@@ -147,7 +156,7 @@ const Register = () => {
                   type="button"
                   onClick={handleTogglePassword}
                 >
-                  {showPassword ? (
+                  {showPassword? (
                     <FontAwesomeIcon icon={faEyeSlash} />
                   ) : (
                     <FontAwesomeIcon icon={faEye} />
@@ -167,7 +176,7 @@ const Register = () => {
               <input
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="confirmPassword"
-                type={showConfirmPassword ? "text" : "password"}
+                type={showConfirmPassword? "text" : "password"}
                 placeholder="******************"
                 value={confirmPassword}
                 onChange={handleConfirmPasswordChange}
@@ -178,7 +187,7 @@ const Register = () => {
                   type="button"
                   onClick={handleToggleConfirmPassword}
                 >
-                  {showConfirmPassword ? (
+                  {showConfirmPassword? (
                     <FontAwesomeIcon icon={faEyeSlash} />
                   ) : (
                     <FontAwesomeIcon icon={faEye} />
@@ -187,6 +196,7 @@ const Register = () => {
               </div>
             </div>
           </div>
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>} {/* Display error message */}
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

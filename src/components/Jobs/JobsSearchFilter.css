@@ -22,7 +22,7 @@
   margin-left: 10px;
   padding: 10px 20px;
   /* background-color: #007bff; */
-  background-color: #146c94;
+  background-color: #004E8F;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -33,5 +33,5 @@
 
 .search-button:hover {
   /* background-color: #0056b3; */
-  background-color: #146c94;
+  background-color: #004E8F;
 }

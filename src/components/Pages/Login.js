@@ -10,7 +10,8 @@ const Login = () => {
     user_id: "",
     password: "",
   });
-  const [showPassword, setShowPassword] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(""); // New state for error message
   const navigate = useNavigate();
 
   const redirectToRegister = () => {
@@ -32,6 +33,12 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Basic form validation
+    if (!formData.user_id ||!formData.password) {
+      alert("Please fill in both User ID and Password.");
+      return;
+    }
+
     try {
       const response = await axios.post("http://localhost:7000/login", {
         user_id: formData.user_id,
@@ -39,21 +46,29 @@ const Login = () => {
       });
       const { token, user_id, user_roles } = response.data;
       if (token && user_id) {
-        localStorage.setItem("token", token);
-        localStorage.setItem("user_roles", user_roles);
-        localStorage.setItem("user_id", user_id);
+        try {
+          localStorage.setItem("token", token);
+          localStorage.setItem("user_roles", user_roles);
+          localStorage.setItem("user_id", user_id);
+        } catch (error) {
+          console.error("Error setting item in local storage:", error);
+        }
         redirectToJobs();
       } else {
         console.error("Token or user_id is undefined");
       }
     } catch (error) {
       console.error(error.response.data);
-      console.log("Invalid user id or password");
+      setErrorMessage("Invalid User ID or Password.");
     }
   };
 
   useEffect(() => {
-    localStorage.clear();
+    try {
+      localStorage.clear();
+    } catch (error) {
+      console.error("Error clearing local storage:", error);
+    }
   }, []);
 
   const handleTogglePassword = () => {
@@ -114,6 +129,7 @@ const Login = () => {
               </div>
             </div>
           </div>
+          {errorMessage && <p className="text-red-500">{errorMessage}</p>} {/* Display error message */}
           <div className="flex items-center justify-between">
             <button
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"

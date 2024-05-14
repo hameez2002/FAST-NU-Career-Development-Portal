@@ -33,27 +33,22 @@ const UserProfile = () => {
         const response = await axios.get(
           `http://localhost:7000/profile/${user_id}`
         );
-        // const response = await axios.get(`https://cdp-kappa.vercel.app/profile/${user_id}`);
-
         const { profile, certificates, experiences } = response.data;
+        const base64String = profile.student_profile_pic.toString('base64');
+        const imageUrl = `data:image/jpeg;base64,${base64String}`;
+        // Assuming profile.student_profile_pic is a Base64 string
+        console.log(profile.student_profile_pic); // Log the raw Base64 string
 
-        setProfileData({
-          ...profileData,
+        setProfileData((prevData) => ({
+          ...prevData,
           ...profile,
+          student_profile_pic: imageUrl, // Use the constructed URL
           certificates: certificates.map((cert) => cert.certificate),
           experiences: experiences.map((exp) => exp.experience),
-        });
+        }));
+        console.log(profileData);
       } catch (error) {
-        if (error.response) {
-          // The request was made and the server responded with a status code
-          console.error("Server error:", error.response.data);
-        } else if (error.request) {
-          // The request was made but no response was received
-          console.error("Network error:", error.request);
-        } else {
-          // Something else happened in setting up the request
-          console.error("Error:", error.message);
-        }
+        console.error("Error:", error);
       }
     };
 
@@ -228,15 +223,13 @@ const UserProfile = () => {
 
             <div className="grid max-w-2xl mx-auto mt-8">
               <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
-                <img
-                  className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                  src={
-                    selectedImage
-                      ? URL.createObjectURL(selectedImage)
-                      : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                  }
-                  alt="Bordered avatar"
-                />
+              <img
+  className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+  src={profileData.student_profile_pic? profileData.student_profile_pic : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
+  alt="Bordered avatar"
+/>
+
+
 
                 <div className="flex flex-col space-y-5 sm:ml-8">
                   <button

@@ -26,7 +26,7 @@ function NavBar() {
   const handleClick = () => setClick(!click);
 
   return (
-    <Disclosure as="nav" className="bg-[#146c94]">
+    <Disclosure as="nav" className="bg-[#004E8F]">
       {({ open }) => (
         <>
           <div className=" mx-auto flex justify-between">
