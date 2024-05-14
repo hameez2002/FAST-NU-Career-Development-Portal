@@ -34,6 +34,7 @@ export const BoardOfDirectors = () => {
           />
         ))}
       </div>
+      <div style={{ flex: 1 }}></div> {/* Add a flex spacer to push content to the top */}
     </div>
   );
 };

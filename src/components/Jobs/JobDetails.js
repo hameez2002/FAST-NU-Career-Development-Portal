@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import axios from "axios";
 
 const JobDetails = () => {
@@ -58,17 +58,21 @@ const JobDetails = () => {
                   <p className="text-md font-medium text-gray-500">{job.job_type}</p>
                 </li>
                 <li className="py-4">
+                  <p className="text-lg text-gray-900 font-bold">Link</p>
+                  <p className="text-md font-medium text-gray-500">{job.link}</p>
+                </li>
+                {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Deadline</p>
                   <p className="text-md font-medium text-gray-500">{formatDate(job.Deadline)}</p>
-                </li>
+                </li> */}
                 {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">No. of Openings</p>
                   <p className="text-md font-medium text-gray-500">{job.no_of_openings}</p>
                 </li> */}
-                {/* <li className="py-4">
+                <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Qualification Requirements</p>
                   <p className="text-md font-medium text-gray-500">{job.qualifications_req}</p>
-                </li> */}
+                </li>
                 {/* <li className="py-4">
                   <p className="text-lg text-gray-900 font-bold">Responsibilities</p>
                   <p className="text-md font-medium text-gray-500">{job.responsibilities}</p>
@@ -95,6 +99,11 @@ const JobDetails = () => {
         ) : (
           <p>Loading...</p>
         )}
+        <div className="mt-4">
+        <Link to="/jobs" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          View Jobs
+        </Link>
+      </div>
       </div>
     </div>
   );

@@ -112,7 +112,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               className="edit-modal-input"
             />
           </div>
-          <div className="edit-modal-form-group">
+          {/* <div className="edit-modal-form-group">
             <label htmlFor="Deadline" className="edit-modal-label">
               Deadline Date:
             </label>
@@ -124,8 +124,8 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               onChange={handleInputChange}
               className="edit-modal-input"
             />
-          </div>
-          <div className="edit-modal-form-group">
+          </div> */}
+          {/* <div className="edit-modal-form-group">
             <label htmlFor="no_of_openings" className="edit-modal-label">
               No. of Openings:
             </label>
@@ -137,7 +137,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               onChange={handleInputChange}
               className="edit-modal-input"
             />
-          </div>
+          </div> */}
           <div className="edit-modal-form-group">
             <label
               htmlFor="qualifications_req"
@@ -153,7 +153,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               className="edit-modal-input"
             />
           </div>
-          <div className="edit-modal-form-group">
+          {/* <div className="edit-modal-form-group">
             <label htmlFor="responsibilities" className="edit-modal-label">
               Responsibilities:
             </label>
@@ -164,8 +164,8 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               onChange={handleInputChange}
               className="edit-modal-input"
             />
-          </div>
-          <div className="edit-modal-form-group">
+          </div> */}
+          {/* <div className="edit-modal-form-group">
             <label htmlFor="about" className="edit-modal-label">
               About:
             </label>
@@ -189,7 +189,7 @@ const EditModal = ({ job, onConfirm, onCancel }) => {
               onChange={handleInputChange}
               className="edit-modal-input"
             />
-          </div>
+          </div> */}
           <div className="edit-modal-form-group">
             <label htmlFor="posted_on" className="edit-modal-label">
               Posted On:

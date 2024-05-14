@@ -33,6 +33,7 @@ import "./styles.css";
 
 function App() {
   return (
+    <div className="app-container">              
     <Router>
       <Routes>
         <Route
@@ -196,6 +197,7 @@ function App() {
       <div style={{ flex: 1 }}></div>
       <Footer />
     </Router>
+    </div>
   );
 }
 

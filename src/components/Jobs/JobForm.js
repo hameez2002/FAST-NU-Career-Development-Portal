@@ -8,13 +8,13 @@ const JobForm = ({ onSubmit, onCancel }) => {
   const [jobTitle, setJobTitle] = useState("");
   const [jobDescription, setJobDescription] = useState("");
   const [jobLink, setJobLink] = useState("");
-  const [deadlineDate, setDeadlineDate] = useState("");
+  // const [deadlineDate, setDeadlineDate] = useState("");
   const [jobType, setJobType] = useState("");
-  const [noOfOpenings, setNoOfOpenings] = useState("");
+  // const [noOfOpenings, setNoOfOpenings] = useState("");
   const [qualificationRequirements, setQualificationRequirements] = useState("");
-  const [responsibilities, setResponsibilities] = useState("");
-  const [about, setAbout] = useState("");
-  const [jobStatus, setJobStatus] = useState("");
+  // const [responsibilities, setResponsibilities] = useState("");
+  // const [about, setAbout] = useState("");
+  // const [jobStatus, setJobStatus] = useState("");
   const [postedOn, setPostedOn] = useState("");
   const [updatedOn, setUpdatedOn] = useState("");
   const [showForm, setShowForm] = useState(false);
@@ -40,29 +40,29 @@ const JobForm = ({ onSubmit, onCancel }) => {
     setJobLink(event.target.value);
   };
 
-  const handleDeadlineDateChange = (event) => {
-    setDeadlineDate(event.target.value);
-  };
+  // const handleDeadlineDateChange = (event) => {
+  //   setDeadlineDate(event.target.value);
+  // };
 
   const handleJobTypeChange = (event) => {
     setJobType(event.target.value);
   };
 
-  const handleNoOfOpeningsChange = (event) => {
-    setNoOfOpenings(event.target.value);
-  };
+  // const handleNoOfOpeningsChange = (event) => {
+  //   setNoOfOpenings(event.target.value);
+  // };
   const handleQualificationRequirementsChange = (event) => {
     setQualificationRequirements(event.target.value);
   };
-  const handleResponsibilitiesChange = (event) => {
-    setResponsibilities(event.target.value);
-  };
-  const handleAboutChange = (event) => {
-    setAbout(event.target.value);
-  };
-  const handleJobStatusChange = (event) => {
-    setJobStatus(event.target.value);
-  };
+  // const handleResponsibilitiesChange = (event) => {
+  //   setResponsibilities(event.target.value);
+  // };
+  // const handleAboutChange = (event) => {
+  //   setAbout(event.target.value);
+  // };
+  // const handleJobStatusChange = (event) => {
+  //   setJobStatus(event.target.value);
+  // };
   const handlePostedOnChange = (event) => {
     setPostedOn(event.target.value);
   };
@@ -95,11 +95,11 @@ const JobForm = ({ onSubmit, onCancel }) => {
     //   }
     }
 
-    if (!deadlineDate) {
-      errors.deadlineDate = "Please enter a deadline date";
-    } else if (new Date(deadlineDate) < new Date()) {
-      errors.deadlineDate = "Please enter a future date";
-    }
+    // if (!deadlineDate) {
+    //   errors.deadlineDate = "Please enter a deadline date";
+    // } else if (new Date(deadlineDate) < new Date()) {
+    //   errors.deadlineDate = "Please enter a future date";
+    // }
 
     if (!jobType) {
       errors.jobType = "Please choose a job type";
@@ -188,12 +188,12 @@ const JobForm = ({ onSubmit, onCancel }) => {
           jobType,
           jobDescription,
           jobLink,
-          deadlineDate,
-          noOfOpenings,
+          // deadlineDate,
+          // noOfOpenings,
           qualificationRequirements,
-          responsibilities,
-          about,
-          jobStatus,
+          // responsibilities,
+          // about,
+          // jobStatus,
           postedOn,
           updatedOn,
         });
@@ -207,18 +207,18 @@ const JobForm = ({ onSubmit, onCancel }) => {
           jobType,
           jobDescription,
           jobLink,
-          deadlineDate,
-          noOfOpenings,
+          // deadlineDate,
+          // noOfOpenings,
           qualificationRequirements,
-          responsibilities,
-          about,
-          jobStatus,
+          // responsibilities,
+          // about,
+          // jobStatus,
           postedOn,
           updatedOn,
         }).toString();
   
-        // window.open(`http://localhost:3000/email?${queryString}`, "_blank");
-        window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString}`, "_blank");
+        window.open(`http://localhost:3000/email?${queryString}`, "_blank");
+        // window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString}`, "_blank");
         console.log("Received response:", response.data);
         handleShowForm();
         onCancel();
@@ -233,12 +233,12 @@ const JobForm = ({ onSubmit, onCancel }) => {
       setJobType("");
       setJobDescription("");
       setJobLink("");
-      setDeadlineDate("");
-      setNoOfOpenings("");
+      // setDeadlineDate("");
+      // setNoOfOpenings("");
       setQualificationRequirements("");
-      setResponsibilities("");
-      setAbout("");
-      setJobStatus("");
+      // setResponsibilities("");
+      // setAbout("");
+      // setJobStatus("");
       setPostedOn("");
       setUpdatedOn("");
     } else {
@@ -344,7 +344,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
           </span>
         )}
       </div>
-      <div className="mb-4">
+      {/* <div className="mb-4">
         <label
           className="block text-gray-700 text-sm font-bold mb-2"
           htmlFor="deadlineDate"
@@ -363,7 +363,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
             {validationErrors.deadlineDate}
           </span>
         )}
-      </div>
+      </div> */}
 
       {/* <div className="mb-4">
         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="noOfOpenings">
@@ -381,7 +381,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
           <span className="text-red-500 text-xs italic">{validationErrors.noOfOpenings}</span>
         )}
       </div> */}
-      {/* <div className="mb-4">
+      <div className="mb-4">
   <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="qualificationRequirements">
     Qualification Requirements
   </label>
@@ -395,7 +395,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
   {validationErrors.qualificationRequirements && (
     <span className="text-red-500 text-xs italic">{validationErrors.qualificationRequirements}</span>
   )}
-</div> */}
+</div>
 
 
 

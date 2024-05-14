@@ -132,7 +132,7 @@ const JobList = ({ jobs, onDeleteJobClick, onEditJobClick, onViewJobClick }) => 
             </div>
             <div className="mt-2 flex items-center text-sm text-black-500 justify-center md:justify-start">
               <CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-black-500" aria-hidden="true" />
-              Closing on {formatDate(job.Deadline)}
+              Posted on {formatDate(job.posted_on)}
             </div>
           </div>
           <div className="mt-2 text-sm text-black-500">{job.job_description}</div>

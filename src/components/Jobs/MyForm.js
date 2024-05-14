@@ -241,12 +241,12 @@ export default function MyForm() {
       jobType: queryParams.get("jobType"),
       jobDescription: queryParams.get("jobDescription"),
       jobLink: queryParams.get("jobLink"),
-      deadlineDate: queryParams.get("deadlineDate"),
-      noOfOpenings: queryParams.get("noOfOpenings"),
+      // deadlineDate: queryParams.get("deadlineDate"),
+      // noOfOpenings: queryParams.get("noOfOpenings"),
       qualificationRequirements: queryParams.get("qualificationRequirements"),
-      responsibilities: queryParams.get("responsibilities"),
-      about: queryParams.get("about"),
-      jobStatus: queryParams.get("jobStatus"),
+      // responsibilities: queryParams.get("responsibilities"),
+      // about: queryParams.get("about"),
+      // jobStatus: queryParams.get("jobStatus"),
       postedOn: queryParams.get("postedOn"),
       updatedOn: queryParams.get("updatedOn"),
     };
@@ -255,12 +255,12 @@ export default function MyForm() {
     const constructedMessage = `<p><strong>Job Type:</strong> ${jobData.jobType}</p>` +
                               `<p><strong>Description:</strong> ${jobData.jobDescription}</p>` +
                               `<p><strong>Link:</strong> ${jobData.jobLink}</p>` +
-                              `<p><strong>Deadline Date:</strong> ${jobData.deadlineDate}</p>` +
-                              `<p><strong>Openings:</strong> ${jobData.noOfOpenings}</p>` +
+                              // `<p><strong>Deadline Date:</strong> ${jobData.deadlineDate}</p>` +
+                              // `<p><strong>Openings:</strong> ${jobData.noOfOpenings}</p>` +
                               `<p><strong>Qualifications:</strong> ${jobData.qualificationRequirements}</p>` +
-                              `<p><strong>Responsibilities:</strong> ${jobData.responsibilities}</p>` +
-                              `<p><strong>About:</strong> ${jobData.about}</p>` +
-                              `<p><strong>Status:</strong> ${jobData.jobStatus}</p>` +
+                              // `<p><strong>Responsibilities:</strong> ${jobData.responsibilities}</p>` +
+                              // `<p><strong>About:</strong> ${jobData.about}</p>` +
+                              // `<p><strong>Status:</strong> ${jobData.jobStatus}</p>` +
                               `<p><strong>Posted On:</strong> ${jobData.postedOn}</p>` +
                               `<p><strong>Updated On:</strong> ${jobData.updatedOn}</p>` +
                               `<p><br></p><p><br></p>` +
