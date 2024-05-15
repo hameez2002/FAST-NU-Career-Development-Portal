@@ -10,7 +10,9 @@ const GraduateDirectory = () => {
   useEffect(() => {
     const fetchProfiles = async () => {
       try {
-        const response = await axios.get("http://localhost:7000/profile");
+        // const response = await axios.get("http://localhost:7000/profile");
+        const response = await axios.get("https://backend-fast-nu-career-development-portal-yw26-6ab691fsb.vercel.app/profile");
+        
         if (Array.isArray(response.data)) {
           setProfiles(response.data);
           setFilteredProfiles(response.data); // Initialize filteredProfiles with all profiles

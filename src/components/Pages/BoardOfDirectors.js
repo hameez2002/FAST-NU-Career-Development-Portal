@@ -16,7 +16,7 @@ export const BoardOfDirectors = () => {
 
   //content here needs to be statically insterted
   const directors = [
-    { name: "Aysha Siddiqui", designation: "Career Services Officer", campus: "Karachi" },
+    { name: "Aysha Siddiqui", designation: "Manager", campus: "Karachi" },
   ];
 
   return (

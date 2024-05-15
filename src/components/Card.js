@@ -6,7 +6,7 @@ const Card = ({ name, designation, campus }) => {
       <div className="relative mx-auto p-6 pb-4">
         <img
           className="rounded-full h-32 w-32 object-cover mx-auto"
-          src="https://media.licdn.com/dms/image/D4D03AQEmJmQQkrPiPA/profile-displayphoto-shrink_800_800/0/1708521101355?e=1714608000&v=beta&t=GWzFFwKhKvnBcXyPAhwbsyXYUSbztm8wm46x7bRCqRM"
+          src="https://media.licdn.com/dms/image/D4D03AQFu54_DNMuirg/profile-displayphoto-shrink_800_800/0/1712762224330?e=1721260800&v=beta&t=F2d5t3_qKUgOY6j2TaXYQL1LnEj8sQAihrTCD9hgaKQ"
           alt="Profile"
         />
       </div>

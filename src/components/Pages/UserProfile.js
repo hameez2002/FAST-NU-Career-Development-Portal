@@ -1,12 +1,11 @@
 //UserProfile.js frontend
 import React, { useState, useRef, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 
 const UserProfile = () => {
-  // const { user_id } = useParams();
   const [editMode, setEditMode] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const fileInputRef = useRef(null); // Define fileInputRef using useRef
+  const [profilePic, setProfilePic] = useState(null); // New state for profile picture
   const [profileData, setProfileData] = useState({
     user_id: localStorage.getItem("user_id"),
     fname: "",
@@ -31,18 +30,15 @@ const UserProfile = () => {
         }
 
         const response = await axios.get(
-          `http://localhost:7000/profile/${user_id}`
+          // `http://localhost:7000/profile/${user_id}`
+          `https://backend-fast-nu-career-development-portal-yw26-6ab691fsb.vercel.app/profile/${user_id}`
+          
         );
         const { profile, certificates, experiences } = response.data;
-        const base64String = profile.student_profile_pic.toString('base64');
-        const imageUrl = `data:image/jpeg;base64,${base64String}`;
-        // Assuming profile.student_profile_pic is a Base64 string
-        console.log(profile.student_profile_pic); // Log the raw Base64 string
 
         setProfileData((prevData) => ({
           ...prevData,
           ...profile,
-          student_profile_pic: imageUrl, // Use the constructed URL
           certificates: certificates.map((cert) => cert.certificate),
           experiences: experiences.map((exp) => exp.experience),
         }));
@@ -55,8 +51,6 @@ const UserProfile = () => {
     fetchProfile();
   }, []);
 
-  const fileInputRef = useRef(null);
-
   const handleEditClick = () => {
     setEditMode((prevEditMode) => !prevEditMode);
   };
@@ -64,22 +58,30 @@ const UserProfile = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("user_id", profileData.user_id);
+      formData.append("fname", profileData.fname);
+      formData.append("lname", profileData.lname);
+      formData.append("contact", profileData.contact);
+      formData.append("discipline", profileData.discipline);
+      formData.append("year_of_graduation", profileData.year_of_graduation);
+      formData.append("cgpa", profileData.cgpa);
+      formData.append("tagline", profileData.tagline);
+      formData.append("personal_statement", profileData.personal_statement);
+      formData.append("certificates", JSON.stringify(profileData.certificates)); // Convert to JSON string
+      formData.append("experiences", JSON.stringify(profileData.experiences)); // Convert to JSON string
+      formData.append("profiles", JSON.stringify(profileData.profiles)); // Convert to JSON string
+      formData.append("profilePic", profilePic); // Append profile picture
+  
       const response = await axios.post(
-        "http://localhost:7000/profile",
-        // "https://cdp-kappa.vercel.app/profile",
+        // "http://localhost:7000/profile",
+        "https://backend-fast-nu-career-development-portal-yw26-6ab691fsb.vercel.app/profile",
+        
+        formData,
         {
-          user_id: profileData.user_id,
-          fname: profileData.fname,
-          lname: profileData.lname,
-          contact: profileData.contact,
-          discipline: profileData.discipline,
-          year_of_graduation: profileData.year_of_graduation,
-          cgpa: profileData.cgpa,
-          tagline: profileData.tagline,
-          personal_statement: profileData.personal_statement,
-          certificates: profileData.certificates,
-          experiences: profileData.experiences,
-          profiles: profileData.profiles,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         }
       );
       console.log("Response:", response.data);
@@ -88,11 +90,12 @@ const UserProfile = () => {
       console.error("Error:", error.response.data);
     }
   };
+  
 
-  // const handleImageChange = (e) => {
-  // const file = e.target.files[0];
-  // setSelectedImage(file);
-  // };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setProfilePic(file);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -115,7 +118,10 @@ const UserProfile = () => {
       experiences: [...prevData.experiences, ""],
     }));
   };
-
+  const handleImageButtonClick = () => {
+    fileInputRef.current.click();
+  };
+  
   const handleChangeCertificate = (index, value) => {
     setProfileData((prevData) => {
       const updatedCertificates = [...prevData.certificates];
@@ -139,77 +145,8 @@ const UserProfile = () => {
   };
 
   const handleSave = () => {
-    // Implement logic to save profileData
     console.log("Profile data saved:", profileData);
-    setEditMode(false); // Exit edit mode after saving
-  };
-
-  // const handleImageButtonClick = () => {
-  // fileInputRef.current.click(); // Trigger click event on file input
-  // };
-
-  // const handlePictureSubmit = async () => {
-  // try {
-  // const formData = new FormData(); // Create a FormData object
-
-  // // Append only the selected image to FormData object
-  // formData.append("user_id", profileData.user_id);
-  // formData.append("student_profile_pic", selectedImage);
-
-  // const response = await axios.post(
-  // "http://localhost:7000/profile/picture",
-  // formData, // Send FormData object instead of plain object
-  // {
-  // headers: {
-  // "Content-Type": "multipart/form-data", // Set proper content type
-  // },
-  // }
-  // );
-  // console.log("Response:", response.data);
-  // // Handle response or update UI as needed
-  // } catch (error) {
-  // console.error("Error:", error.response.data);
-  // // Handle error or show error message to the user
-  // }
-  // };
-
-  //new code
-  const handleImageButtonClick = () => {
-    fileInputRef.current.click(); // Trigger click event on file input
-  };
-
-  const handlePictureSubmit = async () => {
-    try {
-      const user_id = localStorage.getItem("user_id");
-      if (!user_id) {
-        throw new Error("User ID not found in local storage");
-      }
-
-      const formData = new FormData();
-      formData.append("user_id", user_id); // Include user_id in the FormData object
-      formData.append("student_profile_pic", selectedImage);
-
-      const response = await axios.post(
-        "http://localhost:7000/profile",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-      console.log("Response:", response.data);
-      // Handle response or update UI as needed
-    } catch (error) {
-      console.error("Error:", error.response.data);
-      // Handle error or show error message to the user
-    }
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedImage(file);
-    handlePictureSubmit(); // Automatically submit the selected image
+    setEditMode(false);
   };
 
   return (
@@ -223,13 +160,15 @@ const UserProfile = () => {
 
             <div className="grid max-w-2xl mx-auto mt-8">
               <div className="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
-              <img
-  className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-  src={profileData.student_profile_pic? profileData.student_profile_pic : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"}
-  alt="Bordered avatar"
-/>
-
-
+                <img
+                  className="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+                  src={
+                    profileData.student_profile_pic
+                      ? profileData.student_profile_pic
+                      : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                  }
+                  alt="Bordered avatar"
+                />
 
                 <div className="flex flex-col space-y-5 sm:ml-8">
                   <button
@@ -241,7 +180,7 @@ const UserProfile = () => {
                   </button>
                   <button
                     type="button"
-                    onClick={handleImageButtonClick}
+                    onClick={handleImageButtonClick} //undefined
                     className="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200 "
                   >
                     Change Picture
@@ -249,9 +188,9 @@ const UserProfile = () => {
                   {/* Hidden file input */}
                   <input
                     type="file"
-                    ref={fileInputRef}
+                    ref={fileInputRef} //undefined
                     style={{ display: "none" }}
-                    onChange={handleImageChange}
+                    onChange={handleImageChange} //undefined
                   />
                 </div>
               </div>
