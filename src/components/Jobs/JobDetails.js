@@ -10,7 +10,7 @@ const JobDetails = () => {
     const fetchJobDetails = async () => {
       try {
         // const response = await axios.get(`http://localhost:7000/jobs/${id}`);
-        const response = await axios.get(`https://backend-fast-nu-career-development-portal-yw26-6ab691fsb.vercel.app/jobs/${id}`);
+        const response = await axios.get(`https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/jobs/${id}`);
         setJob(response.data);
       } catch (error) {
         console.error("Error fetching job details:", error);

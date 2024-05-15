@@ -11,7 +11,7 @@ const GraduateDirectory = () => {
     const fetchProfiles = async () => {
       try {
         // const response = await axios.get("http://localhost:7000/profile");
-        const response = await axios.get("https://backend-fast-nu-career-development-portal-yw26-6ab691fsb.vercel.app/profile");
+        const response = await axios.get("https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/profile");
         
         if (Array.isArray(response.data)) {
           setProfiles(response.data);
