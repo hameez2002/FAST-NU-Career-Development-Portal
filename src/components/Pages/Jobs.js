@@ -81,7 +81,7 @@ export const Jobs = () => {
     try {
       // Post the new job to the server
       // await axios.post("http://localhost:7000/jobs", formData);
-      await axios.post("https://backend-cdp.vercel.appjobs", formData);
+      await axios.post("https://backend-cdp.vercel.app/jobs", formData);
 
       // Fetch the newly added job from the server
       // const response = await axios.get("http://localhost:7000/jobs");
