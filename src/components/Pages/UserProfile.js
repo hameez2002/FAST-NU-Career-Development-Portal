@@ -31,7 +31,7 @@ const UserProfile = () => {
 
         const response = await axios.get(
           // `http://localhost:7000/profile/${user_id}`
-          `https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/profile/${user_id}`
+          `https://backend-cdp.vercel.app/profile/${user_id}`
           
         );
         const { profile, certificates, experiences } = response.data;
@@ -75,7 +75,7 @@ const UserProfile = () => {
   
       const response = await axios.post(
         // "http://localhost:7000/profile",
-        "https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/profile",
+        "https://backend-cdp.vercel.app/profile",
         
         formData,
         {

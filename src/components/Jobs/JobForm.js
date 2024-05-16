@@ -183,7 +183,7 @@ const JobForm = ({ onSubmit, onCancel }) => {
       try {
         
         // const response = await axios.post("http://localhost:7000/jobs", {
-          const response = await axios.post("https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/jobs", {
+          const response = await axios.post("https://backend-cdp.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,

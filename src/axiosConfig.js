@@ -3,7 +3,7 @@ import axios from "axios";
 
 const axiosInstance = axios.create({
   // baseURL: "http://localhost:7000", // Update with your backend base URL
-  baseURL: "https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app",
+  baseURL: "https://backend-cdp.vercel.app/",
   
   headers: {
     "Content-Type": "application/json",

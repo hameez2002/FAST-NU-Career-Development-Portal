@@ -269,7 +269,7 @@ export default function MyForm() {
     setMessage(constructedMessage);
   }, []);
   
-  const baseUrl = "https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app";
+  const baseUrl = "https://backend-cdp.vercel.app";
   // const baseUrl = "http://localhost:7000";
   const encryptPassword = (password) => {
     return Base64.encode(password);

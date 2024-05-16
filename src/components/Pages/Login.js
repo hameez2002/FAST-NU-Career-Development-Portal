@@ -41,7 +41,7 @@ const Login = () => {
 
     try {
       
-      const response = await axios.post("https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/login", {
+      const response = await axios.post("https://backend-cdp.vercel.app/login", {
       // const response = await axios.post("http://localhost:7000/login", {
         user_id: formData.user_id,
         password: formData.password,

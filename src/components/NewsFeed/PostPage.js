@@ -9,7 +9,7 @@ export default function PostPage() {
   useEffect(() => {
     console.log("Post ID:", id);
     // fetch(`http://localhost:7000/newsfeed/post/${id}`).then((response) => {
-      fetch(`https://cdp-backend-h4zwjryl6-hameez-ahmed-siddiquis-projects.vercel.app/newsfeed/post/${id}`).then((response) => {
+      fetch(`https://backend-cdp.vercel.app/newsfeed/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });
