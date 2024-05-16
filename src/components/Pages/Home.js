@@ -2,8 +2,10 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import image1 from "../../Images/IMG1.jpg";
-import image2 from "../../Images/IMG2.jpg";
+import image1 from "../../Images/FAST PIC 1.jpg";
+import image2 from "../../Images/FAST PIC 2.jpg";
+import image3 from "../../Images/FAST PIC 3.jpg";
+
 import "./Home.css";
 
 export const Home = () => {
@@ -35,7 +37,7 @@ export const Home = () => {
             </div>
           </div>
           <div>
-            <img src={image1} alt="Slide 3" className="w-full h-full object-cover" />
+            <img src={image3} alt="Slide 3" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
               <p className="text-xl font-normal text-white text-center typewriter-text">Introducing the alumni directory.</p>
             </div>
