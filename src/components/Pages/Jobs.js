@@ -80,12 +80,12 @@ export const Jobs = () => {
   const handleJobSubmit = async (formData) => {
     try {
       // Post the new job to the server
-      // await axios.post("http://localhost:7000/jobs", formData);
-      await axios.post("https://backend-cdp.vercel.app/jobs", formData);
+      await axios.post("http://localhost:7000/jobs", formData);
+      // await axios.post("https://backend-cdp.vercel.app/jobs", formData);
 
       // Fetch the newly added job from the server
-      // const response = await axios.get("http://localhost:7000/jobs");
-      const response = await axios.get("https://backend-cdp.vercel.app/jobs");
+      const response = await axios.get("http://localhost:7000/jobs");
+      // const response = await axios.get("https://backend-cdp.vercel.app/jobs");
       
 
   
@@ -117,8 +117,8 @@ export const Jobs = () => {
     if (selectedJob && selectedJob.job_id) {
       try {
         const response = await axios.delete(
-          // `http://localhost:7000/jobs/${selectedJob.job_id}`
-          `https://backend-cdp.vercel.app/jobs/${selectedJob.job_id}`
+          `http://localhost:7000/jobs/${selectedJob.job_id}`
+          // `https://backend-cdp.vercel.app/jobs/${selectedJob.job_id}`
         );
         if (response.status === 204) {
           // setJobs(jobs.filter((job) => job.ID !== selectedJob.job_id));
@@ -165,8 +165,8 @@ export const Jobs = () => {
       if (selectedJob && updatedJob && selectedJob.job_id !== undefined) { // Corrected access to job_id property
         console.log("Updating job:", updatedJob);
         const response = await axios.put(
-          // `http://localhost:7000/jobs/${selectedJob.job_id}`, // Corrected URL interpolation
-          `https://backend-cdp.vercel.app/jobs/${selectedJob.job_id}`,
+          `http://localhost:7000/jobs/${selectedJob.job_id}`, // Corrected URL interpolation
+          // `https://backend-cdp.vercel.app/jobs/${selectedJob.job_id}`,
           updatedJob
         );
         console.log("Response from server:", response);

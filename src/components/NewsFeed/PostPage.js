@@ -8,8 +8,8 @@ export default function PostPage() {
   const { id } = useParams();
   useEffect(() => {
     console.log("Post ID:", id);
-    // fetch(`http://localhost:7000/newsfeed/post/${id}`).then((response) => {
-      fetch(`https://backend-cdp.vercel.app/newsfeed/post/${id}`).then((response) => {
+    fetch(`http://localhost:7000/newsfeed/post/${id}`).then((response) => {
+      // fetch(`https://backend-cdp.vercel.app/newsfeed/post/${id}`).then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
       });

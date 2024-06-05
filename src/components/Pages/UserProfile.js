@@ -30,8 +30,8 @@ const UserProfile = () => {
         }
 
         const response = await axios.get(
-          // `http://localhost:7000/profile/${user_id}`
-          `https://backend-cdp.vercel.app/profile/${user_id}`
+          `http://localhost:7000/profile/${user_id}`
+          // `https://backend-cdp.vercel.app/profile/${user_id}`
           
         );
         const { profile, certificates, experiences } = response.data;
@@ -74,8 +74,8 @@ const UserProfile = () => {
       formData.append("profilePic", profilePic); // Append profile picture
   
       const response = await axios.post(
-        // "http://localhost:7000/profile",
-        "https://backend-cdp.vercel.app/profile",
+        "http://localhost:7000/profile",
+        // "https://backend-cdp.vercel.app/profile",
         
         formData,
         {

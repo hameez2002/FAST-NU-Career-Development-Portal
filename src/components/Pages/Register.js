@@ -63,8 +63,8 @@ const Register = () => {
 
     try {
       
-      const response = await axios.post("https://backend-cdp.vercel.app/register", {
-      // const response = await axios.post("http://localhost:7000/register", {
+      // const response = await axios.post("https://backend-cdp.vercel.app/register", {
+      const response = await axios.post("http://localhost:7000/register", {
         user_id,
         email,
         password,

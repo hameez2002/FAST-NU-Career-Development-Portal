@@ -182,8 +182,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
     if (Object.keys(errors).length === 0) {
       try {
         
-        // const response = await axios.post("http://localhost:7000/jobs", {
-          const response = await axios.post("https://backend-cdp.vercel.app/jobs", {
+        const response = await axios.post("http://localhost:7000/jobs", {
+          // const response = await axios.post("https://backend-cdp.vercel.app/jobs", {
           jobTitle,
           jobType,
           jobDescription,
@@ -217,8 +217,8 @@ const JobForm = ({ onSubmit, onCancel }) => {
           updatedOn,
         }).toString();
   
-        // window.open(`http://localhost:3000/email?${queryString}`, "_blank");
-        window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString}`, "_blank");
+        window.open(`http://localhost:3000/email?${queryString}`, "_blank");
+        // window.open(`https://main--zesty-creponne-0bcae2.netlify.app/email?${queryString}`, "_blank");
         console.log("Received response:", response.data);
         handleShowForm();
         onCancel();

@@ -18,8 +18,8 @@ const ProfilePage = () => {
     }
     const fetchProfileData = async () => {
       try {
-        // const response = await axios.get(`http://localhost:7000/profile/${user_id}`);
-        const response = await axios.get(`https://backend-cdp.vercel.app/profile/${user_id}`);
+        const response = await axios.get(`http://localhost:7000/profile/${user_id}`);
+        // const response = await axios.get(`https://backend-cdp.vercel.app/profile/${user_id}`);
         
         setProfileData(response.data);
       } catch (error) {

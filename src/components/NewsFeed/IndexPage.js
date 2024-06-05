@@ -5,8 +5,8 @@ import "./NewsFeed.css";
 export default function IndexPage() {
   const [posts,setPosts] = useState([]);
   useEffect(() => {
-    // fetch('http://localhost:7000/newsfeed/post')
-    fetch('https://backend-cdp.vercel.app/newsfeed/post')
+    fetch('http://localhost:7000/newsfeed/post')
+    // fetch('https://backend-cdp.vercel.app/newsfeed/post')
   .then(response => response.json())
   .then(posts => setPosts(posts))
   .catch(error => console.error('Error fetching posts:', error));

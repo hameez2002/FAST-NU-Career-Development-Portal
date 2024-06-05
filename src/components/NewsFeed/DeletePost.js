@@ -10,8 +10,8 @@ export default function DeletePost() {
     try {
       setLoading(true);
       const response = await fetch(
-        // `http://localhost:7000/newsfeed/delete/${id}`,
-        `https://backend-cdp.vercel.app/newsfeed/delete/${id}`,
+        `http://localhost:7000/newsfeed/delete/${id}`,
+        // `https://backend-cdp.vercel.app/newsfeed/delete/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -19,7 +19,6 @@ export default function DeletePost() {
           },
         }
       );
-      // `http://localhost:7000/newsfeed/delete/${id}`,
       console.log("Delete response:", response);
 
       if (response.ok) {
